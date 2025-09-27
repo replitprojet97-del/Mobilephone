@@ -1041,4 +1041,65 @@ body {
     .float-card {
         display: none;
     }
+    
+    .hero-main {
+        font-size: 28px;
+        line-height: 1.2;
+    }
+    
+    .hero-title {
+        font-size: 16px;
+    }
+    
+    .btn-primary, .btn-secondary {
+        font-size: 14px;
+        padding: var(--space-md) var(--space-lg);
+        width: 100%;
+        margin-bottom: var(--space-sm);
+    }
+    
+    .stat-number {
+        font-size: 18px;
+    }
+    
+    .stat-label {
+        font-size: 12px;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 360px) {
+    .nav-brand h1 {
+        font-size: 20px;
+    }
+    
+    .hero-main {
+        font-size: 24px;
+    }
+    
+    .section-container {
+        padding: 0 var(--space-sm);
+    }
+    
+    .product-card {
+        max-width: 240px;
+        margin: 0 auto;
+    }
+}
+
+/* Landscape tablets */
+@media (max-width: 1024px) and (orientation: landscape) {
+    .hero {
+        min-height: 70vh;
+    }
+    
+    .hero-content {
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        text-align: left;
+    }
+    
+    .hero-visual {
+        order: 2;
+    }
 }

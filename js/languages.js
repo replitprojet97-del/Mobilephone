@@ -31,7 +31,48 @@ const translations = {
         'model': 'Modèle',
         'storage': 'Stockage',
         'view_details': 'Voir Détails',
-        'cart_total': 'Total Panier'
+        'cart_total': 'Total Panier',
+        'watches': 'Montres',
+        'fashion': 'Mode',
+        'discover': 'Découvrir',
+        'view_collections': 'Voir Collections',
+        'satisfied_customers': 'Clients Satisfaits',
+        'positive_reviews': 'Avis Positifs',
+        'express_delivery': 'Livraison Express',
+        'popular_products': 'Produits Populaires',
+        'all': 'Tous',
+        'accessories': 'Accessoires',
+        'new_arrivals': 'Nouveautés',
+        'load_more': 'Voir Plus de Produits',
+        'discover_excellence': 'Découvrez l\'Excellence',
+        'home_living': 'Maison',
+        'mobility': 'Mobilité',
+        'services': 'Services',
+        'more': '+ Plus',
+        'free_delivery': 'Livraison Gratuite',
+        'premium_warranty': 'Garantie Premium',
+        'up_to_discount': 'Jusqu\'à -40%',
+        'premium_collection_2025': 'COLLECTION PREMIUM 2025',
+        'hero_description': 'Technologie de pointe, design raffiné, expérience exceptionnelle. Découvrez notre sélection exclusive de produits haut de gamme.',
+        'delivery_24h': 'Livraison 24h',
+        'warranty_2_years': 'Garantie 2 ans',
+        'rating_4_9': 'Note 4.9/5',
+        'explore_by_category': 'Explorer par Catégorie',
+        'latest_tech': 'Dernières technologies',
+        'connected_classic': 'Connectées & classiques',
+        'premium_sound': 'Son premium',
+        'innovation_design': 'Innovation & design',
+        '120_products': '120+ produits',
+        '80_products': '80+ produits',
+        '150_products': '150+ produits',
+        '200_products': '200+ produits',
+        'audio': 'Audio',
+        'tech': 'Tech',
+        'stay_connected': 'Restez connecté avec LUXIO',
+        'newsletter_description': 'Découvrez en avant-première nos nouveautés et offres exclusives',
+        'email_placeholder': 'Votre adresse email',
+        'subscribe': 'S\'abonner',
+        'product_iphone_15': 'iPhone 15 Pro Max'
     },
     en: {
         // Navigation and interface
@@ -64,7 +105,48 @@ const translations = {
         'model': 'Model',
         'storage': 'Storage',
         'view_details': 'View Details',
-        'cart_total': 'Cart Total'
+        'cart_total': 'Cart Total',
+        'watches': 'Watches',
+        'fashion': 'Fashion',
+        'discover': 'Discover',
+        'view_collections': 'View Collections',
+        'satisfied_customers': 'Satisfied Customers',
+        'positive_reviews': 'Positive Reviews',
+        'express_delivery': 'Express Delivery',
+        'popular_products': 'Popular Products',
+        'all': 'All',
+        'accessories': 'Accessories',
+        'new_arrivals': 'New Arrivals',
+        'load_more': 'Load More Products',
+        'discover_excellence': 'Discover Excellence',
+        'home_living': 'Home & Living',
+        'mobility': 'Mobility',
+        'services': 'Services',
+        'more': '+ More',
+        'free_delivery': 'Free Delivery',
+        'premium_warranty': 'Premium Warranty',
+        'up_to_discount': 'Up to -40%',
+        'premium_collection_2025': 'PREMIUM COLLECTION 2025',
+        'hero_description': 'Cutting-edge technology, refined design, exceptional experience. Discover our exclusive selection of premium products.',
+        'delivery_24h': '24h Delivery',
+        'warranty_2_years': '2-Year Warranty',
+        'rating_4_9': 'Rating 4.9/5',
+        'explore_by_category': 'Explore by Category',
+        'latest_tech': 'Latest Technologies',
+        'connected_classic': 'Smart & Classic',
+        'premium_sound': 'Premium Sound',
+        'innovation_design': 'Innovation & Design',
+        '120_products': '120+ products',
+        '80_products': '80+ products',
+        '150_products': '150+ products',
+        '200_products': '200+ products',
+        'audio': 'Audio',
+        'tech': 'Tech',
+        'stay_connected': 'Stay Connected with LUXIO',
+        'newsletter_description': 'Discover our latest products and exclusive offers first',
+        'email_placeholder': 'Your email address',
+        'subscribe': 'Subscribe',
+        'product_iphone_15': 'iPhone 15 Pro Max'
     },
     pl: {
         // Nawigacja i interfejs
@@ -97,7 +179,48 @@ const translations = {
         'model': 'Model',
         'storage': 'Pamięć',
         'view_details': 'Zobacz Szczegóły',
-        'cart_total': 'Suma Koszyka'
+        'cart_total': 'Suma Koszyka',
+        'watches': 'Zegarki',
+        'fashion': 'Moda',
+        'discover': 'Odkryj',
+        'view_collections': 'Zobacz Kolekcje',
+        'satisfied_customers': 'Zadowoleni Klienci',
+        'positive_reviews': 'Pozytywne Opinie',
+        'express_delivery': 'Dostawa Ekspresowa',
+        'popular_products': 'Popularne Produkty',
+        'all': 'Wszystkie',
+        'accessories': 'Akcesoria',
+        'new_arrivals': 'Nowości',
+        'load_more': 'Zobacz Więcej Produktów',
+        'discover_excellence': 'Odkryj Doskonałość',
+        'home_living': 'Dom i Mieszkanie',
+        'mobility': 'Mobilność',
+        'services': 'Usługi',
+        'more': '+ Więcej',
+        'free_delivery': 'Darmowa Dostawa',
+        'premium_warranty': 'Gwarancja Premium',
+        'up_to_discount': 'Do -40%',
+        'premium_collection_2025': 'KOLEKCJA PREMIUM 2025',
+        'hero_description': 'Najnowsza technologia, wyrafinowany design, wyjątkowe doświadczenie. Odkryj naszą ekskluzywną selekcję produktów premium.',
+        'delivery_24h': 'Dostawa 24h',
+        'warranty_2_years': 'Gwarancja 2 lata',
+        'rating_4_9': 'Ocena 4.9/5',
+        'explore_by_category': 'Przeglądaj według Kategorii',
+        'latest_tech': 'Najnowsze Technologie',
+        'connected_classic': 'Inteligentne i Klasyczne',
+        'premium_sound': 'Dźwięk Premium',
+        'innovation_design': 'Innowacja i Design',
+        '120_products': '120+ produktów',
+        '80_products': '80+ produktów',
+        '150_products': '150+ produktów',
+        '200_products': '200+ produktów',
+        'audio': 'Audio',
+        'tech': 'Technologie',
+        'stay_connected': 'Pozostań w kontakcie z LUXIO',
+        'newsletter_description': 'Odkryj nasze najnowsze produkty i ekskluzywne oferty jako pierwszy',
+        'email_placeholder': 'Twój adres email',
+        'subscribe': 'Subskrybuj',
+        'product_iphone_15': 'iPhone 15 Pro Max'
     },
     pt: {
         // Navegação e interface
@@ -130,7 +253,48 @@ const translations = {
         'model': 'Modelo',
         'storage': 'Armazenamento',
         'view_details': 'Ver Detalhes',
-        'cart_total': 'Total do Carrinho'
+        'cart_total': 'Total do Carrinho',
+        'watches': 'Relógios',
+        'fashion': 'Moda',
+        'discover': 'Descobrir',
+        'view_collections': 'Ver Coleções',
+        'satisfied_customers': 'Clientes Satisfeitos',
+        'positive_reviews': 'Avaliações Positivas',
+        'express_delivery': 'Entrega Expressa',
+        'popular_products': 'Produtos Populares',
+        'all': 'Todos',
+        'accessories': 'Acessórios',
+        'new_arrivals': 'Novidades',
+        'load_more': 'Ver Mais Produtos',
+        'discover_excellence': 'Descubra a Excelência',
+        'home_living': 'Casa e Habitação',
+        'mobility': 'Mobilidade',
+        'services': 'Serviços',
+        'more': '+ Mais',
+        'free_delivery': 'Entrega Grátis',
+        'premium_warranty': 'Garantia Premium',
+        'up_to_discount': 'Até -40%',
+        'premium_collection_2025': 'COLEÇÃO PREMIUM 2025',
+        'hero_description': 'Tecnologia de ponta, design refinado, experiência excepcional. Descubra nossa seleção exclusiva de produtos premium.',
+        'delivery_24h': 'Entrega 24h',
+        'warranty_2_years': 'Garantia 2 anos',
+        'rating_4_9': 'Avaliação 4.9/5',
+        'explore_by_category': 'Explorar por Categoria',
+        'latest_tech': 'Tecnologias Mais Recentes',
+        'connected_classic': 'Conectados e Clássicos',
+        'premium_sound': 'Som Premium',
+        'innovation_design': 'Inovação e Design',
+        '120_products': '120+ produtos',
+        '80_products': '80+ produtos',
+        '150_products': '150+ produtos',
+        '200_products': '200+ produtos',
+        'audio': 'Áudio',
+        'tech': 'Tecnologia',
+        'stay_connected': 'Fique Conectado com LUXIO',
+        'newsletter_description': 'Descubra nossos produtos mais recentes e ofertas exclusivas primeiro',
+        'email_placeholder': 'Seu endereço de email',
+        'subscribe': 'Inscrever-se',
+        'product_iphone_15': 'iPhone 15 Pro Max'
     },
     es: {
         // Navegación e interfaz
@@ -163,7 +327,48 @@ const translations = {
         'model': 'Modelo',
         'storage': 'Almacenamiento',
         'view_details': 'Ver Detalles',
-        'cart_total': 'Total del Carrito'
+        'cart_total': 'Total del Carrito',
+        'watches': 'Relojes',
+        'fashion': 'Moda',
+        'discover': 'Descubrir',
+        'view_collections': 'Ver Colecciones',
+        'satisfied_customers': 'Clientes Satisfechos',
+        'positive_reviews': 'Reseñas Positivas',
+        'express_delivery': 'Entrega Exprés',
+        'popular_products': 'Productos Populares',
+        'all': 'Todos',
+        'accessories': 'Accesorios',
+        'new_arrivals': 'Novedades',
+        'load_more': 'Ver Más Productos',
+        'discover_excellence': 'Descubre la Excelencia',
+        'home_living': 'Hogar y Vida',
+        'mobility': 'Movilidad',
+        'services': 'Servicios',
+        'more': '+ Más',
+        'free_delivery': 'Entrega Gratuita',
+        'premium_warranty': 'Garantía Premium',
+        'up_to_discount': 'Hasta -40%',
+        'premium_collection_2025': 'COLECCIÓN PREMIUM 2025',
+        'hero_description': 'Tecnología de vanguardia, diseño refinado, experiencia excepcional. Descubre nuestra selección exclusiva de productos premium.',
+        'delivery_24h': 'Entrega 24h',
+        'warranty_2_years': 'Garantía 2 años',
+        'rating_4_9': 'Puntuación 4.9/5',
+        'explore_by_category': 'Explorar por Categoría',
+        'latest_tech': 'Tecnologías Más Recientes',
+        'connected_classic': 'Conectados y Clásicos',
+        'premium_sound': 'Sonido Premium',
+        'innovation_design': 'Innovación y Diseño',
+        '120_products': '120+ productos',
+        '80_products': '80+ productos',
+        '150_products': '150+ productos',
+        '200_products': '200+ productos',
+        'audio': 'Audio',
+        'tech': 'Tecnología',
+        'stay_connected': 'Mantente Conectado con LUXIO',
+        'newsletter_description': 'Descubre nuestros productos más recientes y ofertas exclusivas primero',
+        'email_placeholder': 'Tu dirección de email',
+        'subscribe': 'Suscribirse',
+        'product_iphone_15': 'iPhone 15 Pro Max'
     }
 };
 
@@ -262,22 +467,16 @@ function updateCurrency() {
     });
 }
 
-function createLanguageDropdown() {
-    const dropdown = document.querySelector('.language-dropdown-menu');
+function initLanguageEvents() {
+    const dropdown = document.querySelector('.language-dropdown');
     if (dropdown) {
-        dropdown.innerHTML = '';
-        
-        Object.keys(languageConfig).forEach(langCode => {
-            const config = languageConfig[langCode];
-            const item = document.createElement('a');
-            item.href = '#';
-            item.className = 'dropdown-item';
-            item.innerHTML = `${config.flag} ${config.name}`;
-            item.onclick = (e) => {
+        // Ajouter des événements aux liens existants avec data-lang
+        dropdown.querySelectorAll('a[data-lang]').forEach(link => {
+            link.addEventListener('click', (e) => {
                 e.preventDefault();
+                const langCode = link.getAttribute('data-lang');
                 setLanguage(langCode);
-            };
-            dropdown.appendChild(item);
+            });
         });
     }
 }
@@ -285,7 +484,7 @@ function createLanguageDropdown() {
 // Initialisation au chargement de la page
 document.addEventListener('DOMContentLoaded', function() {
     initLanguage();
-    createLanguageDropdown();
+    initLanguageEvents();
 });
 
 // Export pour utilisation globale
