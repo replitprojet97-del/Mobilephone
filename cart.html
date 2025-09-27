@@ -118,6 +118,13 @@
                             <p>Découvrez notre collection premium et ajoutez vos produits favoris</p>
                             <a href="shop.html" class="btn-primary">Découvrir nos Produits</a>
                         </div>
+                        
+                        <div id="checkout-section" style="display: none;">
+                            <div class="checkout-actions">
+                                <a href="checkout.html" class="btn-checkout">Procéder au Paiement</a>
+                                <a href="shop.html" class="btn-continue">Continuer les Achats</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
@@ -154,7 +161,7 @@
                         </div>
                         
                         <div class="checkout-actions">
-                            <button class="btn-primary checkout-btn" id="checkout-btn" disabled>
+                            <button type="button" class="btn-primary checkout-btn" id="checkout-btn" onclick="goToCheckout()" disabled>
                                 <i class="fas fa-lock"></i>
                                 Finaliser la Commande
                             </button>

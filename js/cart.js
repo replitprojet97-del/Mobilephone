@@ -90,6 +90,7 @@ class LuxioCart {
         this.updateCartIcon();
         this.updateCartDropdown();
         this.updateCartPage();
+        this.updateCheckoutButton();
     }
 
     // Mettre à jour l'icône du panier
@@ -147,7 +148,7 @@ class LuxioCart {
                     </div>
                     <div class="d-grid gap-2">
                         <a href="cart.html" class="btn btn-primary btn-sm">Voir Panier</a>
-                        <a href="cheackout.html" class="btn btn-success btn-sm">Commander</a>
+                        <a href="checkout.html" class="btn btn-success btn-sm">Commander</a>
                     </div>
                 </div>
             `;
@@ -299,6 +300,25 @@ class LuxioCart {
     generateId() {
         return 'product_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
     }
+
+    // Mettre à jour l'état du bouton checkout
+    updateCheckoutButton() {
+        const checkoutBtn = document.getElementById('checkout-btn');
+        if (checkoutBtn) {
+            const hasItems = this.items.length > 0;
+            checkoutBtn.disabled = !hasItems;
+            
+            if (hasItems) {
+                checkoutBtn.style.opacity = '1';
+                checkoutBtn.style.cursor = 'pointer';
+                checkoutBtn.classList.remove('disabled');
+            } else {
+                checkoutBtn.style.opacity = '0.6';
+                checkoutBtn.style.cursor = 'not-allowed';
+                checkoutBtn.classList.add('disabled');
+            }
+        }
+    }
 }
 
 // Initialiser le panier global
@@ -307,3 +327,21 @@ const luxioCart = new LuxioCart();
 // Export pour utilisation globale
 window.LuxioCart = LuxioCart;
 window.luxioCart = luxioCart;
+
+// Fonction globale pour le checkout
+window.goToCheckout = function() {
+    if (luxioCart.items.length === 0) {
+        alert('Votre panier est vide. Ajoutez des produits avant de procéder au paiement.');
+        return;
+    }
+    
+    // Sauvegarder les données pour checkout
+    localStorage.setItem('checkout_data', JSON.stringify({
+        items: luxioCart.items,
+        total: luxioCart.getTotal(),
+        timestamp: Date.now()
+    }));
+    
+    // Rediriger vers checkout
+    window.location.href = 'checkout.html';
+};

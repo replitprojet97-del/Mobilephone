@@ -192,8 +192,7 @@ class LuxioApp {
             button.disabled = false;
         }, 2000);
         
-        // Show notification
-        this.ui.showNotification('Produit ajouté au panier !', 'success');
+        // Notification handled by cart.js showAddToCartNotification
     }
 }
 
