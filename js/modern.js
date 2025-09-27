@@ -26,16 +26,31 @@ class LuxioApp {
             if (e.key === 'Enter') this.handleSearch();
         });
 
+        // Category navigation links
+        document.querySelectorAll('.category-item').forEach(link => {
+            link.addEventListener('click', this.handleCategoryFilter.bind(this));
+        });
+
         // Filter buttons
         document.querySelectorAll('.filter-btn').forEach(btn => {
             btn.addEventListener('click', this.handleFilter.bind(this));
         });
+
+        // Hero section buttons
+        document.querySelector('.btn-primary')?.addEventListener('click', this.handleDiscover.bind(this));
+        document.querySelector('.btn-secondary')?.addEventListener('click', this.handleViewCollections.bind(this));
 
         // Load more products
         document.querySelector('.btn-load-more')?.addEventListener('click', this.loadMoreProducts.bind(this));
 
         // Newsletter subscription
         document.querySelector('.newsletter-form')?.addEventListener('submit', this.handleNewsletter.bind(this));
+        
+        // Hero add to cart button (not handled by cart.js)
+        document.querySelector('.hero .add-to-cart')?.addEventListener('click', this.handleHeroAddToCart.bind(this));
+        
+        // Bind filter buttons in featured products section
+        this.bindFilterButtons();
     }
 
     handleSearch() {
@@ -47,15 +62,51 @@ class LuxioApp {
         }
     }
 
+    handleCategoryFilter(e) {
+        e.preventDefault();
+        const categoryKey = e.currentTarget.getAttribute('data-translate') || 'home';
+        
+        // Update active category
+        document.querySelectorAll('.category-item').forEach(item => item.classList.remove('active'));
+        e.currentTarget.classList.add('active');
+        
+        // Filter products by category
+        this.products.filterByCategory(categoryKey);
+        
+        // Scroll to products section
+        const productsSection = document.querySelector('.featured-products');
+        if (productsSection) {
+            productsSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+
     handleFilter(e) {
         e.preventDefault();
-        const filterValue = e.target.textContent.toLowerCase();
+        const filterValue = e.currentTarget.textContent.toLowerCase();
         
         // Update active filter
         document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-        e.target.classList.add('active');
+        e.currentTarget.classList.add('active');
         
         this.products.filterProducts(filterValue);
+    }
+
+    handleDiscover(e) {
+        e.preventDefault();
+        // Scroll to featured products section
+        const featuredSection = document.querySelector('.featured-products');
+        if (featuredSection) {
+            featuredSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+
+    handleViewCollections(e) {
+        e.preventDefault();
+        // Scroll to categories section
+        const categoriesSection = document.querySelector('.categories-section');
+        if (categoriesSection) {
+            categoriesSection.scrollIntoView({ behavior: 'smooth' });
+        }
     }
 
     async loadMoreProducts() {
@@ -76,6 +127,73 @@ class LuxioApp {
 
     validateEmail(email) {
         return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    handleHeroAddToCart(e) {
+        e.preventDefault();
+        this.addHeroProduct(e.currentTarget);
+    }
+
+    bindFilterButtons() {
+        // Bind filter buttons in featured products section
+        document.querySelectorAll('.section-filters .filter-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // Update active filter
+                document.querySelectorAll('.section-filters .filter-btn').forEach(b => b.classList.remove('active'));
+                e.currentTarget.classList.add('active');
+                
+                const filterText = e.currentTarget.textContent.toLowerCase().trim();
+                
+                // Map filter button text to appropriate filter values
+                let filterValue = filterText;
+                if (filterText === 'tous') {
+                    filterValue = 'tous';
+                } else if (filterText === 'smartphones') {
+                    filterValue = 'phone';
+                } else if (filterText === 'accessoires') {
+                    filterValue = 'accessoire';
+                } else if (filterText === 'nouveautés') {
+                    filterValue = 'nouveau';
+                }
+                
+                this.products.filterProducts(filterValue);
+            });
+        });
+    }
+
+
+    addHeroProduct(button) {
+        const heroProduct = {
+            id: 'hero-iphone-15',
+            nom: 'iPhone 15 Pro Max',
+            marque: 'Apple',
+            prix: 849,
+            image: 'img/product-1.png',
+            specs: '256GB • A17 Pro • 5G'
+        };
+        
+        if (this.cart) {
+            this.cart.addItem(heroProduct);
+            this.showAddToCartFeedback(button);
+        }
+    }
+
+    showAddToCartFeedback(button) {
+        const originalText = button.innerHTML;
+        button.innerHTML = '<i class="fas fa-check"></i> Ajouté !';
+        button.style.background = '#28a745';
+        button.disabled = true;
+        
+        setTimeout(() => {
+            button.innerHTML = originalText;
+            button.style.background = '';
+            button.disabled = false;
+        }, 2000);
+        
+        // Show notification
+        this.ui.showNotification('Produit ajouté au panier !', 'success');
     }
 }
 
@@ -236,15 +354,60 @@ class ProductManager {
             return this.products;
         }
         
-        return this.products.filter(product => 
-            product.marque.toLowerCase().includes(this.currentFilter) ||
-            product.nom.toLowerCase().includes(this.currentFilter)
-        );
+        // Enhanced filtering that works with category mapping
+        return this.products.filter(product => {
+            const searchTerm = this.currentFilter.toLowerCase();
+            
+            // Check product name, brand, and specs
+            const matchesName = product.nom.toLowerCase().includes(searchTerm);
+            const matchesBrand = product.marque.toLowerCase().includes(searchTerm);
+            const matchesSpecs = product.specs ? product.specs.toLowerCase().includes(searchTerm) : false;
+            
+            // Special mappings for better categorization
+            if (searchTerm === 'phone') {
+                return matchesName || product.nom.toLowerCase().includes('iphone') || 
+                       product.nom.toLowerCase().includes('galaxy') || 
+                       product.nom.toLowerCase().includes('pixel') ||
+                       product.nom.toLowerCase().includes('oneplus');
+            }
+            
+            if (searchTerm === 'watch') {
+                return matchesName || product.nom.toLowerCase().includes('watch') ||
+                       product.nom.toLowerCase().includes('montre');
+            }
+            
+            return matchesName || matchesBrand || matchesSpecs;
+        });
     }
 
     filterProducts(filter) {
         this.currentFilter = filter;
         this.displayedProducts = 4;
+        this.renderProducts();
+    }
+
+    filterByCategory(categoryKey) {
+        
+        // Reset to show all if home, otherwise filter by category
+        if (categoryKey === 'home') {
+            this.currentFilter = 'tous';
+        } else {
+            // Map exact data-translate values to filter values that work with our product data
+            const categoryFilters = {
+                'smartphones': 'phone',    // data-translate="smartphones" -> look for phones
+                'watches': 'watch',        // data-translate="watches" -> look for watches
+                'fashion': 'fashion',      // data-translate="fashion" -> look for fashion
+                'home_living': 'home',     // data-translate="home_living" -> look for home items
+                'mobility': 'mobility',    // data-translate="mobility" -> look for mobility
+                'services': 'service',     // data-translate="services" -> look for services
+                'audio': 'audio',          // For audio category
+                'tech': 'tech'             // For tech category
+            };
+            
+            this.currentFilter = categoryFilters[categoryKey] || 'tous';
+        }
+        
+        this.displayedProducts = 8; // Show more products for categories
         this.renderProducts();
     }
 
