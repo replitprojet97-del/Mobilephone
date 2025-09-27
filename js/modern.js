@@ -181,6 +181,11 @@ class ProductManager {
 
         // Bind product events
         this.bindProductEvents();
+        
+        // Appliquer les traductions après génération du contenu
+        if (window.LuxioLang) {
+            window.LuxioLang.updatePageContent();
+        }
     }
 
     createProductCard(product) {
@@ -216,7 +221,7 @@ class ProductManager {
                     </div>
                     <button class="add-to-cart-btn" data-product-id="${product.nom}">
                         <i class="fas fa-shopping-cart"></i>
-                        Ajouter au panier
+                        <span data-translate="add_to_cart">Ajouter au panier</span>
                     </button>
                 </div>
                 <div class="product-overlay">
@@ -272,6 +277,11 @@ class ProductManager {
                 this.createProductCard(product)
             ).join('');
             this.bindProductEvents();
+            
+            // Appliquer les traductions après génération du contenu
+            if (window.LuxioLang) {
+                window.LuxioLang.updatePageContent();
+            }
         }
     }
 

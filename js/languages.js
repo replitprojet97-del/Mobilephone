@@ -72,7 +72,23 @@ const translations = {
         'newsletter_description': 'Découvrez en avant-première nos nouveautés et offres exclusives',
         'email_placeholder': 'Votre adresse email',
         'subscribe': 'S\'abonner',
-        'product_iphone_15': 'iPhone 15 Pro Max'
+        'product_iphone_15': 'iPhone 15 Pro Max',
+        // Footer
+        'footer_brand_description': 'Innovation et excellence depuis 2020',
+        'footer_products': 'Produits',
+        'footer_support': 'Support',
+        'footer_company': 'Entreprise',
+        'footer_help_center': 'Centre d\'aide',
+        'footer_warranty': 'Garantie',
+        'footer_returns': 'Retours',
+        'footer_about': 'À propos',
+        'footer_careers': 'Carrières',
+        'footer_press': 'Presse',
+        'footer_partners': 'Partenaires',
+        'footer_copyright': '© 2025 LUXIO. Tous droits réservés.',
+        'footer_terms': 'Conditions',
+        'footer_privacy': 'Confidentialité',
+        'footer_cookies': 'Cookies'
     },
     en: {
         // Navigation and interface
@@ -146,7 +162,23 @@ const translations = {
         'newsletter_description': 'Discover our latest products and exclusive offers first',
         'email_placeholder': 'Your email address',
         'subscribe': 'Subscribe',
-        'product_iphone_15': 'iPhone 15 Pro Max'
+        'product_iphone_15': 'iPhone 15 Pro Max',
+        // Footer
+        'footer_brand_description': 'Innovation and excellence since 2020',
+        'footer_products': 'Products',
+        'footer_support': 'Support',
+        'footer_company': 'Company',
+        'footer_help_center': 'Help Center',
+        'footer_warranty': 'Warranty',
+        'footer_returns': 'Returns',
+        'footer_about': 'About',
+        'footer_careers': 'Careers',
+        'footer_press': 'Press',
+        'footer_partners': 'Partners',
+        'footer_copyright': '© 2025 LUXIO. All rights reserved.',
+        'footer_terms': 'Terms',
+        'footer_privacy': 'Privacy',
+        'footer_cookies': 'Cookies'
     },
     pl: {
         // Nawigacja i interfejs
@@ -220,7 +252,23 @@ const translations = {
         'newsletter_description': 'Odkryj nasze najnowsze produkty i ekskluzywne oferty jako pierwszy',
         'email_placeholder': 'Twój adres email',
         'subscribe': 'Subskrybuj',
-        'product_iphone_15': 'iPhone 15 Pro Max'
+        'product_iphone_15': 'iPhone 15 Pro Max',
+        // Footer
+        'footer_brand_description': 'Innowacja i doskonałość od 2020',
+        'footer_products': 'Produkty',
+        'footer_support': 'Wsparcie',
+        'footer_company': 'Firma',
+        'footer_help_center': 'Centrum Pomocy',
+        'footer_warranty': 'Gwarancja',
+        'footer_returns': 'Zwroty',
+        'footer_about': 'O nas',
+        'footer_careers': 'Kariera',
+        'footer_press': 'Prasa',
+        'footer_partners': 'Partnerzy',
+        'footer_copyright': '© 2025 LUXIO. Wszystkie prawa zastrzeżone.',
+        'footer_terms': 'Warunki',
+        'footer_privacy': 'Prywatność',
+        'footer_cookies': 'Ciasteczka'
     },
     pt: {
         // Navegação e interface
@@ -294,7 +342,23 @@ const translations = {
         'newsletter_description': 'Descubra nossos produtos mais recentes e ofertas exclusivas primeiro',
         'email_placeholder': 'Seu endereço de email',
         'subscribe': 'Inscrever-se',
-        'product_iphone_15': 'iPhone 15 Pro Max'
+        'product_iphone_15': 'iPhone 15 Pro Max',
+        // Footer
+        'footer_brand_description': 'Inovação e excelência desde 2020',
+        'footer_products': 'Produtos',
+        'footer_support': 'Suporte',
+        'footer_company': 'Empresa',
+        'footer_help_center': 'Centro de Ajuda',
+        'footer_warranty': 'Garantia',
+        'footer_returns': 'Devoluções',
+        'footer_about': 'Sobre',
+        'footer_careers': 'Carreiras',
+        'footer_press': 'Imprensa',
+        'footer_partners': 'Parceiros',
+        'footer_copyright': '© 2025 LUXIO. Todos os direitos reservados.',
+        'footer_terms': 'Termos',
+        'footer_privacy': 'Privacidade',
+        'footer_cookies': 'Cookies'
     },
     es: {
         // Navegación e interfaz
@@ -368,7 +432,23 @@ const translations = {
         'newsletter_description': 'Descubre nuestros productos más recientes y ofertas exclusivas primero',
         'email_placeholder': 'Tu dirección de email',
         'subscribe': 'Suscribirse',
-        'product_iphone_15': 'iPhone 15 Pro Max'
+        'product_iphone_15': 'iPhone 15 Pro Max',
+        // Footer
+        'footer_brand_description': 'Innovación y excelencia desde 2020',
+        'footer_products': 'Productos',
+        'footer_support': 'Soporte',
+        'footer_company': 'Empresa',
+        'footer_help_center': 'Centro de Ayuda',
+        'footer_warranty': 'Garantía',
+        'footer_returns': 'Devoluciones',
+        'footer_about': 'Acerca de',
+        'footer_careers': 'Carreras',
+        'footer_press': 'Prensa',
+        'footer_partners': 'Socios',
+        'footer_copyright': '© 2025 LUXIO. Todos los derechos reservados.',
+        'footer_terms': 'Términos',
+        'footer_privacy': 'Privacidad',
+        'footer_cookies': 'Cookies'
     }
 };
 

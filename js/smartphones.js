@@ -122,6 +122,11 @@ class SmartphoneManager {
         });
 
         featuredContainer.innerHTML = html;
+        
+        // Appliquer les traductions après génération du contenu
+        if (window.LuxioLang) {
+            window.LuxioLang.updatePageContent();
+        }
     }
 
     getRandomDiscount() {
