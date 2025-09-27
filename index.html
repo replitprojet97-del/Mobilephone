@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Electro - Electronics Website Template</title>
+    <title>Luxio - Smartphones & Electronics</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -70,13 +70,11 @@
                         </div>
                     </div>
                     <div class="dropdown">
-                        <a href="#" class="dropdown-toggle text-muted mx-2" data-bs-toggle="dropdown"><small>
-                                English</small></a>
-                        <div class="dropdown-menu rounded">
-                            <a href="#" class="dropdown-item"> English</a>
-                            <a href="#" class="dropdown-item"> Turkish</a>
-                            <a href="#" class="dropdown-item"> Spanol</a>
-                            <a href="#" class="dropdown-item"> Italiano</a>
+                        <a href="#" class="dropdown-toggle text-muted mx-2 current-language" data-bs-toggle="dropdown">
+                            <small>🇫🇷 Français</small>
+                        </a>
+                        <div class="dropdown-menu rounded language-dropdown-menu">
+                            <!-- Langues générées dynamiquement par JS -->
                         </div>
                     </div>
                     <div class="dropdown">
@@ -102,7 +100,7 @@
                 <div class="d-inline-flex align-items-center">
                     <a href="" class="navbar-brand p-0">
                         <h1 class="display-5 text-primary m-0"><i
-                                class="fas fa-shopping-bag text-secondary me-2"></i>Electro</h1>
+                                class="fas fa-shopping-bag text-secondary me-2"></i>Luxio</h1>
                         <!-- <img src="img/logo.png" alt="Logo"> -->
                     </a>
                 </div>
@@ -132,7 +130,8 @@
                             class="rounded-circle btn-md-square border"><i class="fas fa-heart"></i></a>
                     <a href="#" class="text-muted d-flex align-items-center justify-content-center"><span
                             class="rounded-circle btn-md-square border"><i class="fas fa-shopping-cart"></i></span>
-                        <span class="text-dark ms-2">$0.00</span></a>
+                        <span class="text-dark ms-2 cart-total">0,00 €</span>
+                        <span class="badge bg-danger cart-count" style="display: none;">0</span></a>
                 </div>
             </div>
         </div>
@@ -190,7 +189,7 @@
                 <nav class="navbar navbar-expand-lg navbar-light bg-primary ">
                     <a href="" class="navbar-brand d-block d-lg-none">
                         <h1 class="display-5 text-secondary m-0"><i
-                                class="fas fa-shopping-bag text-white me-2"></i>Electro</h1>
+                                class="fas fa-shopping-bag text-white me-2"></i>Luxio</h1>
                         <!-- <img src="img/logo.png" alt="Logo"> -->
                     </a>
                     <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
@@ -1363,6 +1362,57 @@
     </div>
     <!-- Our Products End -->
 
+    <!-- Featured Smartphones Start -->
+    <div class="container-fluid py-5">
+        <div class="container py-5">
+            <div class="row g-0 gx-5 align-items-end">
+                <div class="col-lg-6">
+                    <div class="section-header text-start mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+                        <h1 class="display-5 mb-3">Smartphones Luxio</h1>
+                        <p>Découvrez notre sélection premium de smartphones des plus grandes marques</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-start text-lg-end wow fadeInUp" data-wow-delay="0.3s">
+                    <a class="btn btn-primary rounded-pill py-3 px-5" href="shop.html">Voir Tous les Smartphones</a>
+                </div>
+            </div>
+            <div class="row" id="featured-smartphones">
+                <!-- Smartphones chargés dynamiquement par JavaScript -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100 smartphone-card placeholder-glow">
+                        <div class="card-img-top placeholder" style="height: 250px;"></div>
+                        <div class="card-body">
+                            <h5 class="placeholder-glow"><span class="placeholder col-6"></span></h5>
+                            <p class="placeholder-glow"><span class="placeholder col-4"></span></p>
+                            <div class="placeholder-glow"><span class="placeholder col-8"></span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100 smartphone-card placeholder-glow">
+                        <div class="card-img-top placeholder" style="height: 250px;"></div>
+                        <div class="card-body">
+                            <h5 class="placeholder-glow"><span class="placeholder col-6"></span></h5>
+                            <p class="placeholder-glow"><span class="placeholder col-4"></span></p>
+                            <div class="placeholder-glow"><span class="placeholder col-8"></span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100 smartphone-card placeholder-glow">
+                        <div class="card-img-top placeholder" style="height: 250px;"></div>
+                        <div class="card-body">
+                            <h5 class="placeholder-glow"><span class="placeholder col-6"></span></h5>
+                            <p class="placeholder-glow"><span class="placeholder col-4"></span></p>
+                            <div class="placeholder-glow"><span class="placeholder col-8"></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Featured Smartphones End -->
+
     <!-- Product Banner Start -->
     <div class="container-fluid py-5">
         <div class="container">
@@ -2290,6 +2340,11 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    
+    <!-- Luxio Custom Scripts -->
+    <script src="js/languages.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/smartphones.js"></script>
 </body>
 
 </html>
