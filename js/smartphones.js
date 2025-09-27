@@ -63,39 +63,56 @@ class SmartphoneManager {
         const featuredContainer = document.querySelector('#featured-smartphones');
         if (!featuredContainer) return;
 
-        const featured = this.smartphones.slice(0, 3);
+        const featured = this.smartphones.slice(0, 4); // Display 4 products for 2x2 grid
         let html = '';
+
+        // Add section title
+        html += `
+            <div class="col-12 mb-4">
+                <div class="section-title">
+                    <h2>Smartphones Haut de Gamme</h2>
+                    <p>Réduction 15-22% • Livraison express incluse</p>
+                </div>
+            </div>
+        `;
 
         featured.forEach((phone, index) => {
             const productData = JSON.stringify(phone);
+            const discountPercentage = this.getRandomDiscount();
+            const originalPrice = this.calculateOriginalPrice(phone.price, discountPercentage);
+            
             html += `
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card h-100 smartphone-card">
-                        <div class="position-relative">
-                            <img src="${phone.image_url || 'img/product-' + (index + 1) + '.png'}" 
-                                 class="card-img-top" alt="${phone.title}" style="height: 250px; object-fit: cover;">
-                            <div class="position-absolute top-0 end-0 m-2">
-                                <span class="badge bg-primary">${phone.brand}</span>
-                            </div>
-                        </div>
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title text-truncate">${phone.model}</h5>
-                            <p class="card-text text-muted small">${phone.storage}</p>
-                            <div class="mt-auto">
-                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <span class="h5 text-primary mb-0">${phone.price}</span>
-                                    <div class="rating">
-                                        ${'★'.repeat(4)}${'☆'.repeat(1)}
-                                    </div>
+                <div class="col-lg-6 col-md-6 col-12 mb-4">
+                    <div class="modern-product-card">
+                        <div class="product-badge">-${discountPercentage}%</div>
+                        <div class="row g-0">
+                            <div class="col-6">
+                                <div class="product-image-container">
+                                    <img src="${phone.image_url || 'img/product-' + (index + 1) + '.png'}" 
+                                         alt="${phone.title}" class="img-fluid">
                                 </div>
-                                <div class="d-grid gap-2">
-                                    <button class="btn btn-primary add-to-cart-btn" data-product='${productData}'>
-                                        <i class="fas fa-shopping-cart me-2"></i>
-                                        <span data-translate="add_to_cart">Ajouter au Panier</span>
+                            </div>
+                            <div class="col-6">
+                                <div class="product-info">
+                                    <div class="product-brand">${phone.brand}</div>
+                                    <div class="product-title">${phone.model}</div>
+                                    <div class="product-specs">${this.getProductSpecs(phone)}</div>
+                                    
+                                    <div class="product-pricing">
+                                        <span class="product-price-old">${originalPrice}€</span>
+                                        <span class="product-price-new">${this.extractPrice(phone.price)}€</span>
+                                    </div>
+                                    
+                                    <div class="color-options">
+                                        <div class="color-dot black"></div>
+                                        <div class="color-dot white"></div>
+                                        <div class="color-dot gold"></div>
+                                        <div class="color-dot blue"></div>
+                                    </div>
+                                    
+                                    <button class="btn-add-cart add-to-cart-btn" data-product='${productData}'>
+                                        <span data-translate="add_to_cart">Ajouter au panier</span>
                                     </button>
-                                    <a href="single.html?id=${index}" class="btn btn-outline-secondary btn-sm">
-                                        <span data-translate="view_details">Voir Détails</span>
-                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -105,6 +122,53 @@ class SmartphoneManager {
         });
 
         featuredContainer.innerHTML = html;
+    }
+
+    getRandomDiscount() {
+        const discounts = [15, 18, 20, 22, 25];
+        return discounts[Math.floor(Math.random() * discounts.length)];
+    }
+
+    calculateOriginalPrice(currentPrice, discountPercent) {
+        const price = this.extractPrice(currentPrice);
+        const originalPrice = Math.round(price / (1 - discountPercent / 100));
+        return originalPrice;
+    }
+
+    extractPrice(priceString) {
+        const match = priceString.match(/[\d\s,]+/);
+        if (match) {
+            return parseInt(match[0].replace(/\s/g, '').replace(',', ''));
+        }
+        return 999;
+    }
+
+    getProductSpecs(phone) {
+        const specs = [];
+        if (phone.storage) specs.push(phone.storage);
+        
+        // Add some generic specs based on brand
+        switch(phone.brand) {
+            case 'Apple':
+                specs.push('ProRes Camera');
+                break;
+            case 'Samsung':
+                specs.push('200MP Camera');
+                break;
+            case 'Google':
+                specs.push('AI Photography');
+                break;
+            case 'Xiaomi':
+                specs.push('HyperOS');
+                break;
+            case 'OnePlus':
+                specs.push('Hasselblad Camera');
+                break;
+            default:
+                specs.push('Premium Features');
+        }
+        
+        return specs.join(' • ');
     }
 
     displaySmartphoneGrid() {
