@@ -1171,6 +1171,882 @@
       },
       "createdAt": "2025-09-28T00:00:00Z",
       "updatedAt": "2025-09-28T00:00:00Z"
+    },
+    {
+      "id": "motorola-edge-50-ultra-256gb",
+      "slug": "motorola-edge-50-ultra-256gb-pantone-green",
+      "title": "Motorola Edge 50 Ultra 256 GB Pantone Green",
+      "brand": "Motorola",
+      "model": "Edge 50 Ultra",
+      "category": "smartphones",
+      "subcategory": "premium",
+      "storage": "256 GB",
+      "color": "Pantone Green",
+      "price": 597.0,
+      "originalPrice": 647.0,
+      "currency": "EUR",
+      "discount": 8,
+      "isNew": true,
+      "isFeatured": true,
+      "inStock": true,
+      "stock": 20,
+      "rating": 4.5,
+      "reviewCount": 156,
+      "shortDescription": "Le Motorola Edge 50 Ultra avec Snapdragon 8s Gen 3 et design Pantone exclusif.",
+      "description": "Le Motorola Edge 50 Ultra combine performance flagship et design unique avec collaboration Pantone.",
+      "features": [
+        "Snapdragon 8s Gen 3",
+        "Écran pOLED incurvé 6,7\" 144Hz",
+        "Design Pantone exclusif",
+        "Triple caméras 50 + 64 + 13 Mpx",
+        "Charge rapide 125W + sans fil 50W",
+        "Ready For desktop",
+        "Android 14 avec My UX",
+        "Résistance IP68"
+      ],
+      "specifications": {
+        "screen": "6,7\" pOLED 144Hz incurvé",
+        "processor": "Snapdragon 8s Gen 3",
+        "camera": "Triple 50/64/13 Mpx + Selfie 50 Mpx",
+        "battery": "4500 mAh avec charge 125W",
+        "connectivity": "5G, Wi-Fi 7, Bluetooth 5.4",
+        "resistance": "IP68",
+        "dimensions": "161.1 × 72.4 × 8.6 mm",
+        "weight": "197 g"
+      },
+      "images": [
+        "/img/product-24.png"
+      ],
+      "thumbnail": "/img/product-24.png",
+      "variants": [
+        {
+          "id": "motorola-edge-50-ultra-512gb",
+          "storage": "512 GB",
+          "price": 697.0,
+          "originalPrice": 747.0
+        }
+      ],
+      "colors": [
+        {
+          "name": "Pantone Green",
+          "code": "#00a651",
+          "active": true
+        },
+        {
+          "name": "Nordic Wood",
+          "code": "#8b4513"
+        },
+        {
+          "name": "Peach Fuzz",
+          "code": "#ffcba4"
+        }
+      ],
+      "tags": [
+        "motorola",
+        "pantone",
+        "premium",
+        "charge-rapide"
+      ],
+      "seo": {
+        "metaTitle": "Motorola Edge 50 Ultra 256GB Pantone Green - LUXIO",
+        "metaDescription": "Motorola Edge 50 Ultra avec Snapdragon 8s Gen 3, design Pantone et charge 125W.",
+        "keywords": [
+          "motorola edge 50 ultra",
+          "pantone",
+          "charge rapide",
+          "premium"
+        ]
+      },
+      "createdAt": "2025-09-28T00:00:00Z",
+      "updatedAt": "2025-09-28T00:00:00Z"
+    },
+    {
+      "id": "honor-magic-6-pro-256gb",
+      "slug": "honor-magic-6-pro-256gb-epi-green",
+      "title": "Honor Magic 6 Pro 256 GB Epi Green",
+      "brand": "Honor",
+      "model": "Magic 6 Pro",
+      "category": "smartphones",
+      "subcategory": "premium",
+      "storage": "256 GB",
+      "color": "Epi Green",
+      "price": 769.0,
+      "originalPrice": 819.0,
+      "currency": "EUR",
+      "discount": 6,
+      "isNew": true,
+      "isFeatured": true,
+      "inStock": true,
+      "stock": 18,
+      "rating": 4.6,
+      "reviewCount": 134,
+      "shortDescription": "Le Honor Magic 6 Pro avec Snapdragon 8 Gen 3 et MagicOS intelligent.",
+      "description": "Le Honor Magic 6 Pro combine intelligence artificielle avancée et design premium.",
+      "features": [
+        "Snapdragon 8 Gen 3",
+        "Écran LTPO OLED 6,8\" 120Hz",
+        "Triple caméras Falcon 50 + 180 + 50 Mpx",
+        "MagicOS 8.0 avec IA",
+        "Charge rapide 80W + sans fil 66W",
+        "Honor Eye Comfort Display",
+        "Face Unlock 3D sécurisé",
+        "Résistance IP68"
+      ],
+      "specifications": {
+        "screen": "6,8\" LTPO OLED 120Hz",
+        "processor": "Snapdragon 8 Gen 3",
+        "camera": "Triple 50/180/50 Mpx + Selfie 50 Mpx",
+        "battery": "5600 mAh avec charge 80W",
+        "connectivity": "5G, Wi-Fi 7, Bluetooth 5.3",
+        "resistance": "IP68",
+        "dimensions": "162.5 × 75.8 × 8.9 mm",
+        "weight": "219 g"
+      },
+      "images": [
+        "/img/product-25.png"
+      ],
+      "thumbnail": "/img/product-25.png",
+      "variants": [
+        {
+          "id": "honor-magic-6-pro-512gb",
+          "storage": "512 GB",
+          "price": 869.0,
+          "originalPrice": 919.0
+        }
+      ],
+      "colors": [
+        {
+          "name": "Epi Green",
+          "code": "#355e3b",
+          "active": true
+        },
+        {
+          "name": "Epi Black",
+          "code": "#000000"
+        },
+        {
+          "name": "Epi White",
+          "code": "#ffffff"
+        }
+      ],
+      "tags": [
+        "honor",
+        "magic",
+        "ai",
+        "premium"
+      ],
+      "seo": {
+        "metaTitle": "Honor Magic 6 Pro 256GB Epi Green - LUXIO",
+        "metaDescription": "Honor Magic 6 Pro avec Snapdragon 8 Gen 3, MagicOS 8.0 et IA avancée.",
+        "keywords": [
+          "honor magic 6 pro",
+          "magicos",
+          "ai",
+          "snapdragon"
+        ]
+      },
+      "createdAt": "2025-09-28T00:00:00Z",
+      "updatedAt": "2025-09-28T00:00:00Z"
+    },
+    {
+      "id": "oppo-find-x8-pro-256gb",
+      "slug": "oppo-find-x8-pro-256gb-space-black",
+      "title": "Oppo Find X8 Pro 256 GB Space Black",
+      "brand": "Oppo",
+      "model": "Find X8 Pro",
+      "category": "smartphones",
+      "subcategory": "premium",
+      "storage": "256 GB",
+      "color": "Space Black",
+      "price": 683.0,
+      "originalPrice": 739.0,
+      "currency": "EUR",
+      "discount": 8,
+      "isNew": true,
+      "isFeatured": true,
+      "inStock": true,
+      "stock": 15,
+      "rating": 4.5,
+      "reviewCount": 89,
+      "shortDescription": "Le Oppo Find X8 Pro avec MediaTek Dimensity 9400 et caméras Hasselblad.",
+      "description": "Le Oppo Find X8 Pro révolutionne la photographie mobile avec ses caméras Hasselblad et la puissance du MediaTek Dimensity 9400.",
+      "features": [
+        "MediaTek Dimensity 9400",
+        "Écran LTPO AMOLED 6,78\" 120Hz",
+        "Quad caméras Hasselblad 50 + 50 + 50 + 50 Mpx",
+        "ColorOS 15 basé sur Android 15",
+        "Charge rapide 100W + sans fil 50W",
+        "Design Alert Slider",
+        "Dolby Vision HDR",
+        "Résistance IP68"
+      ],
+      "specifications": {
+        "screen": "6,78\" LTPO AMOLED 120Hz",
+        "processor": "MediaTek Dimensity 9400",
+        "camera": "Quad 50/50/50/50 Mpx + Selfie 32 Mpx",
+        "battery": "5400 mAh avec charge 100W",
+        "connectivity": "5G, Wi-Fi 7, Bluetooth 5.4",
+        "resistance": "IP68",
+        "dimensions": "162.3 × 76.7 × 8.2 mm",
+        "weight": "215 g"
+      },
+      "images": [
+        "/img/product-26.png"
+      ],
+      "thumbnail": "/img/product-26.png",
+      "variants": [
+        {
+          "id": "oppo-find-x8-pro-512gb",
+          "storage": "512 GB",
+          "price": 783.0,
+          "originalPrice": 839.0
+        }
+      ],
+      "colors": [
+        {
+          "name": "Space Black",
+          "code": "#1c1c1c",
+          "active": true
+        },
+        {
+          "name": "Pearl White",
+          "code": "#f8f8ff"
+        },
+        {
+          "name": "Glacier Blue",
+          "code": "#b0e0e6"
+        }
+      ],
+      "tags": [
+        "oppo",
+        "hasselblad",
+        "mediatek",
+        "photo"
+      ],
+      "seo": {
+        "metaTitle": "Oppo Find X8 Pro 256GB Space Black - LUXIO",
+        "metaDescription": "Oppo Find X8 Pro avec Dimensity 9400, caméras Hasselblad et charge 100W.",
+        "keywords": [
+          "oppo find x8 pro",
+          "hasselblad",
+          "dimensity",
+          "photo"
+        ]
+      },
+      "createdAt": "2025-09-28T00:00:00Z",
+      "updatedAt": "2025-09-28T00:00:00Z"
+    },
+    {
+      "id": "xiaomi-redmi-note-13-pro-256gb",
+      "slug": "xiaomi-redmi-note-13-pro-256gb-midnight-black",
+      "title": "Xiaomi Redmi Note 13 Pro 256 GB Midnight Black",
+      "brand": "Xiaomi",
+      "model": "Redmi Note 13 Pro",
+      "category": "smartphones",
+      "subcategory": "mid-range",
+      "storage": "256 GB",
+      "color": "Midnight Black",
+      "price": 342.0,
+      "originalPrice": 379.0,
+      "currency": "EUR",
+      "discount": 10,
+      "isNew": false,
+      "isFeatured": true,
+      "inStock": true,
+      "stock": 35,
+      "rating": 4.4,
+      "reviewCount": 298,
+      "shortDescription": "Le Redmi Note 13 Pro avec Snapdragon 7s Gen 2 et écran AMOLED 120Hz.",
+      "description": "Le Xiaomi Redmi Note 13 Pro offre des performances exceptionnelles dans sa catégorie avec écran AMOLED, charge rapide et design premium à prix accessible.",
+      "features": [
+        "Snapdragon 7s Gen 2",
+        "Écran AMOLED 6,67\" 120Hz",
+        "Triple caméras 200 + 8 + 2 Mpx",
+        "Charge rapide 67W",
+        "MIUI 14 basé sur Android 13",
+        "Haut-parleurs stéréo",
+        "Capteur d'empreintes latéral",
+        "Résistance IP54"
+      ],
+      "specifications": {
+        "screen": "6,67\" AMOLED 120Hz",
+        "processor": "Snapdragon 7s Gen 2",
+        "camera": "Triple 200/8/2 Mpx + Selfie 16 Mpx",
+        "battery": "5100 mAh avec charge 67W",
+        "connectivity": "5G, Wi-Fi 6, Bluetooth 5.2",
+        "resistance": "IP54",
+        "dimensions": "162.2 × 74.2 × 7.6 mm",
+        "weight": "187 g"
+      },
+      "images": [
+        "/img/product-27.png"
+      ],
+      "thumbnail": "/img/product-27.png",
+      "variants": [
+        {
+          "id": "xiaomi-redmi-note-13-pro-128gb",
+          "storage": "128 GB",
+          "price": 299.0,
+          "originalPrice": 329.0
+        }
+      ],
+      "colors": [
+        {
+          "name": "Midnight Black",
+          "code": "#000000",
+          "active": true
+        },
+        {
+          "name": "Aurora Purple",
+          "code": "#9370db"
+        },
+        {
+          "name": "Frost Green",
+          "code": "#98fb98"
+        }
+      ],
+      "tags": [
+        "xiaomi",
+        "redmi",
+        "milieu-gamme",
+        "rapport-qualite-prix"
+      ],
+      "seo": {
+        "metaTitle": "Xiaomi Redmi Note 13 Pro 256GB Midnight Black - LUXIO",
+        "metaDescription": "Redmi Note 13 Pro avec Snapdragon 7s Gen 2, écran AMOLED et charge 67W. Excellent rapport qualité-prix.",
+        "keywords": [
+          "redmi note 13 pro",
+          "xiaomi",
+          "milieu gamme",
+          "amoled"
+        ]
+      },
+      "createdAt": "2025-09-28T00:00:00Z",
+      "updatedAt": "2025-09-28T00:00:00Z"
+    },
+    {
+      "id": "realme-gt-6t-256gb",
+      "slug": "realme-gt-6t-256gb-razor-green",
+      "title": "Realme GT 6T 256 GB Razor Green",
+      "brand": "Realme",
+      "model": "GT 6T",
+      "category": "smartphones",
+      "subcategory": "mid-range",
+      "storage": "256 GB",
+      "color": "Razor Green",
+      "price": 427.0,
+      "originalPrice": 459.0,
+      "currency": "EUR",
+      "discount": 7,
+      "isNew": true,
+      "isFeatured": false,
+      "inStock": true,
+      "stock": 28,
+      "rating": 4.3,
+      "reviewCount": 187,
+      "shortDescription": "Le Realme GT 6T avec Snapdragon 7+ Gen 3 et charge rapide 120W.",
+      "description": "Le Realme GT 6T combine performance gaming et charge ultra-rapide dans un design gaming distinctif. Parfait pour les utilisateurs exigeants à prix accessible.",
+      "features": [
+        "Snapdragon 7+ Gen 3",
+        "Écran AMOLED 6,78\" 120Hz",
+        "Dual caméras 50 + 8 Mpx",
+        "Charge rapide 120W",
+        "Realme UI 5.0 basé sur Android 14",
+        "Refroidissement VC",
+        "Dual haut-parleurs stéréo",
+        "Résistance IP65"
+      ],
+      "specifications": {
+        "screen": "6,78\" AMOLED 120Hz",
+        "processor": "Snapdragon 7+ Gen 3",
+        "camera": "Dual 50/8 Mpx + Selfie 32 Mpx",
+        "battery": "5500 mAh avec charge 120W",
+        "connectivity": "5G, Wi-Fi 6, Bluetooth 5.2",
+        "resistance": "IP65",
+        "dimensions": "162.0 × 75.1 × 8.6 mm",
+        "weight": "191 g"
+      },
+      "images": [
+        "/img/product-28.png"
+      ],
+      "thumbnail": "/img/product-28.png",
+      "variants": [
+        {
+          "id": "realme-gt-6t-512gb",
+          "storage": "512 GB",
+          "price": 497.0,
+          "originalPrice": 529.0
+        }
+      ],
+      "colors": [
+        {
+          "name": "Razor Green",
+          "code": "#228b22",
+          "active": true
+        },
+        {
+          "name": "Fluid Silver",
+          "code": "#c0c0c0"
+        },
+        {
+          "name": "Punk Black",
+          "code": "#000000"
+        }
+      ],
+      "tags": [
+        "realme",
+        "gaming",
+        "charge-rapide",
+        "milieu-gamme"
+      ],
+      "seo": {
+        "metaTitle": "Realme GT 6T 256GB Razor Green - LUXIO",
+        "metaDescription": "Realme GT 6T avec Snapdragon 7+ Gen 3 et charge 120W. Performance gaming accessible.",
+        "keywords": [
+          "realme gt 6t",
+          "gaming",
+          "charge rapide",
+          "snapdragon"
+        ]
+      },
+      "createdAt": "2025-09-28T00:00:00Z",
+      "updatedAt": "2025-09-28T00:00:00Z"
+    },
+    {
+      "id": "poco-x6-pro-256gb",
+      "slug": "poco-x6-pro-256gb-racing-yellow",
+      "title": "POCO X6 Pro 256 GB Racing Yellow",
+      "brand": "POCO",
+      "model": "X6 Pro",
+      "category": "smartphones",
+      "subcategory": "mid-range",
+      "storage": "256 GB",
+      "color": "Racing Yellow",
+      "price": 299.0,
+      "originalPrice": 349.0,
+      "currency": "EUR",
+      "discount": 14,
+      "isNew": false,
+      "isFeatured": false,
+      "inStock": true,
+      "stock": 42,
+      "rating": 4.2,
+      "reviewCount": 334,
+      "shortDescription": "Le POCO X6 Pro avec MediaTek Dimensity 8300 Ultra et design gaming.",
+      "description": "Le POCO X6 Pro offre des performances gaming exceptionnelles avec son design audacieux et ses fonctionnalités gaming avancées à prix imbattable.",
+      "features": [
+        "MediaTek Dimensity 8300 Ultra",
+        "Écran AMOLED 6,67\" 120Hz",
+        "Triple caméras 64 + 8 + 2 Mpx",
+        "Charge rapide 67W",
+        "MIUI for POCO basé sur Android 14",
+        "WildBoost Optimization",
+        "Dual haut-parleurs Dolby Atmos",
+        "Design gaming RGB"
+      ],
+      "specifications": {
+        "screen": "6,67\" AMOLED 120Hz",
+        "processor": "MediaTek Dimensity 8300 Ultra",
+        "camera": "Triple 64/8/2 Mpx + Selfie 16 Mpx",
+        "battery": "5000 mAh avec charge 67W",
+        "connectivity": "5G, Wi-Fi 6, Bluetooth 5.3",
+        "resistance": "IP54",
+        "dimensions": "160.5 × 74.3 × 8.2 mm",
+        "weight": "186 g"
+      },
+      "images": [
+        "/img/product-29.png"
+      ],
+      "thumbnail": "/img/product-29.png",
+      "variants": [
+        {
+          "id": "poco-x6-pro-512gb",
+          "storage": "512 GB",
+          "price": 349.0,
+          "originalPrice": 399.0
+        }
+      ],
+      "colors": [
+        {
+          "name": "Racing Yellow",
+          "code": "#ffff00",
+          "active": true
+        },
+        {
+          "name": "Black",
+          "code": "#000000"
+        },
+        {
+          "name": "Gray",
+          "code": "#808080"
+        }
+      ],
+      "tags": [
+        "poco",
+        "gaming",
+        "budget",
+        "performance"
+      ],
+      "seo": {
+        "metaTitle": "POCO X6 Pro 256GB Racing Yellow - LUXIO",
+        "metaDescription": "POCO X6 Pro avec Dimensity 8300 Ultra et design gaming. Performance abordable.",
+        "keywords": [
+          "poco x6 pro",
+          "gaming",
+          "dimensity",
+          "budget"
+        ]
+      },
+      "createdAt": "2025-09-28T00:00:00Z",
+      "updatedAt": "2025-09-28T00:00:00Z"
+    },
+    {
+      "id": "asus-rog-phone-8-256gb",
+      "slug": "asus-rog-phone-8-256gb-phantom-black",
+      "title": "ASUS ROG Phone 8 256 GB Phantom Black",
+      "brand": "ASUS",
+      "model": "ROG Phone 8",
+      "category": "smartphones",
+      "subcategory": "gaming",
+      "storage": "256 GB",
+      "color": "Phantom Black",
+      "price": 683.0,
+      "originalPrice": 739.0,
+      "currency": "EUR",
+      "discount": 8,
+      "isNew": true,
+      "isFeatured": true,
+      "inStock": true,
+      "stock": 12,
+      "rating": 4.7,
+      "reviewCount": 156,
+      "shortDescription": "Le smartphone gaming ultime avec Snapdragon 8 Gen 3 et refroidissement AeroActive.",
+      "description": "L'ASUS ROG Phone 8 est conçu pour le gaming mobile extrême avec des performances sans compromise, un écran 165Hz et des fonctionnalités gaming avancées.",
+      "features": [
+        "Snapdragon 8 Gen 3",
+        "Écran AMOLED 6,78\" 165Hz",
+        "Triple caméras 50 + 13 + 5 Mpx",
+        "Refroidissement AeroActive Cooler",
+        "ROG UI basé sur Android 14",
+        "Triggers ultrasoniques",
+        "Haut-parleurs stéréo frontaux",
+        "Charge rapide 65W"
+      ],
+      "specifications": {
+        "screen": "6,78\" AMOLED 165Hz",
+        "processor": "Snapdragon 8 Gen 3",
+        "camera": "Triple 50/13/5 Mpx + Selfie 32 Mpx",
+        "battery": "6000 mAh avec charge 65W",
+        "connectivity": "5G, Wi-Fi 7, Bluetooth 5.3",
+        "resistance": "IPX4",
+        "dimensions": "173.0 × 77.0 × 8.9 mm",
+        "weight": "225 g"
+      },
+      "images": [
+        "/img/product-30.png"
+      ],
+      "thumbnail": "/img/product-30.png",
+      "variants": [
+        {
+          "id": "asus-rog-phone-8-512gb",
+          "storage": "512 GB",
+          "price": 783.0,
+          "originalPrice": 839.0
+        }
+      ],
+      "colors": [
+        {
+          "name": "Phantom Black",
+          "code": "#1a1a1a",
+          "active": true
+        },
+        {
+          "name": "Storm White",
+          "code": "#f8f8f8"
+        }
+      ],
+      "tags": [
+        "asus",
+        "gaming",
+        "rog",
+        "performance"
+      ],
+      "seo": {
+        "metaTitle": "ASUS ROG Phone 8 256GB Phantom Black - LUXIO",
+        "metaDescription": "ROG Phone 8 avec Snapdragon 8 Gen 3, écran 165Hz et refroidissement gaming.",
+        "keywords": [
+          "rog phone 8",
+          "gaming",
+          "asus",
+          "snapdragon"
+        ]
+      },
+      "createdAt": "2025-09-28T00:00:00Z",
+      "updatedAt": "2025-09-28T00:00:00Z"
+    },
+    {
+      "id": "vivo-v30-pro-256gb",
+      "slug": "vivo-v30-pro-256gb-peacock-green",
+      "title": "Vivo V30 Pro 256 GB Peacock Green",
+      "brand": "Vivo",
+      "model": "V30 Pro",
+      "category": "smartphones",
+      "subcategory": "mid-range",
+      "storage": "256 GB",
+      "color": "Peacock Green",
+      "price": 427.0,
+      "originalPrice": 479.0,
+      "currency": "EUR",
+      "discount": 11,
+      "isNew": false,
+      "isFeatured": false,
+      "inStock": true,
+      "stock": 24,
+      "rating": 4.3,
+      "reviewCount": 198,
+      "shortDescription": "Le Vivo V30 Pro avec MediaTek Dimensity 8200 et caméras portrait avancées.",
+      "description": "Le Vivo V30 Pro excelle en photographie portrait avec ses caméras ZEISS et son design élégant. Parfait pour les créateurs de contenu et les passionnés de photo.",
+      "features": [
+        "MediaTek Dimensity 8200",
+        "Écran AMOLED 6,78\" 120Hz",
+        "Triple caméras ZEISS 50 + 50 + 50 Mpx",
+        "Portrait Master avancé",
+        "Funtouch OS 14 basé sur Android 14",
+        "Charge rapide 80W",
+        "Design ultra-fin 7,45mm",
+        "Résistance IP54"
+      ],
+      "specifications": {
+        "screen": "6,78\" AMOLED 120Hz",
+        "processor": "MediaTek Dimensity 8200",
+        "camera": "Triple 50/50/50 Mpx + Selfie 50 Mpx",
+        "battery": "5000 mAh avec charge 80W",
+        "connectivity": "5G, Wi-Fi 6, Bluetooth 5.3",
+        "resistance": "IP54",
+        "dimensions": "164.4 × 75.1 × 7.45 mm",
+        "weight": "188 g"
+      },
+      "images": [
+        "/img/product-31.png"
+      ],
+      "thumbnail": "/img/product-31.png",
+      "variants": [
+        {
+          "id": "vivo-v30-pro-512gb",
+          "storage": "512 GB",
+          "price": 497.0,
+          "originalPrice": 549.0
+        }
+      ],
+      "colors": [
+        {
+          "name": "Peacock Green",
+          "code": "#006a4e",
+          "active": true
+        },
+        {
+          "name": "Classic Black",
+          "code": "#000000"
+        },
+        {
+          "name": "Bloom White",
+          "code": "#ffffff"
+        }
+      ],
+      "tags": [
+        "vivo",
+        "portrait",
+        "zeiss",
+        "design"
+      ],
+      "seo": {
+        "metaTitle": "Vivo V30 Pro 256GB Peacock Green - LUXIO",
+        "metaDescription": "Vivo V30 Pro avec caméras ZEISS, design ultra-fin et charge 80W.",
+        "keywords": [
+          "vivo v30 pro",
+          "zeiss",
+          "portrait",
+          "dimensity"
+        ]
+      },
+      "createdAt": "2025-09-28T00:00:00Z",
+      "updatedAt": "2025-09-28T00:00:00Z"
+    },
+    {
+      "id": "fairphone-5-256gb",
+      "slug": "fairphone-5-256gb-sky-blue",
+      "title": "Fairphone 5 256 GB Sky Blue",
+      "brand": "Fairphone",
+      "model": "5",
+      "category": "smartphones",
+      "subcategory": "sustainable",
+      "storage": "256 GB",
+      "color": "Sky Blue",
+      "price": 513.0,
+      "originalPrice": 559.0,
+      "currency": "EUR",
+      "discount": 8,
+      "isNew": false,
+      "isFeatured": false,
+      "inStock": true,
+      "stock": 18,
+      "rating": 4.1,
+      "reviewCount": 89,
+      "shortDescription": "Le smartphone éthique et réparable avec QCM6490 et garantie 8 ans.",
+      "description": "Le Fairphone 5 révolutionne l'industrie mobile avec sa conception modulaire, ses matériaux recyclés et sa garantie exceptionnelle de 8 ans.",
+      "features": [
+        "Qualcomm QCM6490",
+        "Écran OLED 6,46\" 90Hz",
+        "Triple caméras 50 + 50 + TOF Mpx",
+        "Design modulaire réparable",
+        "Android 13 avec 8 ans de mises à jour",
+        "Matériaux recyclés",
+        "Commerce équitable",
+        "Résistance IP55"
+      ],
+      "specifications": {
+        "screen": "6,46\" OLED 90Hz",
+        "processor": "Qualcomm QCM6490",
+        "camera": "Triple 50/50/TOF Mpx + Selfie 50 Mpx",
+        "battery": "4200 mAh avec charge 30W",
+        "connectivity": "5G, Wi-Fi 6, Bluetooth 5.2",
+        "resistance": "IP55",
+        "dimensions": "161.6 × 75.8 × 9.6 mm",
+        "weight": "212 g"
+      },
+      "images": [
+        "/img/product-32.png"
+      ],
+      "thumbnail": "/img/product-32.png",
+      "variants": [
+        {
+          "id": "fairphone-5-128gb",
+          "storage": "128 GB",
+          "price": 427.0,
+          "originalPrice": 479.0
+        }
+      ],
+      "colors": [
+        {
+          "name": "Sky Blue",
+          "code": "#87ceeb",
+          "active": true
+        },
+        {
+          "name": "Transparent",
+          "code": "#f0f8ff"
+        },
+        {
+          "name": "Matte Black",
+          "code": "#2f2f2f"
+        }
+      ],
+      "tags": [
+        "fairphone",
+        "sustainable",
+        "reparable",
+        "ethique"
+      ],
+      "seo": {
+        "metaTitle": "Fairphone 5 256GB Sky Blue - LUXIO",
+        "metaDescription": "Fairphone 5 éthique et réparable avec 8 ans de garantie et matériaux durables.",
+        "keywords": [
+          "fairphone 5",
+          "durable",
+          "reparable",
+          "ethique"
+        ]
+      },
+      "createdAt": "2025-09-28T00:00:00Z",
+      "updatedAt": "2025-09-28T00:00:00Z"
+    },
+    {
+      "id": "nokia-g42-128gb",
+      "slug": "nokia-g42-128gb-purple",
+      "title": "Nokia G42 128 GB Purple",
+      "brand": "Nokia",
+      "model": "G42",
+      "category": "smartphones",
+      "subcategory": "budget",
+      "storage": "128 GB",
+      "color": "Purple",
+      "price": 171.0,
+      "originalPrice": 199.0,
+      "currency": "EUR",
+      "discount": 14,
+      "isNew": false,
+      "isFeatured": false,
+      "inStock": true,
+      "stock": 45,
+      "rating": 3.9,
+      "reviewCount": 267,
+      "shortDescription": "Le Nokia G42 avec Snapdragon 480+ et Android pur pour un usage quotidien.",
+      "description": "Le Nokia G42 offre l'expérience Android pure légendaire de Nokia avec des performances fiables et une autonomie exceptionnelle à prix accessible.",
+      "features": [
+        "Snapdragon 480+ 5G",
+        "Écran IPS 6,56\" 90Hz",
+        "Triple caméras 50 + 2 + 2 Mpx",
+        "Android 13 pur",
+        "3 ans de mises à jour Android",
+        "Charge 20W",
+        "Design nordique durable",
+        "Résistance IP52"
+      ],
+      "specifications": {
+        "screen": "6,56\" IPS LCD 90Hz",
+        "processor": "Snapdragon 480+ 5G",
+        "camera": "Triple 50/2/2 Mpx + Selfie 8 Mpx",
+        "battery": "5000 mAh avec charge 20W",
+        "connectivity": "5G, Wi-Fi 5, Bluetooth 5.1",
+        "resistance": "IP52",
+        "dimensions": "165.0 × 75.8 × 8.6 mm",
+        "weight": "194 g"
+      },
+      "images": [
+        "/img/product-33.png"
+      ],
+      "thumbnail": "/img/product-33.png",
+      "variants": [
+        {
+          "id": "nokia-g42-256gb",
+          "storage": "256 GB",
+          "price": 213.0,
+          "originalPrice": 249.0
+        }
+      ],
+      "colors": [
+        {
+          "name": "Purple",
+          "code": "#800080",
+          "active": true
+        },
+        {
+          "name": "Pink",
+          "code": "#ffc0cb"
+        },
+        {
+          "name": "So Grey",
+          "code": "#808080"
+        }
+      ],
+      "tags": [
+        "nokia",
+        "budget",
+        "android-pur",
+        "autonomie"
+      ],
+      "seo": {
+        "metaTitle": "Nokia G42 128GB Purple - LUXIO",
+        "metaDescription": "Nokia G42 avec Android pur, autonomie 5000 mAh et design nordique.",
+        "keywords": [
+          "nokia g42",
+          "android pur",
+          "budget",
+          "autonomie"
+        ]
+      },
+      "createdAt": "2025-09-28T00:00:00Z",
+      "updatedAt": "2025-09-28T00:00:00Z"
     }
   ],
   "watches": [
