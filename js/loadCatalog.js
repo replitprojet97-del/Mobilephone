@@ -59,7 +59,7 @@ class CatalogLoader {
      */
     async loadFromMainFile() {
         try {
-            const response = await fetch('/data/products.json');
+            const response = await fetch(`/data/products.json?v=${Date.now()}`, { cache: 'no-store' });
             if (response.ok) {
                 const data = await response.json();
                 const categoryKey = this.getCategoryKey();
@@ -88,7 +88,7 @@ class CatalogLoader {
                 const filename = `/data/${categoryKey}-part${partNumber}.json`;
                 console.log(`🔍 Attempting to load: ${filename}`);
                 
-                const response = await fetch(filename);
+                const response = await fetch(`${filename}?v=${Date.now()}`, { cache: 'no-store' });
                 
                 if (response.ok) {
                     const partData = await response.json();
@@ -127,7 +127,9 @@ class CatalogLoader {
             'watches': 'watches', 
             'montres': 'watches',
             'accessories': 'accessories',
-            'accessoires': 'accessories'
+            'accessoires': 'accessories',
+            'mobility': 'mobility',
+            'mobilite': 'mobility'
         };
         return categoryMap[this.category] || this.category;
     }

@@ -315,18 +315,38 @@
             // Initialize shop functionality
             const shopManager = new ShopManager();
             
-            // Override container for shop page
-            if (app && app.products) {
-                app.products.container = document.getElementById('shop-products-container');
-                app.products.displayedProducts = 12; // Show more products on shop page
-                app.products.renderProducts();
-                
-                // Update product count
-                const totalProducts = document.getElementById('total-products');
-                if (totalProducts) {
-                    totalProducts.textContent = app.products.products.length;
+            // Wait for app to be initialized AND products to be loaded
+            function initializeShopProducts() {
+                if (window.app && window.app.products) {
+                    const productsCount = window.app.products.products?.length || 0;
+                    
+                    // Wait for products to be loaded (more than 0)
+                    if (productsCount === 0) {
+                        setTimeout(initializeShopProducts, 100);
+                        return;
+                    }
+                    
+                    const container = document.getElementById('shop-products-container');
+                    if (!container) return;
+                    
+                    // Override container
+                    window.app.products.container = container;
+                    window.app.products.displayedProducts = 12; // Show more products on shop page
+                    window.app.products.renderProducts();
+                    
+                    // Update product count
+                    const totalProducts = document.getElementById('total-products');
+                    if (totalProducts) {
+                        totalProducts.textContent = productsCount;
+                    }
+                } else {
+                    // Wait for app to be ready
+                    setTimeout(initializeShopProducts, 50);
                 }
             }
+            
+            // Start trying to initialize shop products
+            initializeShopProducts();
         });
         
         class ShopManager {

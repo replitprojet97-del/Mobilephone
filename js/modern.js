@@ -352,7 +352,7 @@ class ProductManager {
     async loadProducts() {
         try {
             // Load from the correct data file
-            const response = await fetch('/data/products.json');
+            const response = await fetch(`/data/products.json?v=${Date.now()}`, { cache: 'no-store' });
             if (response.ok) {
                 const data = await response.json();
                 this.allProductsData = data; // Store all data
@@ -361,7 +361,8 @@ class ProductManager {
                 this.allProducts = [
                     ...(data.smartphones || []),
                     ...(data.watches || []),
-                    ...(data.accessories || [])
+                    ...(data.accessories || []),
+                    ...(data.mobility || [])
                 ];
                 
                 // Start with all products for "Tous" filter
@@ -370,6 +371,7 @@ class ProductManager {
                 console.log('📱 Smartphones:', (data.smartphones || []).length);
                 console.log('⌚ Watches:', (data.watches || []).length);
                 console.log('🔌 Accessories:', (data.accessories || []).length);
+                console.log('🚗 Mobility:', (data.mobility || []).length);
             } else {
                 throw new Error('Failed to load products data');
             }

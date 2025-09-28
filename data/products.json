@@ -2137,6 +2137,131 @@
   ],
   "fashion": [],
   "home": [],
-  "mobility": [],
+  "mobility": [
+    {
+      "id": "xiaomi-scooter-4-pro",
+      "title": "Xiaomi Electric Scooter 4 Pro",
+      "brand": "Xiaomi",
+      "model": "Scooter 4 Pro",
+      "category": "mobility",
+      "subcategory": "electric-scooter",
+      "price": 599.0,
+      "originalPrice": 699.0,
+      "currency": "EUR",
+      "discount": 14,
+      "isNew": true,
+      "isFeatured": true,
+      "inStock": true,
+      "stock": 15,
+      "rating": 4.7,
+      "reviewCount": 89,
+      "shortDescription": "Trottinette électrique premium avec autonomie 55km et vitesse 25km/h.",
+      "description": "La Xiaomi Electric Scooter 4 Pro offre une expérience de mobilité urbaine exceptionnelle avec son moteur puissant, sa batterie longue durée et son design élégant.",
+      "features": [
+        "Autonomie jusqu'à 55 km",
+        "Vitesse max 25 km/h",
+        "Moteur 700W",
+        "Pneus 10 pouces",
+        "Système de freinage double",
+        "Écran LED intégré",
+        "App mobile connectée",
+        "Pliable et portable"
+      ],
+      "specifications": {
+        "motor": "700W",
+        "battery": "12800 mAh",
+        "range": "55 km",
+        "speed": "25 km/h",
+        "weight": "17.5 kg",
+        "wheels": "10 pouces",
+        "charging": "8-10 heures"
+      },
+      "images": [
+        "/img/product-7.png"
+      ],
+      "thumbnail": "/img/product-7.png"
+    },
+    {
+      "id": "segway-ninebot-max-g2",
+      "title": "Segway Ninebot Max G2",
+      "brand": "Segway",
+      "model": "Ninebot Max G2",
+      "category": "mobility",
+      "subcategory": "electric-scooter",
+      "price": 749.0,
+      "originalPrice": 849.0,
+      "currency": "EUR",
+      "discount": 12,
+      "isNew": true,
+      "inStock": true,
+      "stock": 8,
+      "rating": 4.8,
+      "reviewCount": 156,
+      "shortDescription": "Trottinette haut de gamme avec 70km d'autonomie et suspension avancée.",
+      "description": "Le Segway Ninebot Max G2 redéfinit la mobilité urbaine avec ses performances exceptionnelles et son confort de conduite inégalé.",
+      "features": [
+        "Autonomie jusqu'à 70 km",
+        "Vitesse max 30 km/h",
+        "Suspension avant et arrière",
+        "Pneus tubeless 10.5 pouces",
+        "Éclairage LED puissant",
+        "Résistance IPX7",
+        "App Segway connectée"
+      ],
+      "specifications": {
+        "motor": "900W",
+        "battery": "15300 mAh",
+        "range": "70 km",
+        "speed": "30 km/h",
+        "weight": "24.7 kg",
+        "wheels": "10.5 pouces tubeless"
+      },
+      "images": [
+        "/img/product-8.png"
+      ],
+      "thumbnail": "/img/product-8.png"
+    },
+    {
+      "id": "rad-power-ebike-city",
+      "title": "RadCity Electric Bike",
+      "brand": "Rad Power Bikes",
+      "model": "RadCity",
+      "category": "mobility",
+      "subcategory": "electric-bike",
+      "price": 1299.0,
+      "originalPrice": 1499.0,
+      "currency": "EUR",
+      "discount": 13,
+      "isNew": false,
+      "isFeatured": true,
+      "inStock": true,
+      "stock": 5,
+      "rating": 4.6,
+      "reviewCount": 203,
+      "shortDescription": "Vélo électrique urbain avec moteur 750W et autonomie 80km.",
+      "description": "Le RadCity est le vélo électrique parfait pour vos déplacements quotidiens, combinant puissance, confort et praticité.",
+      "features": [
+        "Moteur 750W Bafang",
+        "Batterie 48V 14Ah",
+        "Autonomie jusqu'à 80 km",
+        "5 niveaux d'assistance",
+        "Écran LCD intégré",
+        "Freins hydrauliques",
+        "Porte-bagages inclus"
+      ],
+      "specifications": {
+        "motor": "750W Bafang",
+        "battery": "48V 14Ah",
+        "range": "80 km",
+        "speed": "32 km/h",
+        "weight": "29 kg",
+        "frame": "Aluminium 6061"
+      },
+      "images": [
+        "/img/product-9.png"
+      ],
+      "thumbnail": "/img/product-9.png"
+    }
+  ],
   "services": []
 }
