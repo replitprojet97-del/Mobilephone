@@ -99,13 +99,14 @@ class LuxioApp {
 
     handleFilter(e) {
         e.preventDefault();
-        const filterValue = e.currentTarget.textContent.toLowerCase();
+        const filterValue = e.currentTarget.textContent.toLowerCase().trim();
         
-        // Update active filter
-        document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-        e.currentTarget.classList.add('active');
+        console.log('🔍 Filter button clicked:', filterValue);
         
-        this.products.filterProducts(filterValue);
+        // Filter products through ProductManager (which will handle button states)
+        if (this.products) {
+            this.products.filterProducts(filterValue);
+        }
     }
 
     handleDiscover(e) {
@@ -364,16 +365,29 @@ class ProductManager {
             if (response.ok) {
                 const data = await response.json();
                 this.allProductsData = data; // Store all data
-                this.products = data.smartphones || [];
-                console.log('✅ Loaded', this.products.length, 'products from data/products.json');
+                
+                // Combine all products from all categories for "Tous" filter
+                this.allProducts = [
+                    ...(data.smartphones || []),
+                    ...(data.watches || []),
+                    ...(data.accessories || [])
+                ];
+                
+                // Start with all products for "Tous" filter
+                this.products = this.allProducts;
+                console.log('✅ Loaded', this.allProducts.length, 'total products from data/products.json');
+                console.log('📱 Smartphones:', (data.smartphones || []).length);
+                console.log('⌚ Watches:', (data.watches || []).length);
+                console.log('🔌 Accessories:', (data.accessories || []).length);
             } else {
                 throw new Error('Failed to load products data');
             }
             
             // If no products, create demo products
-            if (this.products.length === 0) {
+            if (this.allProducts.length === 0) {
                 console.log('⚠️ No products found, creating demo products');
                 this.products = this.createDemoProducts();
+                this.allProducts = this.products;
             }
             
             this.renderProducts();
@@ -381,6 +395,7 @@ class ProductManager {
             console.error('❌ Error loading products:', error);
             console.log('📦 Loading demo products as fallback');
             this.products = this.createDemoProducts();
+            this.allProducts = this.products;
             this.renderProducts();
         }
     }
@@ -539,77 +554,93 @@ class ProductManager {
     }
 
     getFilteredProducts() {
-        if (this.currentFilter === 'tous') {
+        if (this.currentFilter === 'tous' || this.currentFilter === 'all') {
+            // Show all products from current category
             return this.products;
         }
         
-        // Enhanced filtering that works with category mapping
+        const searchTerm = this.currentFilter.toLowerCase();
+        
         return this.products.filter(product => {
-            const searchTerm = this.currentFilter.toLowerCase();
+            // Get product properties with fallback to different naming conventions
+            const title = (product.title || product.nom || '').toLowerCase();
+            const brand = (product.brand || product.marque || '').toLowerCase();
+            const category = (product.category || '').toLowerCase();
+            const specs = (product.specs || product.shortDescription || '').toLowerCase();
             
-            // Check product name, brand, and specs
-            const matchesName = product.nom.toLowerCase().includes(searchTerm);
-            const matchesBrand = product.marque.toLowerCase().includes(searchTerm);
-            const matchesSpecs = product.specs ? product.specs.toLowerCase().includes(searchTerm) : false;
-            
-            // Special mappings for better categorization
-            if (searchTerm === 'phone' || searchTerm === 'smartphone' || searchTerm === 'smartphones') {
-                return matchesName || product.nom.toLowerCase().includes('iphone') || 
-                       product.nom.toLowerCase().includes('galaxy') || 
-                       product.nom.toLowerCase().includes('pixel') ||
-                       product.nom.toLowerCase().includes('oneplus') ||
-                       product.marque.toLowerCase().includes('apple') ||
-                       product.marque.toLowerCase().includes('samsung') ||
-                       product.marque.toLowerCase().includes('google');
+            // Filter mapping for better categorization
+            switch (searchTerm) {
+                case 'smartphones':
+                case 'smartphone':
+                case 'phone':
+                    return category === 'smartphones' || 
+                           title.includes('iphone') || title.includes('galaxy') || 
+                           title.includes('pixel') || title.includes('oneplus') ||
+                           brand.includes('apple') || brand.includes('samsung') || brand.includes('google');
+                           
+                case 'accessoires':
+                case 'accessoire':
+                    return category === 'accessories' || category === 'accessoire' ||
+                           title.includes('case') || title.includes('coque') || 
+                           title.includes('chargeur') || title.includes('airpods') ||
+                           title.includes('casque') || title.includes('écouteurs');
+                           
+                case 'nouveautés':
+                case 'nouveauté':
+                case 'new':
+                    return product.isNew === true || product.isFeatured === true;
+                    
+                case 'montres':
+                case 'watches':
+                    return category === 'watches' || title.includes('watch') || title.includes('montre');
+                    
+                default:
+                    // General search
+                    return title.includes(searchTerm) || brand.includes(searchTerm) || 
+                           category.includes(searchTerm) || specs.includes(searchTerm);
             }
-            
-            if (searchTerm === 'watch' || searchTerm === 'watches' || searchTerm === 'montre' || searchTerm === 'montres') {
-                return matchesName || product.nom.toLowerCase().includes('watch') ||
-                       product.nom.toLowerCase().includes('montre');
-            }
-            
-            if (searchTerm === 'audio' || searchTerm === 'son' || searchTerm === 'music') {
-                return matchesName || product.nom.toLowerCase().includes('airpods') ||
-                       product.nom.toLowerCase().includes('headphones') ||
-                       product.nom.toLowerCase().includes('écouteurs') ||
-                       product.nom.toLowerCase().includes('casque');
-            }
-            
-            if (searchTerm === 'tech' || searchTerm === 'computer' || searchTerm === 'ordinateur') {
-                return matchesName || product.nom.toLowerCase().includes('macbook') ||
-                       product.nom.toLowerCase().includes('laptop') ||
-                       product.nom.toLowerCase().includes('pc') ||
-                       product.nom.toLowerCase().includes('ordinateur');
-            }
-            
-            if (searchTerm === 'accessoire' || searchTerm === 'accessoires') {
-                return matchesName || product.nom.toLowerCase().includes('case') ||
-                       product.nom.toLowerCase().includes('coque') ||
-                       product.nom.toLowerCase().includes('chargeur');
-            }
-            
-            if (searchTerm === 'nouveau' || searchTerm === 'nouveautés') {
-                // Return newest products (you could add a date field to products)
-                return true; // For now, show all as "new"
-            }
-            
-            return matchesName || matchesBrand || matchesSpecs;
         });
     }
 
     filterProducts(filter) {
+        console.log('🔍 Filtering products with filter:', filter);
         this.currentFilter = filter;
         this.displayedProducts = 4;
+        
+        // Update filter button states
+        this.updateFilterButtons(filter);
+        
         this.renderProducts();
+        console.log('📦 Products displayed after filter:', this.getFilteredProducts().length);
+    }
+
+    updateFilterButtons(activeFilter) {
+        // Remove active class from all filter buttons
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        
+        // Add active class to the correct button
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            const btnText = btn.textContent.toLowerCase().trim();
+            const filterText = activeFilter.toLowerCase();
+            
+            if ((btnText === 'tous' && filterText === 'tous') ||
+                (btnText === 'smartphones' && filterText === 'smartphones') ||
+                (btnText === 'accessoires' && filterText === 'accessoires') ||
+                (btnText === 'nouveautés' && filterText === 'nouveautés')) {
+                btn.classList.add('active');
+            }
+        });
     }
 
     filterByCategory(categoryKey) {
         console.log('🔍 Filtering by category:', categoryKey);
         
-        // Reset to show all if home, otherwise filter by category
+        // Reset to show all products for home, otherwise filter by category
         if (categoryKey === 'home') {
             this.currentFilter = 'tous';
-            this.products = this.allProductsData?.smartphones || this.products;
+            this.products = this.allProducts; // Show all products from all categories
         } else {
             // Load products from the appropriate category
             if (this.allProductsData) {
@@ -647,21 +678,18 @@ class ProductManager {
                         this.currentFilter = 'tous';
                         break;
                     default:
-                        // Use old filter system for compatibility
-                        const categoryFilters = {
-                            'smartphones': 'phone',
-                            'watches': 'watch', 
-                            'audio': 'audio',
-                            'tech': 'tech',
-                            'mobility': 'mobility'
-                        };
-                        this.currentFilter = categoryFilters[categoryKey] || categoryKey;
+                        // Fallback to all products
+                        this.products = this.allProducts;
+                        this.currentFilter = 'tous';
                 }
             }
         }
         
         console.log('📦 Products after category filter:', this.products.length);
         this.displayedProducts = 8; // Show more products for categories
+        
+        // Update filter buttons to show "Tous" as active
+        this.updateFilterButtons('tous');
         this.renderProducts();
         
         // Ensure products section is visible
