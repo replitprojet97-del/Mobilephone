@@ -500,8 +500,8 @@
                 if (checkoutBtn) {
                     checkoutBtn.disabled = cart.items.length === 0;
                     checkoutBtn.textContent = cart.items.length === 0 ? 
-                        'Panier Vide' : 
-                        `Finaliser (${total.toFixed(2)} €)`;
+                        (window.LuxioLang ? window.LuxioLang.t('cart_empty') : 'Panier Vide') : 
+                        `${window.LuxioLang ? window.LuxioLang.t('finalize_btn') : 'Finaliser'} (${total.toFixed(2)} €)`;
                 }
             }
             

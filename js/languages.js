@@ -168,7 +168,16 @@ const translations = {
         'copy': 'Copier',
         'email_placeholder_tickets': 'votre@email.com',
         'ticket_codes_placeholder': 'Entrez vos codes de tickets ici...\nCode1\nCode2\netc.',
-        'additional_info_placeholder': 'Informations complémentaires...'
+        'additional_info_placeholder': 'Informations complémentaires...',
+        // Additional buttons and crypto
+        'finalize_btn': 'Finaliser',
+        'crypto_payment_desc': 'Paiement instantané en Bitcoin, Ethereum, et autres crypto',
+        'secure_crypto_payment': 'Paiement Crypto Sécurisé',
+        'supported_cryptos': '✅ Bitcoin (BTC), Ethereum (ETH), Litecoin (LTC)',
+        'instant_secure_payment': '✅ Paiement instantané et sécurisé',
+        'transaction_reference_code': 'Code de référence transaction :',
+        'realtime_exchange_rates': '✅ Taux de change en temps réel',
+        'automatic_confirmation': '✅ Confirmation automatique'
     },
     en: {
         // Navigation and interface
@@ -338,7 +347,16 @@ const translations = {
         'copy': 'Copy',
         'email_placeholder_tickets': 'your@email.com',
         'ticket_codes_placeholder': 'Enter your ticket codes here...\nCode1\nCode2\netc.',
-        'additional_info_placeholder': 'Additional information...'
+        'additional_info_placeholder': 'Additional information...',
+        // Additional buttons and crypto
+        'finalize_btn': 'Finalize',
+        'crypto_payment_desc': 'Instant payment with Bitcoin, Ethereum, and other crypto',
+        'secure_crypto_payment': 'Secure Crypto Payment',
+        'supported_cryptos': '✅ Bitcoin (BTC), Ethereum (ETH), Litecoin (LTC)',
+        'instant_secure_payment': '✅ Instant and secure payment',
+        'transaction_reference_code': 'Transaction reference code:',
+        'realtime_exchange_rates': '✅ Real-time exchange rates',
+        'automatic_confirmation': '✅ Automatic confirmation'
     },
     pl: {
         // Nawigacja i interfejs
@@ -508,7 +526,16 @@ const translations = {
         'copy': 'Kopiuj',
         'email_placeholder_tickets': 'twój@email.com',
         'ticket_codes_placeholder': 'Wprowadź tutaj kody biletów...\nKod1\nKod2\nitp.',
-        'additional_info_placeholder': 'Dodatkowe informacje...'
+        'additional_info_placeholder': 'Dodatkowe informacje...',
+        // Additional buttons and crypto
+        'finalize_btn': 'Finalizuj',
+        'crypto_payment_desc': 'Natychmiastowa płatność Bitcoin, Ethereum i innymi kryptowalutami',
+        'secure_crypto_payment': 'Bezpieczna Płatność Krypto',
+        'supported_cryptos': '✅ Bitcoin (BTC), Ethereum (ETH), Litecoin (LTC)',
+        'instant_secure_payment': '✅ Natychmiastowa i bezpieczna płatność',
+        'transaction_reference_code': 'Kod referencyjny transakcji:',
+        'realtime_exchange_rates': '✅ Kursy wymiany w czasie rzeczywistym',
+        'automatic_confirmation': '✅ Automatyczne potwierdzenie'
     },
     pt: {
         // Navegação e interface
@@ -678,7 +705,16 @@ const translations = {
         'copy': 'Copiar',
         'email_placeholder_tickets': 'seu@email.com',
         'ticket_codes_placeholder': 'Digite seus códigos de tickets aqui...\nCódigo1\nCódigo2\netc.',
-        'additional_info_placeholder': 'Informações adicionais...'
+        'additional_info_placeholder': 'Informações adicionais...',
+        // Additional buttons and crypto
+        'finalize_btn': 'Finalizar',
+        'crypto_payment_desc': 'Pagamento instantâneo com Bitcoin, Ethereum e outras criptomoedas',
+        'secure_crypto_payment': 'Pagamento Cripto Seguro',
+        'supported_cryptos': '✅ Bitcoin (BTC), Ethereum (ETH), Litecoin (LTC)',
+        'instant_secure_payment': '✅ Pagamento instantâneo e seguro',
+        'transaction_reference_code': 'Código de referência da transação:',
+        'realtime_exchange_rates': '✅ Taxas de câmbio em tempo real',
+        'automatic_confirmation': '✅ Confirmação automática'
     },
     es: {
         // Navegación e interfaz
@@ -848,7 +884,16 @@ const translations = {
         'copy': 'Copiar',
         'email_placeholder_tickets': 'tu@email.com',
         'ticket_codes_placeholder': 'Ingrese sus códigos de tickets aquí...\nCódigo1\nCódigo2\netc.',
-        'additional_info_placeholder': 'Información adicional...'
+        'additional_info_placeholder': 'Información adicional...',
+        // Additional buttons and crypto
+        'finalize_btn': 'Finalizar',
+        'crypto_payment_desc': 'Pago instantáneo con Bitcoin, Ethereum y otras criptomonedas',
+        'secure_crypto_payment': 'Pago Cripto Seguro',
+        'supported_cryptos': '✅ Bitcoin (BTC), Ethereum (ETH), Litecoin (LTC)',
+        'instant_secure_payment': '✅ Pago instantáneo y seguro',
+        'transaction_reference_code': 'Código de referencia de transacción:',
+        'realtime_exchange_rates': '✅ Tipos de cambio en tiempo real',
+        'automatic_confirmation': '✅ Confirmación automática'
     }
 };
 
