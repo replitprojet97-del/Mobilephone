@@ -51,6 +51,9 @@ class LuxioApp {
         
         // Bind filter buttons in featured products section
         this.bindFilterButtons();
+        
+        // Bind category cards in "Explorer par catégorie" section
+        this.bindCategoryCards();
     }
 
     handleSearch() {
@@ -70,14 +73,28 @@ class LuxioApp {
         document.querySelectorAll('.category-item').forEach(item => item.classList.remove('active'));
         e.currentTarget.classList.add('active');
         
+        // Reset filter buttons to "Tous" 
+        document.querySelectorAll('.section-filters .filter-btn').forEach(btn => {
+            btn.classList.remove('active');
+            if (btn.textContent.toLowerCase().trim() === 'tous') {
+                btn.classList.add('active');
+            }
+        });
+        
         // Filter products by category
         this.products.filterByCategory(categoryKey);
         
-        // Scroll to products section
+        // Show products section and scroll to it
         const productsSection = document.querySelector('.featured-products');
         if (productsSection) {
+            productsSection.style.display = 'block';
             productsSection.scrollIntoView({ behavior: 'smooth' });
         }
+        
+        // Masquer les squelettes si ils existent
+        document.querySelectorAll('.product-skeleton').forEach(skeleton => {
+            skeleton.style.display = 'none';
+        });
     }
 
     handleFilter(e) {
@@ -93,20 +110,80 @@ class LuxioApp {
 
     handleDiscover(e) {
         e.preventDefault();
+        
+        // Reset to show all products
+        this.products.currentFilter = 'tous';
+        this.products.displayedProducts = 8;
+        
+        // Reset filter buttons to "Tous"
+        document.querySelectorAll('.section-filters .filter-btn').forEach(btn => {
+            btn.classList.remove('active');
+            if (btn.textContent.toLowerCase().trim() === 'tous') {
+                btn.classList.add('active');
+            }
+        });
+        
+        // Reset category navigation
+        document.querySelectorAll('.category-item').forEach(item => {
+            item.classList.remove('active');
+            if (item.getAttribute('data-translate') === 'home') {
+                item.classList.add('active');
+            }
+        });
+        
+        // Show and render products
+        this.products.renderProducts();
+        
         // Scroll to featured products section
         const featuredSection = document.querySelector('.featured-products');
         if (featuredSection) {
+            featuredSection.style.display = 'block';
             featuredSection.scrollIntoView({ behavior: 'smooth' });
         }
+        
+        // Masquer les squelettes
+        document.querySelectorAll('.product-skeleton').forEach(skeleton => {
+            skeleton.style.display = 'none';
+        });
     }
 
     handleViewCollections(e) {
         e.preventDefault();
-        // Scroll to categories section
-        const categoriesSection = document.querySelector('.categories-section');
-        if (categoriesSection) {
-            categoriesSection.scrollIntoView({ behavior: 'smooth' });
+        
+        // Reset to show all products
+        this.products.currentFilter = 'tous';
+        this.products.displayedProducts = 8;
+        
+        // Reset filter buttons to "Tous"
+        document.querySelectorAll('.section-filters .filter-btn').forEach(btn => {
+            btn.classList.remove('active');
+            if (btn.textContent.toLowerCase().trim() === 'tous') {
+                btn.classList.add('active');
+            }
+        });
+        
+        // Reset category navigation
+        document.querySelectorAll('.category-item').forEach(item => {
+            item.classList.remove('active');
+            if (item.getAttribute('data-translate') === 'home') {
+                item.classList.add('active');
+            }
+        });
+        
+        // Show and render products
+        this.products.renderProducts();
+        
+        // Scroll to products section instead of categories
+        const featuredSection = document.querySelector('.featured-products');
+        if (featuredSection) {
+            featuredSection.style.display = 'block';
+            featuredSection.scrollIntoView({ behavior: 'smooth' });
         }
+        
+        // Masquer les squelettes
+        document.querySelectorAll('.product-skeleton').forEach(skeleton => {
+            skeleton.style.display = 'none';
+        });
     }
 
     async loadMoreProducts() {
@@ -158,8 +235,84 @@ class LuxioApp {
                     filterValue = 'nouveau';
                 }
                 
+                // Ensure we show products when filtering
                 this.products.filterProducts(filterValue);
+                
+                // Show products section if hidden
+                const productsSection = document.querySelector('.featured-products');
+                if (productsSection) {
+                    productsSection.style.display = 'block';
+                }
+                
+                // Hide skeletons
+                document.querySelectorAll('.product-skeleton').forEach(skeleton => {
+                    skeleton.style.display = 'none';
+                });
             });
+        });
+    }
+    
+    bindCategoryCards() {
+        // Bind category cards in "Explorer par catégorie" section
+        document.querySelectorAll('.category-card').forEach(card => {
+            card.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // Get category from h3 text content
+                const categoryTitle = card.querySelector('h3').textContent.toLowerCase().trim();
+                let categoryKey = 'tous';
+                
+                // Map category title to filter key
+                if (categoryTitle === 'smartphones') {
+                    categoryKey = 'smartphones';
+                } else if (categoryTitle === 'montres') {
+                    categoryKey = 'watches';
+                } else if (categoryTitle === 'audio') {
+                    categoryKey = 'audio';
+                } else if (categoryTitle === 'tech') {
+                    categoryKey = 'tech';
+                }
+                
+                // Update navigation state
+                document.querySelectorAll('.category-item').forEach(item => {
+                    item.classList.remove('active');
+                    if (item.getAttribute('data-translate') === categoryKey) {
+                        item.classList.add('active');
+                    }
+                });
+                
+                // Reset filter buttons to "Tous"
+                document.querySelectorAll('.section-filters .filter-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.textContent.toLowerCase().trim() === 'tous') {
+                        btn.classList.add('active');
+                    }
+                });
+                
+                // Filter products by category
+                this.products.filterByCategory(categoryKey);
+                
+                // Show and scroll to products section
+                const productsSection = document.querySelector('.featured-products');
+                if (productsSection) {
+                    productsSection.style.display = 'block';
+                    productsSection.scrollIntoView({ behavior: 'smooth' });
+                }
+                
+                // Hide skeletons
+                document.querySelectorAll('.product-skeleton').forEach(skeleton => {
+                    skeleton.style.display = 'none';
+                });
+                
+                // Add visual feedback
+                card.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    card.style.transform = '';
+                }, 150);
+            });
+            
+            // Add hover cursor
+            card.style.cursor = 'pointer';
         });
     }
 
@@ -363,16 +516,44 @@ class ProductManager {
             const matchesSpecs = product.specs ? product.specs.toLowerCase().includes(searchTerm) : false;
             
             // Special mappings for better categorization
-            if (searchTerm === 'phone') {
+            if (searchTerm === 'phone' || searchTerm === 'smartphone' || searchTerm === 'smartphones') {
                 return matchesName || product.nom.toLowerCase().includes('iphone') || 
                        product.nom.toLowerCase().includes('galaxy') || 
                        product.nom.toLowerCase().includes('pixel') ||
-                       product.nom.toLowerCase().includes('oneplus');
+                       product.nom.toLowerCase().includes('oneplus') ||
+                       product.marque.toLowerCase().includes('apple') ||
+                       product.marque.toLowerCase().includes('samsung') ||
+                       product.marque.toLowerCase().includes('google');
             }
             
-            if (searchTerm === 'watch') {
+            if (searchTerm === 'watch' || searchTerm === 'watches' || searchTerm === 'montre' || searchTerm === 'montres') {
                 return matchesName || product.nom.toLowerCase().includes('watch') ||
                        product.nom.toLowerCase().includes('montre');
+            }
+            
+            if (searchTerm === 'audio' || searchTerm === 'son' || searchTerm === 'music') {
+                return matchesName || product.nom.toLowerCase().includes('airpods') ||
+                       product.nom.toLowerCase().includes('headphones') ||
+                       product.nom.toLowerCase().includes('écouteurs') ||
+                       product.nom.toLowerCase().includes('casque');
+            }
+            
+            if (searchTerm === 'tech' || searchTerm === 'computer' || searchTerm === 'ordinateur') {
+                return matchesName || product.nom.toLowerCase().includes('macbook') ||
+                       product.nom.toLowerCase().includes('laptop') ||
+                       product.nom.toLowerCase().includes('pc') ||
+                       product.nom.toLowerCase().includes('ordinateur');
+            }
+            
+            if (searchTerm === 'accessoire' || searchTerm === 'accessoires') {
+                return matchesName || product.nom.toLowerCase().includes('case') ||
+                       product.nom.toLowerCase().includes('coque') ||
+                       product.nom.toLowerCase().includes('chargeur');
+            }
+            
+            if (searchTerm === 'nouveau' || searchTerm === 'nouveautés') {
+                // Return newest products (you could add a date field to products)
+                return true; // For now, show all as "new"
             }
             
             return matchesName || matchesBrand || matchesSpecs;
@@ -403,11 +584,17 @@ class ProductManager {
                 'tech': 'tech'             // For tech category
             };
             
-            this.currentFilter = categoryFilters[categoryKey] || 'tous';
+            this.currentFilter = categoryFilters[categoryKey] || categoryKey;
         }
         
         this.displayedProducts = 8; // Show more products for categories
         this.renderProducts();
+        
+        // Ensure products section is visible
+        const productsSection = document.querySelector('.featured-products');
+        if (productsSection) {
+            productsSection.style.display = 'block';
+        }
     }
 
     searchProducts(query, category = 'tous') {
