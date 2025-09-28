@@ -1,9 +1,16 @@
-const express = require('express');
-const cors = require('cors');
-const axios = require('axios');
-const path = require('path');
-const nodemailer = require('nodemailer');
-require('dotenv').config();
+import express from 'express';
+import cors from 'cors';
+import axios from 'axios';
+import path from 'path';
+import nodemailer from 'nodemailer';
+import dotenv from 'dotenv';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+dotenv.config();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -334,4 +341,4 @@ app.listen(PORT, '0.0.0.0', () => {
     console.log(`Payment API: http://0.0.0.0:${PORT}/api/create-payment`);
 });
 
-module.exports = app;
+export default app;
