@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>LUXIO - Administration</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Interface d'administration LUXIO - Gestion des produits" name="description">
+
+    <!-- Modern Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Modern Styles -->
+    <link href="../css/modern.css" rel="stylesheet">
+    
+    <!-- Admin Styles -->
+    <style>
+        .admin-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: var(--background);
+            min-height: 100vh;
+        }
+        
+        .admin-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+        }
+        
+        .admin-header h1 {
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .admin-header h1 i {
+            color: var(--secondary);
+        }
+        
+        .admin-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .tab-btn {
+            background: none;
+            border: none;
+            padding: 1rem 2rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: var(--transition);
+            border-bottom: 2px solid transparent;
+            font-weight: var(--font-weight-medium);
+        }
+        
+        .tab-btn.active {
+            color: var(--secondary);
+            border-bottom-color: var(--secondary);
+        }
+        
+        .tab-content {
+            display: none;
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            border: 1px solid var(--border);
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            color: var(--text-primary);
+            font-weight: var(--font-weight-medium);
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            background: var(--accent);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.2);
+        }
+        
+        textarea.form-control {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        .form-row-triple {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        .image-upload {
+            border: 2px dashed var(--border);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            text-align: center;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        
+        .image-upload:hover, .image-upload.dragover {
+            border-color: var(--secondary);
+            background: rgba(255, 215, 0, 0.05);
+        }
+        
+        .upload-icon {
+            font-size: 3rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+        
+        .upload-text {
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .upload-hint {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        .image-preview {
+            display: none;
+            margin-top: 1rem;
+        }
+        
+        .preview-item {
+            display: inline-block;
+            position: relative;
+            margin: 0.5rem;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+        
+        .preview-item img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .preview-remove {
+            position: absolute;
+            top: 0.25rem;
+            right: 0.25rem;
+            background: var(--error);
+            color: white;
+            border: none;
+            border-radius: var(--radius-full);
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+        
+        .btn-primary-admin {
+            background: var(--secondary);
+            color: var(--background);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: var(--radius-sm);
+            font-weight: var(--font-weight-semibold);
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-primary-admin:hover {
+            background: #e6a600;
+            transform: translateY(-1px);
+        }
+        
+        .btn-secondary-admin {
+            background: none;
+            color: var(--text-secondary);
+            border: 1px solid var(--border);
+            padding: 1rem 2rem;
+            border-radius: var(--radius-sm);
+            font-weight: var(--font-weight-medium);
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-secondary-admin:hover {
+            border-color: var(--secondary);
+            color: var(--secondary);
+        }
+        
+        .actions-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+        
+        .json-output {
+            background: var(--accent);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 1rem;
+            margin-top: 1rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            max-height: 300px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+        }
+        
+        .alert {
+            padding: 1rem;
+            border-radius: var(--radius-sm);
+            margin-bottom: 1rem;
+            border-left: 4px solid;
+        }
+        
+        .alert-success {
+            background: rgba(0, 255, 136, 0.1);
+            border-color: var(--success);
+            color: var(--success);
+        }
+        
+        .alert-error {
+            background: rgba(255, 59, 48, 0.1);
+            border-color: var(--error);
+            color: var(--error);
+        }
+        
+        .alert-info {
+            background: rgba(255, 215, 0, 0.1);
+            border-color: var(--secondary);
+            color: var(--secondary);
+        }
+        
+        .import-section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: var(--accent);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border);
+        }
+        
+        .import-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .import-header h3 {
+            color: var(--text-primary);
+            margin: 0;
+        }
+        
+        .import-header i {
+            color: var(--secondary);
+        }
+        
+        .import-controls {
+            display: grid;
+            grid-template-columns: 1fr auto auto;
+            gap: 1rem;
+            align-items: end;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .stat-card {
+            background: var(--accent);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .stat-number {
+            display: block;
+            font-size: 2rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        @media (max-width: 768px) {
+            .admin-container {
+                padding: 1rem;
+            }
+            
+            .form-row, .form-row-triple {
+                grid-template-columns: 1fr;
+            }
+            
+            .import-controls {
+                grid-template-columns: 1fr;
+            }
+            
+            .actions-bar {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: stretch;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="admin-container">
+        <!-- Header -->
+        <div class="admin-header">
+            <h1><i class="fas fa-cogs"></i> Administration LUXIO</h1>
+            <p>Interface de gestion des produits et import automatique</p>
+            <a href="../index.html" class="btn-secondary-admin">
+                <i class="fas fa-arrow-left"></i>
+                Retour au site
+            </a>
+        </div>
+
+        <!-- Tabs Navigation -->
+        <div class="admin-tabs">
+            <button class="tab-btn active" data-tab="import">
+                <i class="fas fa-download"></i> Import Automatique
+            </button>
+            <button class="tab-btn" data-tab="manual">
+                <i class="fas fa-plus"></i> Ajout Manuel
+            </button>
+            <button class="tab-btn" data-tab="stats">
+                <i class="fas fa-chart-bar"></i> Statistiques
+            </button>
+        </div>
+
+        <!-- Import Tab -->
+        <div class="tab-content active" id="import-tab">
+            <div class="import-section">
+                <div class="import-header">
+                    <i class="fas fa-robot"></i>
+                    <h3>Import Automatique de Produits</h3>
+                </div>
+                <p class="upload-hint">Importez automatiquement des produits depuis des sites marchands en utilisant notre API de scraping.</p>
+                
+                <div class="import-controls">
+                    <div class="form-group">
+                        <label for="import-category">Catégorie</label>
+                        <select id="import-category" class="form-control">
+                            <option value="smartphones">Smartphones</option>
+                            <option value="watches">Montres</option>
+                            <option value="fashion">Mode</option>
+                            <option value="home">Maison</option>
+                            <option value="mobility">Mobilité</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="import-url">URL Source (optionnel)</label>
+                        <input type="url" id="import-url" class="form-control" placeholder="https://example.com/products">
+                    </div>
+                    
+                    <button id="import-btn" class="btn-primary-admin">
+                        <i class="fas fa-download"></i>
+                        Lancer l'import
+                    </button>
+                </div>
+                
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="save-to-file" checked>
+                        Sauvegarder directement dans products.json
+                    </label>
+                </div>
+            </div>
+
+            <div id="import-results" style="display: none;">
+                <h4>Résultats de l'import</h4>
+                <div id="import-output" class="json-output"></div>
+                <div class="actions-bar">
+                    <button id="copy-results" class="btn-secondary-admin">
+                        <i class="fas fa-copy"></i>
+                        Copier le JSON
+                    </button>
+                    <button id="save-results" class="btn-primary-admin">
+                        <i class="fas fa-save"></i>
+                        Sauvegarder
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Manual Tab -->
+        <div class="tab-content" id="manual-tab">
+            <form id="product-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="product-title">Titre du produit *</label>
+                        <input type="text" id="product-title" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="product-brand">Marque *</label>
+                        <input type="text" id="product-brand" class="form-control" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="product-category">Catégorie *</label>
+                        <select id="product-category" class="form-control" required>
+                            <option value="">Sélectionnez une catégorie</option>
+                            <option value="smartphones">Smartphones</option>
+                            <option value="watches">Montres</option>
+                            <option value="fashion">Mode</option>
+                            <option value="home">Maison</option>
+                            <option value="mobility">Mobilité</option>
+                            <option value="services">Services</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="product-model">Modèle</label>
+                        <input type="text" id="product-model" class="form-control">
+                    </div>
+                </div>
+
+                <div class="form-row-triple">
+                    <div class="form-group">
+                        <label for="product-price">Prix (€) *</label>
+                        <input type="number" id="product-price" class="form-control" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="product-original-price">Prix original (€)</label>
+                        <input type="number" id="product-original-price" class="form-control" step="0.01">
+                    </div>
+                    <div class="form-group">
+                        <label for="product-stock">Stock</label>
+                        <input type="number" id="product-stock" class="form-control" value="10">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="product-color">Couleur</label>
+                        <input type="text" id="product-color" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="product-storage">Stockage/Taille</label>
+                        <input type="text" id="product-storage" class="form-control">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="product-short-desc">Description courte</label>
+                    <textarea id="product-short-desc" class="form-control" rows="2"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="product-desc">Description complète</label>
+                    <textarea id="product-desc" class="form-control" rows="4"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Images du produit</label>
+                    <div class="image-upload" id="image-upload">
+                        <div class="upload-icon">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                        </div>
+                        <div class="upload-text">Glissez vos images ici ou cliquez pour sélectionner</div>
+                        <div class="upload-hint">JPG, PNG, WebP - Max 5MB par image</div>
+                        <input type="file" id="file-input" multiple accept="image/*" style="display: none;">
+                    </div>
+                    <div class="image-preview" id="image-preview"></div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="product-new" name="product-flags">
+                            Nouveau produit
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="product-featured" name="product-flags">
+                            Produit mis en avant
+                        </label>
+                    </div>
+                </div>
+
+                <div class="actions-bar">
+                    <button type="button" id="reset-form" class="btn-secondary-admin">
+                        <i class="fas fa-undo"></i>
+                        Réinitialiser
+                    </button>
+                    <button type="submit" class="btn-primary-admin">
+                        <i class="fas fa-plus"></i>
+                        Ajouter le produit
+                    </button>
+                </div>
+            </form>
+
+            <div id="manual-output" class="json-output" style="display: none;"></div>
+        </div>
+
+        <!-- Stats Tab -->
+        <div class="tab-content" id="stats-tab">
+            <div class="stats-grid" id="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number" id="total-products">0</span>
+                    <span class="stat-label">Produits totaux</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="total-smartphones">0</span>
+                    <span class="stat-label">Smartphones</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="total-watches">0</span>
+                    <span class="stat-label">Montres</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="total-fashion">0</span>
+                    <span class="stat-label">Mode</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="avg-price">0€</span>
+                    <span class="stat-label">Prix moyen</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="new-products">0</span>
+                    <span class="stat-label">Nouveautés</span>
+                </div>
+            </div>
+
+            <div class="import-section">
+                <h3>Actions Avancées</h3>
+                <div class="actions-bar">
+                    <button id="refresh-stats" class="btn-secondary-admin">
+                        <i class="fas fa-refresh"></i>
+                        Actualiser les stats
+                    </button>
+                    <button id="export-data" class="btn-primary-admin">
+                        <i class="fas fa-download"></i>
+                        Exporter les données
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/modern.js"></script>
+    <script>
+        // Admin functionality will be implemented here
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('LUXIO Admin interface loaded');
+            
+            // Tab functionality
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const tabId = btn.dataset.tab;
+                    
+                    // Update active tab
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    
+                    // Update active content
+                    tabContents.forEach(content => {
+                        content.classList.remove('active');
+                        if (content.id === `${tabId}-tab`) {
+                            content.classList.add('active');
+                        }
+                    });
+                    
+                    // Load stats if stats tab is opened
+                    if (tabId === 'stats') {
+                        loadStats();
+                    }
+                });
+            });
+            
+            // Import functionality
+            const importBtn = document.getElementById('import-btn');
+            importBtn.addEventListener('click', runImport);
+            
+            // Manual form functionality
+            const productForm = document.getElementById('product-form');
+            productForm.addEventListener('submit', handleManualSubmit);
+            
+            // Image upload functionality
+            setupImageUpload();
+            
+            // Load initial stats
+            loadStats();
+        });
+        
+        async function runImport() {
+            const importBtn = document.getElementById('import-btn');
+            const category = document.getElementById('import-category').value;
+            const sourceUrl = document.getElementById('import-url').value;
+            const saveToFile = document.getElementById('save-to-file').checked;
+            const resultsDiv = document.getElementById('import-results');
+            const outputDiv = document.getElementById('import-output');
+            
+            importBtn.disabled = true;
+            importBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Import en cours...';
+            
+            try {
+                const params = new URLSearchParams({
+                    category: category,
+                    seed: saveToFile ? 'true' : 'false'
+                });
+                
+                if (sourceUrl) {
+                    params.append('sourceUrl', sourceUrl);
+                }
+                
+                const response = await fetch(`/api/import-products?${params}`);
+                const data = await response.json();
+                
+                if (response.ok) {
+                    outputDiv.textContent = JSON.stringify(data, null, 2);
+                    resultsDiv.style.display = 'block';
+                    showAlert('Import réussi ! ' + data.count + ' produits importés.', 'success');
+                } else {
+                    showAlert('Erreur lors de l\'import: ' + data.error, 'error');
+                }
+                
+            } catch (error) {
+                console.error('Import error:', error);
+                showAlert('Erreur réseau lors de l\'import', 'error');
+            } finally {
+                importBtn.disabled = false;
+                importBtn.innerHTML = '<i class="fas fa-download"></i> Lancer l\'import';
+            }
+        }
+        
+        function handleManualSubmit(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(e.target);
+            const productData = {
+                id: generateProductId(),
+                slug: generateSlug(document.getElementById('product-title').value),
+                title: document.getElementById('product-title').value,
+                brand: document.getElementById('product-brand').value,
+                model: document.getElementById('product-model').value,
+                category: document.getElementById('product-category').value,
+                price: parseFloat(document.getElementById('product-price').value),
+                originalPrice: parseFloat(document.getElementById('product-original-price').value) || null,
+                currency: 'EUR',
+                shortDescription: document.getElementById('product-short-desc').value,
+                description: document.getElementById('product-desc').value,
+                color: document.getElementById('product-color').value,
+                storage: document.getElementById('product-storage').value,
+                stock: parseInt(document.getElementById('product-stock').value) || 0,
+                inStock: true,
+                isNew: document.getElementById('product-new').checked,
+                isFeatured: document.getElementById('product-featured').checked,
+                rating: 4 + Math.random(),
+                reviewCount: Math.floor(Math.random() * 100) + 10,
+                images: [],
+                createdAt: new Date().toISOString(),
+                updatedAt: new Date().toISOString()
+            };
+            
+            // Add discount if original price exists
+            if (productData.originalPrice && productData.originalPrice > productData.price) {
+                productData.discount = Math.round(((productData.originalPrice - productData.price) / productData.originalPrice) * 100);
+            }
+            
+            const outputDiv = document.getElementById('manual-output');
+            outputDiv.textContent = JSON.stringify(productData, null, 2);
+            outputDiv.style.display = 'block';
+            
+            showAlert('Produit généré ! Copiez le JSON ci-dessous et ajoutez-le à votre fichier products.json', 'success');
+        }
+        
+        function setupImageUpload() {
+            const uploadArea = document.getElementById('image-upload');
+            const fileInput = document.getElementById('file-input');
+            const previewArea = document.getElementById('image-preview');
+            
+            uploadArea.addEventListener('click', () => fileInput.click());
+            
+            uploadArea.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                uploadArea.classList.add('dragover');
+            });
+            
+            uploadArea.addEventListener('dragleave', () => {
+                uploadArea.classList.remove('dragover');
+            });
+            
+            uploadArea.addEventListener('drop', (e) => {
+                e.preventDefault();
+                uploadArea.classList.remove('dragover');
+                handleFiles(e.dataTransfer.files);
+            });
+            
+            fileInput.addEventListener('change', (e) => {
+                handleFiles(e.target.files);
+            });
+            
+            function handleFiles(files) {
+                previewArea.innerHTML = '';
+                previewArea.style.display = 'block';
+                
+                Array.from(files).forEach((file, index) => {
+                    if (file.type.startsWith('image/')) {
+                        const reader = new FileReader();
+                        reader.onload = (e) => {
+                            const previewItem = document.createElement('div');
+                            previewItem.className = 'preview-item';
+                            previewItem.innerHTML = `
+                                <img src="${e.target.result}" alt="Preview ${index + 1}">
+                                <button type="button" class="preview-remove" onclick="this.parentElement.remove()">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            `;
+                            previewArea.appendChild(previewItem);
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                });
+            }
+        }
+        
+        async function loadStats() {
+            try {
+                const response = await fetch('../data/products.json');
+                const data = await response.json();
+                
+                let totalProducts = 0;
+                let totalSmartphones = data.smartphones?.length || 0;
+                let totalWatches = data.watches?.length || 0;
+                let totalFashion = data.fashion?.length || 0;
+                let totalHome = data.home?.length || 0;
+                let totalMobility = data.mobility?.length || 0;
+                let totalServices = data.services?.length || 0;
+                
+                totalProducts = totalSmartphones + totalWatches + totalFashion + totalHome + totalMobility + totalServices;
+                
+                // Calculate average price and new products
+                let allProducts = [
+                    ...(data.smartphones || []),
+                    ...(data.watches || []),
+                    ...(data.fashion || []),
+                    ...(data.home || []),
+                    ...(data.mobility || []),
+                    ...(data.services || [])
+                ];
+                
+                const avgPrice = allProducts.length > 0 
+                    ? Math.round(allProducts.reduce((sum, p) => sum + (p.price || 0), 0) / allProducts.length)
+                    : 0;
+                
+                const newProducts = allProducts.filter(p => p.isNew).length;
+                
+                // Update stats display
+                document.getElementById('total-products').textContent = totalProducts;
+                document.getElementById('total-smartphones').textContent = totalSmartphones;
+                document.getElementById('total-watches').textContent = totalWatches;
+                document.getElementById('total-fashion').textContent = totalFashion;
+                document.getElementById('avg-price').textContent = avgPrice + '€';
+                document.getElementById('new-products').textContent = newProducts;
+                
+            } catch (error) {
+                console.error('Error loading stats:', error);
+                showAlert('Impossible de charger les statistiques', 'error');
+            }
+        }
+        
+        function generateProductId() {
+            return 'product-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9);
+        }
+        
+        function generateSlug(title) {
+            return title.toLowerCase()
+                .replace(/[^a-z0-9]/g, '-')
+                .replace(/-+/g, '-')
+                .replace(/^-|-$/g, '');
+        }
+        
+        function showAlert(message, type) {
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-${type}`;
+            alertDiv.innerHTML = `
+                <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-triangle' : 'info-circle'}"></i>
+                ${message}
+            `;
+            
+            const container = document.querySelector('.admin-container');
+            container.insertBefore(alertDiv, container.firstElementChild.nextElementSibling);
+            
+            setTimeout(() => {
+                alertDiv.remove();
+            }, 5000);
+        }
+        
+        // Copy and save functionality
+        document.addEventListener('click', (e) => {
+            if (e.target.closest('#copy-results') || e.target.closest('#copy-manual')) {
+                const outputDiv = e.target.closest('#copy-results') 
+                    ? document.getElementById('import-output')
+                    : document.getElementById('manual-output');
+                
+                navigator.clipboard.writeText(outputDiv.textContent)
+                    .then(() => showAlert('JSON copié dans le presse-papiers', 'success'))
+                    .catch(() => showAlert('Erreur lors de la copie', 'error'));
+            }
+            
+            if (e.target.closest('#reset-form')) {
+                document.getElementById('product-form').reset();
+                document.getElementById('image-preview').style.display = 'none';
+                document.getElementById('manual-output').style.display = 'none';
+            }
+            
+            if (e.target.closest('#refresh-stats')) {
+                loadStats();
+            }
+            
+            if (e.target.closest('#export-data')) {
+                exportData();
+            }
+        });
+        
+        async function exportData() {
+            try {
+                const response = await fetch('../data/products.json');
+                const data = await response.json();
+                
+                const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'luxio-products-export.json';
+                a.click();
+                URL.revokeObjectURL(url);
+                
+                showAlert('Données exportées avec succès', 'success');
+            } catch (error) {
+                showAlert('Erreur lors de l\'export', 'error');
+            }
+        }
+    </script>
+</body>
+
+</html>
