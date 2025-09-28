@@ -260,7 +260,15 @@
     <script>
         // Cart-specific initialization
         document.addEventListener('DOMContentLoaded', function() {
-            const cartManager = new CartPageManager();
+            // Wait for the main app to be initialized
+            if (typeof app !== 'undefined' && app.cart) {
+                const cartManager = new CartPageManager();
+            } else {
+                // Create a cart manager with direct cart access
+                const cart = new LuxioCart();
+                window.globalCart = cart;
+                const cartManager = new CartPageManager();
+            }
         });
         
         class CartPageManager {
@@ -277,12 +285,13 @@
             }
             
             renderCartItems() {
-                if (!app || !app.cart || app.cart.items.length === 0) {
+                const cart = window.globalCart || (app && app.cart);
+                if (!cart || cart.items.length === 0) {
                     this.showEmptyCart();
                     return;
                 }
                 
-                const cartItems = app.cart.items;
+                const cartItems = cart.items;
                 const cartItemsHtml = cartItems.map(item => this.createCartItemHtml(item)).join('');
                 this.cartContainer.innerHTML = cartItemsHtml;
                 
@@ -293,9 +302,9 @@
                 return `
                     <div class="cart-item" data-product-id="${item.id}">
                         <div class="item-product">
-                            <img src="${item.image}" alt="${item.name}" class="item-image">
+                            <img src="${item.image}" alt="${item.title}" class="item-image">
                             <div class="item-info">
-                                <h4 class="item-name">${item.name}</h4>
+                                <h4 class="item-name">${item.title}</h4>
                                 <div class="item-brand">${item.brand}</div>
                                 <div class="item-features">
                                     <span class="feature">256GB</span>
@@ -379,13 +388,16 @@
             handleQuantityChange(e) {
                 const productId = e.target.dataset.productId;
                 const isPlus = e.target.classList.contains('plus');
-                const input = document.querySelector(\`.qty-input[data-product-id="\${productId}"]\`);
+                const input = document.querySelector(`.qty-input[data-product-id="${productId}"]`);
                 const currentQty = parseInt(input.value);
                 const newQty = isPlus ? currentQty + 1 : Math.max(1, currentQty - 1);
                 
                 input.value = newQty;
-                app.cart.updateQuantity(productId, newQty);
-                this.updateCartDisplay();
+                const cart = window.globalCart || (app && app.cart);
+                if (cart) {
+                    cart.updateQuantity(productId, newQty);
+                    this.updateCartDisplay();
+                }
             }
             
             handleQuantityInput(e) {
@@ -393,18 +405,24 @@
                 const newQty = Math.max(1, parseInt(e.target.value) || 1);
                 e.target.value = newQty;
                 
-                app.cart.updateQuantity(productId, newQty);
-                this.updateCartDisplay();
+                const cart = window.globalCart || (app && app.cart);
+                if (cart) {
+                    cart.updateQuantity(productId, newQty);
+                    this.updateCartDisplay();
+                }
             }
             
             handleRemoveItem(e) {
                 const productId = e.target.dataset.productId;
                 if (confirm('Êtes-vous sûr de vouloir supprimer cet article ?')) {
-                    app.cart.removeItem(productId);
-                    this.renderCartItems();
-                    this.updateCartSummary();
+                    const cart = window.globalCart || (app && app.cart);
+                    if (cart) {
+                        cart.removeItem(productId);
+                        this.renderCartItems();
+                        this.updateCartSummary();
+                    }
                     
-                    if (app.ui) {
+                    if (app && app.ui) {
                         app.ui.showNotification('Article supprimé du panier', 'info');
                     }
                 }
@@ -426,7 +444,8 @@
             }
             
             handleCheckout() {
-                if (app && app.cart && app.cart.items.length > 0) {
+                const cart = window.globalCart || (app && app.cart);
+                if (cart && cart.items.length > 0) {
                     if (app.ui) {
                         app.ui.showNotification('Redirection vers le paiement...', 'info');
                     }
@@ -456,12 +475,15 @@
             
             updateCartDisplay() {
                 // Update individual item totals
+                const cart = window.globalCart || (app && app.cart);
+                if (!cart) return;
+                
                 document.querySelectorAll('.cart-item').forEach(item => {
                     const productId = item.dataset.productId;
-                    const cartItem = app.cart.items.find(i => i.id === productId);
+                    const cartItem = cart.items.find(i => i.id === productId);
                     if (cartItem) {
                         const totalPrice = item.querySelector('.total-price');
-                        totalPrice.textContent = \`\${(cartItem.price * cartItem.quantity).toFixed(2)}€\`;
+                        totalPrice.textContent = `${(cartItem.price * cartItem.quantity).toFixed(2)}€`;
                     }
                 });
                 
@@ -469,22 +491,23 @@
             }
             
             updateCartSummary() {
-                if (!app || !app.cart) return;
+                const cart = window.globalCart || (app && app.cart);
+                if (!cart) return;
                 
-                const subtotal = app.cart.getTotal();
+                const subtotal = cart.getTotal();
                 const tax = subtotal * 0.2;
                 const total = subtotal;
                 
-                document.getElementById('cart-subtotal').textContent = \`\${subtotal.toFixed(2)} €\`;
-                document.getElementById('cart-tax').textContent = \`\${tax.toFixed(2)} €\`;
-                document.getElementById('cart-final-total').textContent = \`\${total.toFixed(2)} €\`;
+                document.getElementById('cart-subtotal').textContent = `${subtotal.toFixed(2)} €`;
+                document.getElementById('cart-tax').textContent = `${tax.toFixed(2)} €`;
+                document.getElementById('cart-final-total').textContent = `${total.toFixed(2)} €`;
                 
                 const checkoutBtn = document.getElementById('checkout-btn');
                 if (checkoutBtn) {
-                    checkoutBtn.disabled = app.cart.items.length === 0;
-                    checkoutBtn.textContent = app.cart.items.length === 0 ? 
+                    checkoutBtn.disabled = cart.items.length === 0;
+                    checkoutBtn.textContent = cart.items.length === 0 ? 
                         'Panier Vide' : 
-                        \`Finaliser (\${total.toFixed(2)} €)\`;
+                        `Finaliser (${total.toFixed(2)} €)`;
                 }
             }
             
