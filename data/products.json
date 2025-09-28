@@ -1,0 +1,339 @@
+{
+  "smartphones": [
+    {
+      "id": "iphone-17-pro-max-512gb",
+      "slug": "iphone-17-pro-max-512gb-titanium-blue",
+      "title": "iPhone 17 Pro Max 512 GB Titanium Blue",
+      "brand": "Apple",
+      "model": "iPhone 17 Pro Max",
+      "category": "smartphones",
+      "subcategory": "premium",
+      "storage": "512 GB",
+      "color": "Titanium Blue",
+      "price": 1599.00,
+      "originalPrice": 1799.00,
+      "currency": "EUR",
+      "discount": 11,
+      "isNew": true,
+      "isFeatured": true,
+      "inStock": true,
+      "stock": 15,
+      "rating": 4.9,
+      "reviewCount": 127,
+      "shortDescription": "Le smartphone le plus avancé d'Apple avec puce A18 Pro, caméra ultra-performante et design en titane.",
+      "description": "Découvrez l'iPhone 17 Pro Max, l'aboutissement de l'innovation Apple. Avec sa puce A18 Pro révolutionnaire, son système de caméras pro à triple objectif et son écran Super Retina XDR ProMotion de 6,7 pouces, l'iPhone 17 Pro Max redéfinit l'excellence mobile. Le design en titane ultraléger offre une résistance exceptionnelle, tandis que la batterie longue durée vous accompagne toute la journée.",
+      "features": [
+        "Puce A18 Pro avec Neural Engine 16 cœurs",
+        "Écran Super Retina XDR ProMotion 6,7\"",
+        "Triple système de caméras Pro (48 + 12 + 12 Mpx)",
+        "Vidéo Cinematic ProRes 4K à 60 ips",
+        "Design en titane avec Ceramic Shield",
+        "5G ultra-rapide",
+        "Face ID avancé",
+        "iOS 18 avec Intelligence Apple"
+      ],
+      "specifications": {
+        "screen": "6,7\" Super Retina XDR ProMotion",
+        "processor": "Puce A18 Pro",
+        "camera": "Triple 48/12/12 Mpx + TrueDepth 12 Mpx",
+        "battery": "Jusqu'à 25h de lecture vidéo",
+        "connectivity": "5G, Wi-Fi 7, Bluetooth 5.3",
+        "resistance": "IP68 (6m jusqu'à 30 min)",
+        "dimensions": "160.8 × 78.1 × 8.25 mm",
+        "weight": "221 g"
+      },
+      "images": [
+        "/assets/products/iphone-17-pro-max-blue-1.jpg",
+        "/assets/products/iphone-17-pro-max-blue-2.jpg",
+        "/assets/products/iphone-17-pro-max-blue-3.jpg",
+        "/assets/products/iphone-17-pro-max-blue-4.jpg"
+      ],
+      "thumbnail": "/assets/products/iphone-17-pro-max-blue-thumb.jpg",
+      "variants": [
+        {
+          "id": "iphone-17-pro-max-256gb",
+          "storage": "256 GB",
+          "price": 1399.00,
+          "originalPrice": 1549.00
+        },
+        {
+          "id": "iphone-17-pro-max-1tb",
+          "storage": "1 TB", 
+          "price": 1799.00,
+          "originalPrice": 1999.00
+        }
+      ],
+      "colors": [
+        {
+          "name": "Titanium Blue",
+          "code": "#4a90e2",
+          "active": true
+        },
+        {
+          "name": "Titanium Natural",
+          "code": "#f5f5dc"
+        },
+        {
+          "name": "Titanium Black",
+          "code": "#2c2c2c"
+        },
+        {
+          "name": "Titanium White",
+          "code": "#ffffff"
+        }
+      ],
+      "tags": ["nouveau", "premium", "apple", "5g", "ai"],
+      "seo": {
+        "metaTitle": "iPhone 17 Pro Max 512GB Titanium Blue - LUXIO",
+        "metaDescription": "Découvrez l'iPhone 17 Pro Max avec puce A18 Pro, triple caméra 48Mpx et design titane. Livraison gratuite et garantie 2 ans.",
+        "keywords": ["iphone 17", "apple", "smartphone", "titanium", "pro max"]
+      },
+      "createdAt": "2025-09-28T00:00:00Z",
+      "updatedAt": "2025-09-28T00:00:00Z"
+    },
+    {
+      "id": "samsung-galaxy-s25-ultra",
+      "slug": "samsung-galaxy-s25-ultra-256gb-phantom-black",
+      "title": "Samsung Galaxy S25 Ultra 256 GB Phantom Black",
+      "brand": "Samsung",
+      "model": "Galaxy S25 Ultra",
+      "category": "smartphones",
+      "subcategory": "premium",
+      "storage": "256 GB",
+      "color": "Phantom Black",
+      "price": 1299.00,
+      "originalPrice": 1399.00,
+      "currency": "EUR",
+      "discount": 7,
+      "isNew": true,
+      "isFeatured": true,
+      "inStock": true,
+      "stock": 8,
+      "rating": 4.8,
+      "reviewCount": 89,
+      "shortDescription": "Le Galaxy S25 Ultra avec S Pen intégré, écran Dynamic AMOLED 2X et système de caméras IA.",
+      "description": "Le Samsung Galaxy S25 Ultra redéfinit la productivité mobile avec son S Pen intégré, son écran Dynamic AMOLED 2X de 6,8 pouces et son système de caméras alimenté par l'IA. Profitez d'une expérience multimédia exceptionnelle et d'une autonomie qui vous accompagne toute la journée.",
+      "features": [
+        "Écran Dynamic AMOLED 2X 6,8\" QHD+",
+        "S Pen intégré avec latence ultra-faible",
+        "Système de caméras IA 200 + 50 + 12 + 12 Mpx",
+        "Processeur Snapdragon 8 Gen 4",
+        "Batterie 5000 mAh avec charge ultra-rapide",
+        "One UI 7 basé sur Android 15",
+        "Résistance IP68",
+        "Samsung Knox pour la sécurité"
+      ],
+      "specifications": {
+        "screen": "6,8\" Dynamic AMOLED 2X QHD+",
+        "processor": "Snapdragon 8 Gen 4",
+        "camera": "Quad 200/50/12/12 Mpx + Selfie 40 Mpx",
+        "battery": "5000 mAh avec charge 45W",
+        "connectivity": "5G, Wi-Fi 7, Bluetooth 5.3",
+        "resistance": "IP68",
+        "dimensions": "162.3 × 79.0 × 8.6 mm",
+        "weight": "233 g"
+      },
+      "images": [
+        "/assets/products/galaxy-s25-ultra-black-1.jpg",
+        "/assets/products/galaxy-s25-ultra-black-2.jpg",
+        "/assets/products/galaxy-s25-ultra-black-3.jpg"
+      ],
+      "thumbnail": "/assets/products/galaxy-s25-ultra-black-thumb.jpg",
+      "variants": [
+        {
+          "id": "samsung-galaxy-s25-ultra-512gb",
+          "storage": "512 GB",
+          "price": 1499.00,
+          "originalPrice": 1599.00
+        },
+        {
+          "id": "samsung-galaxy-s25-ultra-1tb",
+          "storage": "1 TB",
+          "price": 1699.00,
+          "originalPrice": 1799.00
+        }
+      ],
+      "colors": [
+        {
+          "name": "Phantom Black",
+          "code": "#2c2c2c",
+          "active": true
+        },
+        {
+          "name": "Phantom Silver",
+          "code": "#c0c0c0"
+        },
+        {
+          "name": "Phantom Violet",
+          "code": "#8a2be2"
+        }
+      ],
+      "tags": ["nouveau", "premium", "samsung", "s-pen", "ai"],
+      "seo": {
+        "metaTitle": "Samsung Galaxy S25 Ultra 256GB - LUXIO",
+        "metaDescription": "Galaxy S25 Ultra avec S Pen, écran QHD+ et caméras IA. Livraison rapide et garantie constructeur.",
+        "keywords": ["galaxy s25", "samsung", "s pen", "ultra", "smartphone"]
+      },
+      "createdAt": "2025-09-28T00:00:00Z",
+      "updatedAt": "2025-09-28T00:00:00Z"
+    },
+    {
+      "id": "google-pixel-9-pro",
+      "slug": "google-pixel-9-pro-128gb-obsidian",
+      "title": "Google Pixel 9 Pro 128 GB Obsidian",
+      "brand": "Google",
+      "model": "Pixel 9 Pro",
+      "category": "smartphones",
+      "subcategory": "premium",
+      "storage": "128 GB",
+      "color": "Obsidian",
+      "price": 899.00,
+      "originalPrice": 999.00,
+      "currency": "EUR",
+      "discount": 10,
+      "isNew": false,
+      "isFeatured": true,
+      "inStock": true,
+      "stock": 12,
+      "rating": 4.7,
+      "reviewCount": 156,
+      "shortDescription": "L'intelligence artificielle Google au service de la photographie et de l'expérience Android pure.",
+      "description": "Le Google Pixel 9 Pro combine l'IA avancée de Google avec un design premium pour offrir une expérience Android pure et fluide. Ses capacités photographiques alimentées par l'IA redéfinissent la créativité mobile.",
+      "features": [
+        "Puce Google Tensor G4",
+        "Écran LTPO OLED 6,3\" 120Hz",
+        "Triple système de caméras avec IA",
+        "Magic Eraser et Real Tone",
+        "Android 15 avec 7 ans de mises à jour",
+        "Batterie adaptative",
+        "Titan M security chip",
+        "5G ultra-rapide"
+      ],
+      "specifications": {
+        "screen": "6,3\" LTPO OLED 120Hz",
+        "processor": "Google Tensor G4",
+        "camera": "Triple 50/48/48 Mpx + Selfie 42 Mpx",
+        "battery": "4700 mAh avec charge 30W",
+        "connectivity": "5G, Wi-Fi 7, Bluetooth 5.3",
+        "resistance": "IP68",
+        "dimensions": "162.8 × 76.6 × 8.5 mm",
+        "weight": "210 g"
+      },
+      "images": [
+        "/assets/products/pixel-9-pro-obsidian-1.jpg",
+        "/assets/products/pixel-9-pro-obsidian-2.jpg",
+        "/assets/products/pixel-9-pro-obsidian-3.jpg"
+      ],
+      "thumbnail": "/assets/products/pixel-9-pro-obsidian-thumb.jpg",
+      "variants": [
+        {
+          "id": "google-pixel-9-pro-256gb",
+          "storage": "256 GB",
+          "price": 999.00,
+          "originalPrice": 1099.00
+        }
+      ],
+      "colors": [
+        {
+          "name": "Obsidian",
+          "code": "#3c4043",
+          "active": true
+        },
+        {
+          "name": "Porcelain",
+          "code": "#f8f9fa"
+        },
+        {
+          "name": "Hazel",
+          "code": "#79747e"
+        }
+      ],
+      "tags": ["google", "ai", "photo", "android", "pure"],
+      "seo": {
+        "metaTitle": "Google Pixel 9 Pro 128GB Obsidian - LUXIO",
+        "metaDescription": "Pixel 9 Pro avec IA Google, caméras exceptionnelles et Android pur. Expérience photographique révolutionnaire.",
+        "keywords": ["pixel 9", "google", "ai", "photo", "android"]
+      },
+      "createdAt": "2025-09-28T00:00:00Z",
+      "updatedAt": "2025-09-28T00:00:00Z"
+    }
+  ],
+  "watches": [
+    {
+      "id": "apple-watch-ultra-3",
+      "slug": "apple-watch-ultra-3-49mm-titanium",
+      "title": "Apple Watch Ultra 3 49mm Titanium",
+      "brand": "Apple",
+      "model": "Watch Ultra 3",
+      "category": "watches",
+      "subcategory": "sport",
+      "size": "49mm",
+      "material": "Titanium",
+      "price": 899.00,
+      "originalPrice": 949.00,
+      "currency": "EUR",
+      "discount": 5,
+      "isNew": true,
+      "isFeatured": true,
+      "inStock": true,
+      "stock": 6,
+      "rating": 4.8,
+      "reviewCount": 73,
+      "shortDescription": "La montre connectée la plus robuste d'Apple, conçue pour les aventuriers et les athlètes.",
+      "description": "L'Apple Watch Ultra 3 est conçue pour repousser vos limites. Avec son boîtier en titane de qualité aérospatiale, son écran Always-On le plus lumineux et ses fonctionnalités avancées pour le sport et l'aventure, elle vous accompagne dans toutes vos activités extrêmes.",
+      "features": [
+        "Boîtier en titane 49mm ultra-résistant",
+        "Écran Always-On Retina le plus lumineux",
+        "GPS de précision double fréquence",
+        "Résistance à l'eau jusqu'à 100m",
+        "Bouton Action personnalisable",
+        "Autonomie jusqu'à 36 heures",
+        "Capteurs avancés pour le sport",
+        "watchOS 11 avec nouvelles métriques"
+      ],
+      "specifications": {
+        "display": "Always-On Retina 49mm",
+        "material": "Titane qualité aérospatiale",
+        "resistance": "100m + WR100",
+        "gps": "GPS double fréquence L1 et L5",
+        "battery": "Jusqu'à 36h d'autonomie",
+        "connectivity": "Wi-Fi 6, Bluetooth 5.3, NFC",
+        "sensors": "ECG, SpO2, température, altimètre",
+        "compatibility": "iPhone Xs ou ultérieur"
+      },
+      "images": [
+        "/assets/products/apple-watch-ultra-3-1.jpg",
+        "/assets/products/apple-watch-ultra-3-2.jpg",
+        "/assets/products/apple-watch-ultra-3-3.jpg"
+      ],
+      "thumbnail": "/assets/products/apple-watch-ultra-3-thumb.jpg",
+      "variants": [
+        {
+          "id": "apple-watch-ultra-3-gps-cellular",
+          "connectivity": "GPS + Cellular",
+          "price": 999.00,
+          "originalPrice": 1049.00
+        }
+      ],
+      "colors": [
+        {
+          "name": "Titanium Natural",
+          "code": "#f5f5dc",
+          "active": true
+        }
+      ],
+      "tags": ["nouveau", "sport", "titanium", "gps", "aventure"],
+      "seo": {
+        "metaTitle": "Apple Watch Ultra 3 49mm Titanium - LUXIO",
+        "metaDescription": "Apple Watch Ultra 3 en titane, la montre connectée la plus robuste pour sport et aventure. GPS double fréquence.",
+        "keywords": ["apple watch", "ultra", "titanium", "sport", "gps"]
+      },
+      "createdAt": "2025-09-28T00:00:00Z",
+      "updatedAt": "2025-09-28T00:00:00Z"
+    }
+  ],
+  "fashion": [],
+  "home": [],
+  "mobility": [],
+  "services": []
+}
