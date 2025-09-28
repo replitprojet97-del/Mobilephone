@@ -34,6 +34,18 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+// Import and use the scraper API for local testing
+app.get('/api/scraper', async (req, res) => {
+    try {
+        // Import the scraper function dynamically
+        const { default: scraperHandler } = await import('./api/scraper.js');
+        await scraperHandler(req, res);
+    } catch (error) {
+        console.error('Erreur scraper:', error);
+        res.status(500).json({ error: 'Erreur lors du scraping', details: error.message });
+    }
+});
+
 // Health check endpoint
 app.get('/health', (req, res) => {
     res.json({ status: 'OK', timestamp: new Date().toISOString() });
