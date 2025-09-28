@@ -15,18 +15,12 @@ const __dirname = dirname(__filename);
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Middleware - CORS restricted for production
-const corsOptions = {
-    origin: process.env.NODE_ENV === 'production' 
-        ? [process.env.FRONTEND_URL || 'https://your-domain.com']
-        : true,
-    credentials: true
-};
-app.use(cors(corsOptions));
+// Middleware
+app.use(cors());
 app.use(express.json({ limit: '1mb' }));
 
-// Serve static files from public directory only
-app.use(express.static('public', {
+// Serve static files (CSS, JS, images, etc.)
+app.use(express.static('./', {
     setHeaders: (res, path) => {
         // Disable caching for development
         res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
@@ -37,22 +31,20 @@ app.use(express.static('public', {
 
 // Serve index.html for root path
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// Scraper API - only available in development
-if (process.env.NODE_ENV !== 'production') {
-    app.get('/api/scraper', async (req, res) => {
-        try {
-            // Import the scraper function dynamically
-            const { default: scraperHandler } = await import('./api/scraper.js');
-            await scraperHandler(req, res);
-        } catch (error) {
-            console.error('Erreur scraper:', error);
-            res.status(500).json({ error: 'Erreur lors du scraping', details: error.message });
-        }
-    });
-}
+// Import and use the scraper API for local testing
+app.get('/api/scraper', async (req, res) => {
+    try {
+        // Import the scraper function dynamically
+        const { default: scraperHandler } = await import('./api/scraper.js');
+        await scraperHandler(req, res);
+    } catch (error) {
+        console.error('Erreur scraper:', error);
+        res.status(500).json({ error: 'Erreur lors du scraping', details: error.message });
+    }
+});
 
 // Health check endpoint
 app.get('/health', (req, res) => {
