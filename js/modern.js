@@ -733,36 +733,74 @@ class ProductManager {
     }
 
     bindProductEvents() {
-        // Add to cart buttons
+        // Remove existing listeners by cloning elements to avoid double binding
         document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+            if (btn.dataset.listenerAttached) return; // Skip if already attached
+            btn.dataset.listenerAttached = 'true';
+            
             btn.addEventListener('click', (e) => {
-                const productData = JSON.parse(e.target.closest('.product-card').dataset.product);
-                app.cart.addItem(productData);
+                e.preventDefault();
+                e.stopPropagation();
                 
-                // Visual feedback
-                btn.innerHTML = '<i class="fas fa-check"></i> Ajouté !';
-                btn.style.background = 'var(--success)';
+                if (btn.disabled) return;
                 
-                setTimeout(() => {
-                    btn.innerHTML = '<i class="fas fa-shopping-cart"></i> Ajouter au panier';
-                    btn.style.background = '';
-                }, 2000);
+                try {
+                    const productCard = e.target.closest('.product-card');
+                    const productData = JSON.parse(productCard.dataset.product);
+                    
+                    // Normalize product data for cart
+                    const cartProduct = {
+                        id: productData.id || productData.title || productData.nom,
+                        title: productData.title || productData.nom,
+                        brand: productData.brand || productData.marque,
+                        price: productData.price || productData.prix,
+                        image: productData.thumbnail || productData.image
+                    };
+                    
+                    // Add to cart through global app instance
+                    if (window.app && window.app.cart) {
+                        window.app.cart.addItem(cartProduct);
+                    }
+                    
+                    // Visual feedback
+                    const originalHTML = btn.innerHTML;
+                    btn.innerHTML = '<i class="fas fa-check"></i> Ajouté !';
+                    btn.style.background = '#28a745';
+                    btn.disabled = true;
+                    
+                    setTimeout(() => {
+                        btn.innerHTML = originalHTML;
+                        btn.style.background = '';
+                        btn.disabled = false;
+                    }, 2000);
+                } catch (error) {
+                    console.error('❌ Error adding to cart:', error);
+                }
             });
         });
 
         // Wishlist buttons
         document.querySelectorAll('.wishlist-btn').forEach(btn => {
+            if (btn.dataset.listenerAttached) return; // Skip if already attached
+            btn.dataset.listenerAttached = 'true';
+            
             btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                
                 btn.classList.toggle('active');
                 const icon = btn.querySelector('i');
                 icon.classList.toggle('fas');
                 icon.classList.toggle('far');
                 
-                app.ui.showNotification(
-                    btn.classList.contains('active') ? 
-                    'Ajouté aux favoris' : 'Retiré des favoris',
-                    'info'
-                );
+                // Show notification if UI manager exists
+                if (window.app && window.app.ui) {
+                    window.app.ui.showNotification(
+                        btn.classList.contains('active') ? 
+                        'Ajouté aux favoris' : 'Retiré des favoris',
+                        'info'
+                    );
+                }
             });
         });
     }
@@ -1049,6 +1087,10 @@ class LanguageManager {
 let app;
 document.addEventListener('DOMContentLoaded', () => {
     app = new LuxioApp();
+    
+    // Make app globally accessible for cart interactions
+    window.app = app;
+    
     new LanguageManager();
 });
 
