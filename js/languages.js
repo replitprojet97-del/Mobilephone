@@ -177,7 +177,8 @@ const translations = {
         'instant_secure_payment': '✅ Paiement instantané et sécurisé',
         'transaction_reference_code': 'Code de référence transaction :',
         'realtime_exchange_rates': '✅ Taux de change en temps réel',
-        'automatic_confirmation': '✅ Confirmation automatique'
+        'automatic_confirmation': '✅ Confirmation automatique',
+        'pay_with_crypto': 'Payer avec Crypto'
     },
     en: {
         // Navigation and interface
@@ -356,7 +357,8 @@ const translations = {
         'instant_secure_payment': '✅ Instant and secure payment',
         'transaction_reference_code': 'Transaction reference code:',
         'realtime_exchange_rates': '✅ Real-time exchange rates',
-        'automatic_confirmation': '✅ Automatic confirmation'
+        'automatic_confirmation': '✅ Automatic confirmation',
+        'pay_with_crypto': 'Pay with Crypto'
     },
     pl: {
         // Nawigacja i interfejs
@@ -535,7 +537,8 @@ const translations = {
         'instant_secure_payment': '✅ Natychmiastowa i bezpieczna płatność',
         'transaction_reference_code': 'Kod referencyjny transakcji:',
         'realtime_exchange_rates': '✅ Kursy wymiany w czasie rzeczywistym',
-        'automatic_confirmation': '✅ Automatyczne potwierdzenie'
+        'automatic_confirmation': '✅ Automatyczne potwierdzenie',
+        'pay_with_crypto': 'Zapłać Krypto'
     },
     pt: {
         // Navegação e interface
@@ -714,7 +717,8 @@ const translations = {
         'instant_secure_payment': '✅ Pagamento instantâneo e seguro',
         'transaction_reference_code': 'Código de referência da transação:',
         'realtime_exchange_rates': '✅ Taxas de câmbio em tempo real',
-        'automatic_confirmation': '✅ Confirmação automática'
+        'automatic_confirmation': '✅ Confirmação automática',
+        'pay_with_crypto': 'Pagar com Cripto'
     },
     es: {
         // Navegación e interfaz
@@ -893,7 +897,8 @@ const translations = {
         'instant_secure_payment': '✅ Pago instantáneo y seguro',
         'transaction_reference_code': 'Código de referencia de transacción:',
         'realtime_exchange_rates': '✅ Tipos de cambio en tiempo real',
-        'automatic_confirmation': '✅ Confirmación automática'
+        'automatic_confirmation': '✅ Confirmación automática',
+        'pay_with_crypto': 'Pagar con Crypto'
     }
 };
 
