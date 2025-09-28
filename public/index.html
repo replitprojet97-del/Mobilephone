@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>LUXIO - Innovation Premium</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="LUXIO - Boutique premium de technologie moderne" name="description">
+
+    <!-- Modern Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Modern Styles -->
+    <link href="css/modern.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="luxio-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1>LUXIO</h1>
+                <span class="tagline">Innovation</span>
+            </div>
+            
+            <div class="nav-search">
+                <input type="text" placeholder="Recherche avancée..." class="search-input" data-translate="search_placeholder">
+                <select class="search-category">
+                    <option data-translate="all_category">Tous Produits</option>
+                    <option data-translate="smartphones">Smartphones</option>
+                    <option data-translate="watches">Montres</option>
+                    <option data-translate="fashion">Mode</option>
+                </select>
+                <button class="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+            
+            <div class="nav-actions">
+                <div class="language-selector">
+                    <span class="current-language">🇫🇷 FR</span>
+                    <div class="language-dropdown">
+                        <a href="#" data-lang="fr">🇫🇷 Français</a>
+                        <a href="#" data-lang="en">🇬🇧 English</a>
+                        <a href="#" data-lang="es">🇪🇸 Español</a>
+                        <a href="#" data-lang="pt">🇵🇹 Português</a>
+                        <a href="#" data-lang="pl">🇵🇱 Polski</a>
+                    </div>
+                </div>
+                <a href="#" class="action-btn"><i class="fas fa-user"></i></a>
+                <a href="#" class="action-btn heart-icon-link">
+                    <i class="fas fa-heart"></i>
+                    <span class="wishlist-count">0</span>
+                </a>
+                <div class="cart-container">
+                    <a href="cart.html" class="action-btn cart-btn">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                    <span class="cart-total">0,00 €</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Categories Menu -->
+        <div class="categories-bar">
+            <div class="categories-container">
+                <a href="index.html" class="category-item active" data-translate="home">Accueil</a>
+                <a href="smartphones.html" class="category-item" data-translate="smartphones">Smartphones</a>
+                <a href="montres.html" class="category-item" data-translate="watches">Montres</a>
+                <a href="accessoires.html" class="category-item" data-translate="accessories">Accessoires</a>
+            </div>
+        </div>
+        
+        <!-- Promotions Banner -->
+        <div class="promo-banner">
+            <div class="promo-content">
+                <span class="promo-icon">🚀</span>
+                <span class="promo-text" data-translate="free_delivery">Livraison Gratuite</span>
+                <span class="promo-separator">•</span>
+                <span class="promo-icon">⭐</span>
+                <span class="promo-text" data-translate="premium_warranty">Garantie Premium</span>
+                <span class="promo-separator">•</span>
+                <span class="promo-icon">💎</span>
+                <span class="promo-text" data-translate="up_to_discount">Jusqu'à -40%</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h2 class="hero-title" data-translate="discover_excellence">Découvrez l'Excellence</h2>
+                    <h1 class="hero-main" data-translate="premium_collection_2025">COLLECTION PREMIUM 2025</h1>
+                    <p class="hero-description" data-translate="hero_description">
+                        Technologie de pointe, design raffiné, expérience exceptionnelle. 
+                        Découvrez notre sélection exclusive de produits haut de gamme.
+                    </p>
+                    <div class="hero-actions">
+                        <button class="btn-primary" data-translate="discover">Découvrir</button>
+                        <button class="btn-secondary" data-translate="view_collections">Voir Collections</button>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">50K+</span>
+                            <span class="stat-label" data-translate="satisfied_customers">Clients Satisfaits</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">98%</span>
+                            <span class="stat-label" data-translate="positive_reviews">Avis Positifs</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">24h</span>
+                            <span class="stat-label" data-translate="express_delivery">Livraison Express</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="product-showcase">
+                        <div class="featured-product">
+                            <div class="product-badge">-35%</div>
+                            <img src="img/product-1.png" alt="Smartphone Premium" class="product-image">
+                            <div class="product-info">
+                                <h3 data-translate="product_iphone_15">iPhone 15 Pro Max</h3>
+                                <div class="product-price">
+                                    <span class="price-old">1,299€</span>
+                                    <span class="price-new">849€</span>
+                                </div>
+                                <button class="add-to-cart" data-translate="add_to_cart">Ajouter</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="floating-elements">
+                        <div class="float-card card-1">
+                            <i class="fas fa-shipping-fast"></i>
+                            <span data-translate="delivery_24h">Livraison 24h</span>
+                        </div>
+                        <div class="float-card card-2">
+                            <i class="fas fa-shield-alt"></i>
+                            <span data-translate="warranty_2_years">Garantie 2 ans</span>
+                        </div>
+                        <div class="float-card card-3">
+                            <i class="fas fa-star"></i>
+                            <span data-translate="rating_4_9">Note 4.9/5</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products Grid -->
+    <section class="featured-products">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title" data-translate="popular_products">Produits Populaires</h2>
+                <div class="section-filters">
+                    <button class="filter-btn active" data-translate="all">Tous</button>
+                    <button class="filter-btn">Smartphones</button>
+                    <button class="filter-btn" data-translate="accessories">Accessoires</button>
+                    <button class="filter-btn" data-translate="new_arrivals">Nouveautés</button>
+                </div>
+            </div>
+            
+            <div class="products-grid" id="products-container">
+                <!-- Products will be loaded here by JavaScript -->
+                <div class="product-skeleton">
+                    <div class="skeleton-image"></div>
+                    <div class="skeleton-content">
+                        <div class="skeleton-line"></div>
+                        <div class="skeleton-line short"></div>
+                        <div class="skeleton-price"></div>
+                    </div>
+                </div>
+                <div class="product-skeleton">
+                    <div class="skeleton-image"></div>
+                    <div class="skeleton-content">
+                        <div class="skeleton-line"></div>
+                        <div class="skeleton-line short"></div>
+                        <div class="skeleton-price"></div>
+                    </div>
+                </div>
+                <div class="product-skeleton">
+                    <div class="skeleton-image"></div>
+                    <div class="skeleton-content">
+                        <div class="skeleton-line"></div>
+                        <div class="skeleton-line short"></div>
+                        <div class="skeleton-price"></div>
+                    </div>
+                </div>
+                <div class="product-skeleton">
+                    <div class="skeleton-image"></div>
+                    <div class="skeleton-content">
+                        <div class="skeleton-line"></div>
+                        <div class="skeleton-line short"></div>
+                        <div class="skeleton-price"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section-footer">
+                <button class="btn-load-more" data-translate="load_more">Voir Plus de Produits</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories-section">
+        <div class="section-container">
+            <h2 class="section-title" data-translate="explore_by_category">Explorer par Catégorie</h2>
+            <div class="categories-grid">
+                <div class="category-card" style="cursor: pointer; transition: transform 0.2s ease;">
+                    <div class="category-icon">📱</div>
+                    <h3 data-translate="smartphones">Smartphones</h3>
+                    <p data-translate="latest_tech">Dernières technologies</p>
+                    <span class="category-count" data-translate="120_products">6+ produits</span>
+                </div>
+                <div class="category-card" style="cursor: pointer; transition: transform 0.2s ease;">
+                    <div class="category-icon">⌚</div>
+                    <h3 data-translate="watches">Montres</h3>
+                    <p data-translate="connected_classic">Connectées & classiques</p>
+                    <span class="category-count" data-translate="80_products">Bientôt disponible</span>
+                </div>
+                <div class="category-card" style="cursor: pointer; transition: transform 0.2s ease;">
+                    <div class="category-icon">🎧</div>
+                    <h3 data-translate="audio">Audio</h3>
+                    <p data-translate="premium_sound">Son premium</p>
+                    <span class="category-count" data-translate="150_products">1+ produit</span>
+                </div>
+                <div class="category-card" style="cursor: pointer; transition: transform 0.2s ease;">
+                    <div class="category-icon">💻</div>
+                    <h3 data-translate="tech">Tech</h3>
+                    <p data-translate="innovation_design">Innovation & design</p>
+                    <span class="category-count" data-translate="200_products">1+ produit</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="newsletter-container">
+            <div class="newsletter-content">
+                <h3 data-translate="stay_connected">Restez connecté avec LUXIO</h3>
+                <p data-translate="newsletter_description">Découvrez en avant-première nos nouveautés et offres exclusives</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Votre adresse email" data-translate="email_placeholder">
+                    <button type="submit" data-translate="subscribe">S'abonner</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="luxio-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>LUXIO</h3>
+                <p data-translate="footer_brand_description">Innovation et excellence depuis 2020</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <div class="links-group">
+                    <h4 data-translate="footer_products">Produits</h4>
+                    <a href="#" data-translate="smartphones">Smartphones</a>
+                    <a href="#" data-translate="watches">Montres</a>
+                    <a href="#" data-translate="audio">Audio</a>
+                    <a href="#" data-translate="accessories">Accessoires</a>
+                </div>
+                
+                <div class="links-group">
+                    <h4 data-translate="footer_support">Support</h4>
+                    <a href="#" data-translate="footer_help_center">Centre d'aide</a>
+                    <a href="#" data-translate="contact">Contact</a>
+                    <a href="#" data-translate="footer_warranty">Garantie</a>
+                    <a href="#" data-translate="footer_returns">Retours</a>
+                </div>
+                
+                <div class="links-group">
+                    <h4 data-translate="footer_company">Entreprise</h4>
+                    <a href="#" data-translate="footer_about">À propos</a>
+                    <a href="#" data-translate="footer_careers">Carrières</a>
+                    <a href="#" data-translate="footer_press">Presse</a>
+                    <a href="#" data-translate="footer_partners">Partenaires</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-container">
+                <div class="footer-legal">
+                    <span data-translate="footer_copyright">© 2025 LUXIO. Tous droits réservés.</span>
+                    <div class="legal-links">
+                        <a href="#" data-translate="footer_terms">Conditions</a>
+                        <a href="#" data-translate="footer_privacy">Confidentialité</a>
+                        <a href="#" data-translate="footer_cookies">Cookies</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/modern.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/languages.js"></script>
+    <script src="js/wishlist.js"></script>
+</body>
+
+</html>

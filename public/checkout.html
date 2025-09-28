@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>LUXIO - Paiement</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="LUXIO - Finaliser votre commande" name="description">
+
+    <!-- Modern Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Modern Styles -->
+    <link href="css/modern.css" rel="stylesheet">
+    
+    <!-- Checkout Styles -->
+    <style>
+        .checkout-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 3rem;
+        }
+        
+        @media (max-width: 1024px) {
+            .checkout-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+        
+        .checkout-main {
+            background: #1a1a1a;
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid #333;
+        }
+        
+        .checkout-sidebar {
+            background: #1a1a1a;
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid #333;
+            height: fit-content;
+        }
+        
+        .payment-method {
+            border: 2px solid #333;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .payment-method:hover, .payment-method.active {
+            border-color: #fcbd01;
+            background: rgba(252, 189, 1, 0.05);
+        }
+        
+        .payment-method-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .payment-method-icon {
+            font-size: 1.5rem;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fcbd01;
+            border-radius: 8px;
+            color: #000;
+        }
+        
+        .payment-method-info h3 {
+            margin: 0 0 0.5rem 0;
+            color: #fff;
+            font-size: 1.2rem;
+        }
+        
+        .payment-method-info p {
+            margin: 0;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        .payment-details {
+            display: none;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #333;
+        }
+        
+        .payment-details.active {
+            display: block;
+        }
+        
+        .reference-code {
+            background: #2a2a2a;
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+            border: 1px solid #444;
+        }
+        
+        .reference-code strong {
+            color: #fcbd01;
+            font-size: 1.1rem;
+        }
+        
+        .bank-details {
+            background: #2a2a2a;
+            padding: 1.5rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+        }
+        
+        .bank-detail-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.8rem;
+        }
+        
+        .bank-detail-row:last-child {
+            margin-bottom: 0;
+        }
+        
+        .bank-detail-row strong {
+            color: #fcbd01;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #fff;
+            font-weight: 500;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 0.75rem;
+            background: #2a2a2a;
+            border: 1px solid #444;
+            border-radius: 6px;
+            color: #fff;
+            font-size: 1rem;
+        }
+        
+        .form-input:focus {
+            border-color: #fcbd01;
+            outline: none;
+        }
+        
+        .form-textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        
+        .btn-submit-payment {
+            width: 100%;
+            background: #fcbd01;
+            color: #000;
+            border: none;
+            padding: 1rem;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .btn-submit-payment:hover {
+            background: #e6a800;
+        }
+        
+        .crypto-payment-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 1rem;
+        }
+        
+        .crypto-payment-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+        
+        .order-summary h3 {
+            color: #fcbd01;
+            margin-bottom: 1rem;
+        }
+        
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.8rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid #333;
+        }
+        
+        .order-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #fcbd01;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 2px solid #fcbd01;
+        }
+        
+        .copy-btn {
+            background: #fcbd01;
+            color: #000;
+            border: none;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            margin-left: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .checkout-container {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+                gap: 1.5rem;
+                max-width: 100%;
+            }
+            
+            .checkout-main, .checkout-sidebar {
+                padding: 1rem;
+                border-radius: 8px;
+            }
+            
+            .payment-method {
+                padding: 1rem;
+                margin-bottom: 0.8rem;
+            }
+            
+            .payment-method-header {
+                flex-direction: column;
+                gap: 0.8rem;
+                text-align: center;
+            }
+            
+            .payment-method-info h3 {
+                font-size: 1rem;
+                margin-bottom: 0.3rem;
+            }
+            
+            .payment-method-info p {
+                font-size: 0.8rem;
+                line-height: 1.4;
+            }
+            
+            .payment-details {
+                padding: 0.8rem;
+                margin-top: 0.8rem;
+            }
+            
+            .bank-details {
+                padding: 1rem;
+                margin: 0.8rem 0;
+            }
+            
+            .bank-detail-row {
+                flex-direction: column;
+                gap: 0.3rem;
+                margin-bottom: 0.6rem;
+                text-align: left;
+            }
+            
+            .reference-code {
+                padding: 0.8rem;
+                margin: 0.8rem 0;
+            }
+            
+            .reference-code strong {
+                font-size: 0.9rem;
+                word-break: break-all;
+            }
+            
+            .copy-btn {
+                margin-left: 0;
+                margin-top: 0.5rem;
+                display: block;
+                width: auto;
+                padding: 0.4rem 1rem;
+            }
+            
+            .form-group {
+                margin-bottom: 1rem;
+            }
+            
+            .form-input {
+                padding: 0.6rem;
+                font-size: 0.9rem;
+            }
+            
+            h2 {
+                font-size: 1.3rem !important;
+                margin-bottom: 1.5rem !important;
+            }
+            
+            h3 {
+                font-size: 1rem !important;
+            }
+            
+            .order-item {
+                margin-bottom: 0.6rem;
+                padding-bottom: 0.6rem;
+                font-size: 0.9rem;
+            }
+            
+            .order-total {
+                font-size: 1.1rem;
+                margin-top: 0.8rem;
+                padding-top: 0.8rem;
+            }
+            
+            .crypto-payment-btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+                margin-top: 0.8rem;
+            }
+            
+            .btn-submit-payment {
+                padding: 0.8rem;
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .checkout-container {
+                padding: 0.5rem;
+                gap: 1rem;
+            }
+            
+            .checkout-main, .checkout-sidebar {
+                padding: 0.8rem;
+            }
+            
+            .payment-method {
+                padding: 0.8rem;
+            }
+            
+            .payment-method-header {
+                gap: 0.5rem;
+            }
+            
+            .payment-method-icon {
+                width: 32px;
+                height: 32px;
+                font-size: 1.2rem;
+            }
+            
+            .payment-method-info h3 {
+                font-size: 0.9rem;
+            }
+            
+            .payment-method-info p {
+                font-size: 0.75rem;
+            }
+            
+            .bank-detail-row {
+                font-size: 0.8rem;
+            }
+            
+            .reference-code strong {
+                font-size: 0.8rem;
+            }
+            
+            h2 {
+                font-size: 1.1rem !important;
+                margin-bottom: 1rem !important;
+            }
+            
+            .order-item, .order-total {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="luxio-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <h1>LUXIO</h1>
+                    <span class="tagline">Innovation</span>
+                </a>
+            </div>
+            
+            <div class="nav-search">
+                <input type="text" placeholder="Recherche avancée..." class="search-input" data-translate="search_placeholder">
+                <select class="search-category">
+                    <option data-translate="all_category">Tous Produits</option>
+                    <option data-translate="smartphones">Smartphones</option>
+                    <option data-translate="watches">Montres</option>
+                    <option data-translate="fashion">Mode</option>
+                </select>
+                <button class="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+            
+            <div class="nav-actions">
+                <div class="language-selector">
+                    <span class="current-language">🇫🇷 FR</span>
+                    <div class="language-dropdown">
+                        <a href="#" data-lang="fr">🇫🇷 Français</a>
+                        <a href="#" data-lang="en">🇬🇧 English</a>
+                        <a href="#" data-lang="es">🇪🇸 Español</a>
+                        <a href="#" data-lang="pt">🇵🇹 Português</a>
+                        <a href="#" data-lang="pl">🇵🇱 Polski</a>
+                    </div>
+                </div>
+                <a href="#" class="action-btn"><i class="fas fa-user"></i></a>
+                <a href="#" class="action-btn"><i class="fas fa-heart"></i></a>
+                <div class="cart-container">
+                    <a href="cart.html" class="action-btn cart-btn">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                    <span class="cart-total">0,00 €</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Categories Menu -->
+        <div class="categories-bar">
+            <div class="categories-container">
+                <a href="index.html" class="category-item" data-translate="home">Accueil</a>
+                <a href="shop.html" class="category-item" data-translate="smartphones">Smartphones</a>
+                <a href="#" class="category-item" data-translate="watches">Montres</a>
+                <a href="#" class="category-item" data-translate="fashion">Mode</a>
+                <a href="#" class="category-item" data-translate="mobility">Mobilité</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Checkout Header -->
+    <section class="cart-header">
+        <div class="section-container">
+            <div class="breadcrumb">
+                <a href="index.html">Accueil</a>
+                <span class="separator">></span>
+                <a href="cart.html">Panier</a>
+                <span class="separator">></span>
+                <span class="current" data-translate="payment_breadcrumb">Paiement</span>
+            </div>
+            <h1 class="page-title" data-translate="finalize_order">Finaliser votre Commande</h1>
+            <p class="page-description" data-translate="choose_payment_method">Choisissez votre méthode de paiement sécurisée</p>
+        </div>
+    </section>
+
+    <!-- Checkout Content -->
+    <section class="checkout-content">
+        <div class="checkout-container">
+            <!-- Payment Methods -->
+            <div class="checkout-main">
+                <h2 style="color: #fcbd01; margin-bottom: 2rem;" data-translate="payment_methods">Méthodes de Paiement</h2>
+                
+                <!-- Bank Transfer -->
+                <div class="payment-method" data-method="bank">
+                    <div class="payment-method-header">
+                        <div class="payment-method-icon">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <div class="payment-method-info">
+                            <h3 data-translate="bank_transfer">Virement Bancaire</h3>
+                            <p data-translate="bank_transfer_desc">Paiement sécurisé par virement bancaire - Traitement sous 24-48h</p>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-details" id="bank-details">
+                        <div class="reference-code">
+                            <p><strong data-translate="reference_code_required">Code de référence obligatoire :</strong></p>
+                            <div style="display: flex; align-items: center;">
+                                <strong id="bank-reference">LX-</strong>
+                                <button class="copy-btn" onclick="copyReference('bank-reference')">
+                                    <i class="fas fa-copy"></i> <span data-translate="copy">Copier</span>
+                                </button>
+                            </div>
+                            <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #fcbd01;">
+                                ⚠️ <span data-translate="use_code_as_reference">Utilisez ce code comme motif de virement pour identifier votre commande</span>
+                            </p>
+                        </div>
+                        
+                        <div class="bank-details">
+                            <h4 style="color: #fcbd01; margin-bottom: 1rem;" data-translate="bank_details">Coordonnées Bancaires</h4>
+                            <div class="bank-detail-row">
+                                <span data-translate="beneficiary">Bénéficiaire :</span>
+                                <strong>Luxio Allem</strong>
+                            </div>
+                            <div class="bank-detail-row">
+                                <span data-translate="iban">IBAN :</span>
+                                <strong id="bank-iban">ES6115632626383268707364</strong>
+                                <button class="copy-btn" onclick="copyText('bank-iban')">
+                                    <i class="fas fa-copy"></i> <span data-translate="copy">Copier</span>
+                                </button>
+                            </div>
+                            <div class="bank-detail-row">
+                                <span data-translate="bic">BIC :</span>
+                                <strong id="bank-bic">NTSBESM1XXX</strong>
+                                <button class="copy-btn" onclick="copyText('bank-bic')">
+                                    <i class="fas fa-copy"></i> <span data-translate="copy">Copier</span>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div style="background: #2a2a2a; padding: 1rem; border-radius: 6px; margin-top: 1rem;">
+                            <h4 style="color: #fcbd01; margin-bottom: 0.5rem;" data-translate="instructions">Instructions :</h4>
+                            <ol style="color: #ccc; margin: 0; padding-left: 1.5rem;">
+                                <li data-translate="bank_instruction_1">Effectuez le virement avec le montant exact de votre commande</li>
+                                <li data-translate="bank_instruction_2">Utilisez le code de référence comme motif de virement</li>
+                                <li data-translate="bank_instruction_3">Votre commande sera traitée dès réception du paiement (24-48h)</li>
+                                <li data-translate="bank_instruction_4">Vous recevrez une confirmation par email</li>
+                            </ol>
+                        </div>
+                        
+                        <button class="btn-submit-payment" onclick="submitBankPayment()" data-translate="confirm_bank_transfer">
+                            Confirmer le Virement Bancaire
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Tickets Transcash/PCS -->
+                <div class="payment-method" data-method="tickets">
+                    <div class="payment-method-header">
+                        <div class="payment-method-icon">
+                            <i class="fas fa-ticket-alt"></i>
+                        </div>
+                        <div class="payment-method-info">
+                            <h3 data-translate="tickets_payment">Tickets Transcash & PCS</h3>
+                            <p data-translate="tickets_payment_desc">Paiement par tickets prépayés - Disponibles sur recharge.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-details" id="tickets-details">
+                        <div class="reference-code">
+                            <p><strong data-translate="reference_code_for_purchase">Code de référence pour votre achat :</strong></p>
+                            <div style="display: flex; align-items: center;">
+                                <strong id="ticket-reference">LX-</strong>
+                                <button class="copy-btn" onclick="copyReference('ticket-reference')">
+                                    <i class="fas fa-copy"></i> <span data-translate="copy">Copier</span>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div style="background: #2a2a2a; padding: 1.5rem; border-radius: 6px; margin: 1rem 0;">
+                            <h4 style="color: #fcbd01; margin-bottom: 1rem;" data-translate="how_to_proceed">Comment procéder :</h4>
+                            <div style="color: #ccc;">
+                                <p><strong data-translate="step_1_buy_tickets">1. Achat des tickets :</strong></p>
+                                <p style="margin-left: 1rem;">• <span data-translate="visit_recharge_com">Rendez-vous sur</span> <a href="https://recharge.com" target="_blank" style="color: #fcbd01;">recharge.com</a></p>
+                                <p style="margin-left: 1rem;">• <span data-translate="buy_tickets_instruction">Achetez des tickets Transcash ou PCS pour le montant de votre commande</span></p>
+                                
+                                <p style="margin-top: 1rem;"><strong data-translate="step_2_send_codes">2. Envoi des codes :</strong></p>
+                                <p style="margin-left: 1rem;">• <span data-translate="send_codes_instruction">Envoyez-nous vos codes par email ou utilisez le formulaire ci-dessous</span></p>
+                                <p style="margin-left: 1rem;">• <span data-translate="include_reference_code">Incluez votre code de référence</span></p>
+                            </div>
+                        </div>
+                        
+                        <form id="ticket-form">
+                            <div class="form-group">
+                                <label class="form-label" data-translate="contact_email">Email de contact</label>
+                                <input type="email" class="form-input" required placeholder="votre@email.com" data-translate-placeholder="email_placeholder_tickets">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" data-translate="ticket_codes_label">Codes des tickets (un par ligne)</label>
+                                <textarea class="form-input form-textarea" required placeholder="Entrez vos codes de tickets ici...&#10;Code1&#10;Code2&#10;etc." data-translate-placeholder="ticket_codes_placeholder"></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" data-translate="reference_code">Code de référence</label>
+                                <input type="text" class="form-input" id="ticket-ref-input" readonly>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" data-translate="comment_optional">Commentaire (optionnel)</label>
+                                <textarea class="form-input" placeholder="Informations complémentaires..." data-translate-placeholder="additional_info_placeholder"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn-submit-payment" data-translate="send_ticket_codes">
+                                Envoyer les Codes de Tickets
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Cryptocurrency via Maxelpay -->
+                <div class="payment-method" data-method="crypto">
+                    <div class="payment-method-header">
+                        <div class="payment-method-icon">
+                            <i class="fab fa-bitcoin"></i>
+                        </div>
+                        <div class="payment-method-info">
+                            <h3 data-translate="cryptocurrency">Cryptomonnaie</h3>
+                            <p data-translate="crypto_payment_desc">Paiement instantané en Bitcoin, Ethereum, et autres crypto</p>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-details" id="crypto-details">
+                        <div style="background: #2a2a2a; padding: 1.5rem; border-radius: 6px; margin: 1rem 0;">
+                            <h4 style="color: #fcbd01; margin-bottom: 1rem;" data-translate="secure_crypto_payment">Paiement Crypto Sécurisé</h4>
+                            <div style="color: #ccc;">
+                                <p data-translate="supported_cryptos">✅ Bitcoin (BTC), Ethereum (ETH), Litecoin (LTC)</p>
+                                <p data-translate="instant_secure_payment">✅ Paiement instantané et sécurisé</p>
+                                <p data-translate="realtime_exchange_rates">✅ Taux de change en temps réel</p>
+                                <p data-translate="automatic_confirmation">✅ Confirmation automatique</p>
+                            </div>
+                        </div>
+                        
+                        <div class="reference-code">
+                            <p><strong data-translate="transaction_reference_code">Code de référence transaction :</strong></p>
+                            <div style="display: flex; align-items: center;">
+                                <strong id="crypto-reference">LX-</strong>
+                                <button class="copy-btn" onclick="copyReference('crypto-reference')">
+                                    <i class="fas fa-copy"></i> <span data-translate="copy">Copier</span>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <button class="crypto-payment-btn" onclick="startCryptoPayment()">
+                            <i class="fab fa-bitcoin"></i> <span data-translate="pay_with_crypto">Payer avec Crypto</span>
+                        </button>
+                        
+                        <div id="crypto-loading" style="display: none; text-align: center; margin-top: 1rem;">
+                            <p style="color: #fcbd01;">Génération du lien de paiement...</p>
+                            <div style="animation: spin 2s linear infinite; display: inline-block;">
+                                <i class="fas fa-spinner"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Order Summary -->
+            <div class="checkout-sidebar">
+                <div class="order-summary">
+                    <h3 data-translate="order_summary_checkout">Récapitulatif de la Commande</h3>
+                    
+                    <div id="order-items">
+                        <!-- Order items will be loaded here -->
+                        <div class="order-item">
+                            <span data-translate="empty_cart_item">Panier vide</span>
+                            <span>0,00 €</span>
+                        </div>
+                    </div>
+                    
+                    <div class="order-item">
+                        <span data-translate="delivery">Livraison</span>
+                        <span style="color: #4CAF50;" data-translate="free">Gratuite</span>
+                    </div>
+                    
+                    <div class="order-item">
+                        <span data-translate="tax_vat">TVA (20%)</span>
+                        <span id="order-tax">0,00 €</span>
+                    </div>
+                    
+                    <div class="order-total">
+                        <span>Total</span>
+                        <span id="order-final-total">0,00 €</span>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #333;">
+                    <h4 style="color: #fcbd01; margin-bottom: 1rem;" data-translate="security_guarantees">Sécurité & Garanties</h4>
+                    <div style="color: #ccc; font-size: 0.9rem;">
+                        <p><i class="fas fa-shield-alt" style="color: #fcbd01;"></i> <span data-translate="payment_100_secure">Paiement 100% sécurisé</span></p>
+                        <p><i class="fas fa-truck" style="color: #fcbd01;"></i> <span data-translate="express_delivery_24h">Livraison Express 24h</span></p>
+                        <p><i class="fas fa-undo" style="color: #fcbd01;"></i> <span data-translate="free_returns_30days">Retour gratuit 30 jours</span></p>
+                        <p><i class="fas fa-headset" style="color: #fcbd01;"></i> Support client 24/7</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="js/languages.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/modern.js"></script>
+    <script>
+        // Initialize checkout functionality
+        let selectedPaymentMethod = null;
+        let orderTotal = 0;
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize checkout
+            initializeCheckout();
+            
+            // Payment method selection
+            document.querySelectorAll('.payment-method').forEach(method => {
+                method.addEventListener('click', function() {
+                    selectPaymentMethod(this.dataset.method);
+                });
+            });
+            
+            // Ticket form submission
+            document.getElementById('ticket-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                submitTicketPayment();
+            });
+        });
+        
+        function initializeCheckout() {
+            // Load checkout data saved by goToCheckout()
+            const checkoutData = localStorage.getItem('checkout_data');
+            let cartItems = [];
+            
+            if (checkoutData) {
+                const data = JSON.parse(checkoutData);
+                cartItems = data.items || [];
+                orderTotal = data.total || 0;
+            } else {
+                // Fallback to direct cart data if no checkout data
+                const cartData = localStorage.getItem('luxio_cart');
+                cartItems = cartData ? JSON.parse(cartData) : [];
+                orderTotal = cartItems.reduce((total, item) => {
+                    const price = typeof item.price === 'number' ? item.price : parseFloat(item.price.toString().replace(/[^\d.,]/g, '').replace(',', '.')) || 0;
+                    return total + (price * item.quantity);
+                }, 0);
+            }
+            
+            // If no items, redirect to cart page
+            if (cartItems.length === 0) {
+                alert('Votre panier est vide. Vous allez être redirigé vers la boutique.');
+                setTimeout(() => {
+                    window.location.href = 'shop.html';
+                }, 2000);
+                return;
+            }
+            
+            // Update cart display in nav if available
+            if (window.luxioCart) {
+                window.luxioCart.updateCartDisplay();
+            }
+            
+            const tax = orderTotal * 0.2;
+            const finalTotal = orderTotal + tax;
+            
+            // Update order summary with real cart data
+            const orderItemsContainer = document.getElementById('order-items');
+            orderItemsContainer.innerHTML = cartItems.map(item => {
+                const price = typeof item.price === 'number' ? item.price : parseFloat(item.price.toString().replace(/[^\d.,]/g, '').replace(',', '.')) || 0;
+                const itemTotal = price * item.quantity;
+                return `<div class="order-item">
+                    <div>
+                        <div style="font-weight: 500;">${item.title}</div>
+                        <div style="font-size: 0.85em; color: #aaa;">${item.brand} • ${item.storage || 'N/A'} • Qté: ${item.quantity}</div>
+                    </div>
+                    <span>${itemTotal.toFixed(2)} €</span>
+                </div>`;
+            }).join('');
+            
+            document.getElementById('order-tax').textContent = tax.toFixed(2) + ' €';
+            document.getElementById('order-final-total').textContent = finalTotal.toFixed(2) + ' €';
+            
+            // Generate reference codes
+            generateReferenceCodes();
+        }
+        
+        function generateReferenceCodes() {
+            const timestamp = Date.now().toString().slice(-6);
+            const random = Math.random().toString(36).substr(2, 4).toUpperCase();
+            const baseRef = `LX-${timestamp}-${random}`;
+            
+            document.getElementById('bank-reference').textContent = `${baseRef}-BANK`;
+            document.getElementById('ticket-reference').textContent = `${baseRef}-TICKET`;
+            document.getElementById('crypto-reference').textContent = `${baseRef}-CRYPTO`;
+            document.getElementById('ticket-ref-input').value = `${baseRef}-TICKET`;
+        }
+        
+        function selectPaymentMethod(method) {
+            // Remove active class from all methods
+            document.querySelectorAll('.payment-method').forEach(m => m.classList.remove('active'));
+            document.querySelectorAll('.payment-details').forEach(d => d.classList.remove('active'));
+            
+            // Activate selected method
+            document.querySelector(`[data-method="${method}"]`).classList.add('active');
+            document.getElementById(`${method}-details`).classList.add('active');
+            
+            selectedPaymentMethod = method;
+        }
+        
+        function copyText(elementId) {
+            const element = document.getElementById(elementId);
+            const text = element.textContent;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                // Show temporary feedback
+                const originalText = element.nextElementSibling.innerHTML;
+                element.nextElementSibling.innerHTML = '<i class="fas fa-check"></i> Copié!';
+                element.nextElementSibling.style.background = '#4CAF50';
+                
+                setTimeout(() => {
+                    element.nextElementSibling.innerHTML = originalText;
+                    element.nextElementSibling.style.background = '#fcbd01';
+                }, 2000);
+            });
+        }
+        
+        function copyReference(elementId) {
+            copyText(elementId);
+        }
+        
+        function submitBankPayment() {
+            if (orderTotal === 0) {
+                alert('Votre panier est vide. Ajoutez des produits avant de procéder au paiement.');
+                return;
+            }
+            
+            const reference = document.getElementById('bank-reference').textContent;
+            
+            alert(`Commande confirmée !
+            
+✅ Votre commande est enregistrée
+📧 Vous allez recevoir un email de confirmation
+💰 Montant à virer : ${(orderTotal * 1.2).toFixed(2)} €
+🏦 Code de référence : ${reference}
+
+Instructions :
+• Effectuez le virement avec les coordonnées fournies
+• Utilisez impérativement le code de référence comme motif
+• Votre commande sera expédiée dès réception du paiement
+
+Merci de votre confiance !`);
+            
+            // Clear cart and redirect
+            localStorage.removeItem('luxio_cart');
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 3000);
+        }
+        
+        function submitTicketPayment() {
+            if (orderTotal === 0) {
+                alert('Votre panier est vide. Ajoutez des produits avant de procéder au paiement.');
+                return;
+            }
+            
+            const formData = new FormData(document.getElementById('ticket-form'));
+            const reference = document.getElementById('ticket-reference').textContent;
+            
+            alert(`Codes de tickets envoyés !
+            
+✅ Vos codes ont été transmis pour vérification
+📧 Vous recevrez une confirmation sous 24h
+💰 Montant : ${(orderTotal * 1.2).toFixed(2)} €
+🎫 Code de référence : ${reference}
+
+Nous vérifions vos codes de tickets et traiterons votre commande rapidement.
+
+Merci de votre confiance !`);
+            
+            // Clear cart and redirect
+            localStorage.removeItem('luxio_cart');
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 3000);
+        }
+        
+        async function startCryptoPayment() {
+            if (orderTotal === 0) {
+                alert('Votre panier est vide. Ajoutez des produits avant de procéder au paiement.');
+                return;
+            }
+            
+            const loadingDiv = document.getElementById('crypto-loading');
+            const button = event.target;
+            
+            // Show loading
+            loadingDiv.style.display = 'block';
+            button.disabled = true;
+            
+            try {
+                const finalAmount = (orderTotal * 1.2).toFixed(2);
+                
+                // Call Maxelpay API via our backend
+                const response = await fetch('/api/create-payment', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        amount: finalAmount,
+                        currency: 'EUR'
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (data.paymentUrl) {
+                    // Update crypto reference with the one from backend
+                    if (data.referenceCode) {
+                        document.getElementById('crypto-reference').textContent = data.referenceCode;
+                    }
+                    
+                    // Redirect to payment page
+                    window.open(data.paymentUrl, '_blank');
+                    
+                    // Clear cart after successful payment initiation
+                    localStorage.removeItem('luxio_cart');
+                    localStorage.removeItem('checkout_data');
+                    
+                    alert(`Paiement crypto initié !
+                    
+✅ Lien de paiement généré avec succès
+🔗 Une nouvelle fenêtre s'est ouverte
+🔑 Code de référence : ${data.referenceCode || 'Généré automatiquement'}
+
+Finalisez votre paiement dans la nouvelle fenêtre.`);
+                    
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                    }, 5000);
+                } else {
+                    throw new Error('Erreur lors de la génération du lien de paiement');
+                }
+                
+            } catch (error) {
+                console.error('Erreur paiement crypto:', error);
+                alert('Une erreur est survenue. Veuillez réessayer ou utiliser un autre moyen de paiement.');
+            } finally {
+                loadingDiv.style.display = 'none';
+                button.disabled = false;
+            }
+        }
+        
+        // CSS for spinner animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Initialize languages if available
+        if (window.LuxioLang) {
+            window.LuxioLang.updateLanguageDisplay();
+        }
+        
+        // Initialize cart if available
+        if (typeof LuxioCart !== 'undefined') {
+            window.luxioCart = new LuxioCart();
+        }
+    </script>
+</body>
+</html>
