@@ -112,17 +112,16 @@ class LuxioApp {
     handleDiscover(e) {
         e.preventDefault();
         
-        // Reset to show all products
-        this.products.currentFilter = 'tous';
-        this.products.displayedProducts = 8;
+        console.log('🔍 Découvrir button clicked');
         
-        // Reset filter buttons to "Tous"
-        document.querySelectorAll('.section-filters .filter-btn').forEach(btn => {
-            btn.classList.remove('active');
-            if (btn.textContent.toLowerCase().trim() === 'tous') {
-                btn.classList.add('active');
-            }
-        });
+        // Reset to show all products from all categories
+        if (this.products) {
+            this.products.products = this.products.allProducts; // Show all products
+            this.products.currentFilter = 'tous';
+            this.products.displayedProducts = 8;
+            this.products.updateFilterButtons('tous');
+            this.products.renderProducts();
+        }
         
         // Reset category navigation
         document.querySelectorAll('.category-item').forEach(item => {
@@ -131,9 +130,6 @@ class LuxioApp {
                 item.classList.add('active');
             }
         });
-        
-        // Show and render products
-        this.products.renderProducts();
         
         // Scroll to featured products section
         const featuredSection = document.querySelector('.featured-products');
@@ -151,17 +147,16 @@ class LuxioApp {
     handleViewCollections(e) {
         e.preventDefault();
         
-        // Reset to show all products
-        this.products.currentFilter = 'tous';
-        this.products.displayedProducts = 8;
+        console.log('🔍 Voir Collections button clicked');
         
-        // Reset filter buttons to "Tous"
-        document.querySelectorAll('.section-filters .filter-btn').forEach(btn => {
-            btn.classList.remove('active');
-            if (btn.textContent.toLowerCase().trim() === 'tous') {
-                btn.classList.add('active');
-            }
-        });
+        // Reset to show all products from all categories
+        if (this.products) {
+            this.products.products = this.products.allProducts; // Show all products
+            this.products.currentFilter = 'tous';
+            this.products.displayedProducts = 8;
+            this.products.updateFilterButtons('tous');
+            this.products.renderProducts();
+        }
         
         // Reset category navigation
         document.querySelectorAll('.category-item').forEach(item => {
@@ -171,14 +166,10 @@ class LuxioApp {
             }
         });
         
-        // Show and render products
-        this.products.renderProducts();
-        
-        // Scroll to products section instead of categories
-        const featuredSection = document.querySelector('.featured-products');
-        if (featuredSection) {
-            featuredSection.style.display = 'block';
-            featuredSection.scrollIntoView({ behavior: 'smooth' });
+        // Scroll to categories section first, then products
+        const categoriesSection = document.querySelector('.categories-showcase');
+        if (categoriesSection) {
+            categoriesSection.scrollIntoView({ behavior: 'smooth' });
         }
         
         // Masquer les squelettes
