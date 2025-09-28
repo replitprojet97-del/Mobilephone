@@ -151,30 +151,30 @@
                         </div>
                         
                         <div class="promo-code">
-                            <input type="text" placeholder="Code promo" class="promo-input">
-                            <button class="promo-btn">Appliquer</button>
+                            <input type="text" placeholder="Code promo" class="promo-input" data-translate="promo_placeholder">
+                            <button class="promo-btn" data-translate="apply_promo">Appliquer</button>
                         </div>
                         
                         <div class="checkout-actions">
                             <button type="button" class="btn-primary checkout-btn" id="checkout-btn" onclick="goToCheckout()" disabled>
                                 <i class="fas fa-lock"></i>
-                                Finaliser la Commande
+                                <span data-translate="finalize_order_btn">Finaliser la Commande</span>
                             </button>
-                            <a href="shop.html" class="btn-secondary">Continuer les Achats</a>
+                            <a href="shop.html" class="btn-secondary" data-translate="continue_shopping_btn">Continuer les Achats</a>
                         </div>
                         
                         <div class="security-badges">
                             <div class="badge">
                                 <i class="fas fa-shield-alt"></i>
-                                <span>Paiement Sécurisé</span>
+                                <span data-translate="secure_payment">Paiement Sécurisé</span>
                             </div>
                             <div class="badge">
                                 <i class="fas fa-truck"></i>
-                                <span>Livraison 24h</span>
+                                <span data-translate="delivery_24h">Livraison 24h</span>
                             </div>
                             <div class="badge">
                                 <i class="fas fa-undo"></i>
-                                <span>Retour Gratuit</span>
+                                <span data-translate="free_returns">Retour Gratuit</span>
                             </div>
                         </div>
                     </div>
@@ -186,7 +186,7 @@
     <!-- Recommended Products -->
     <section class="recommended-products">
         <div class="section-container">
-            <h2 class="section-title">Vous pourriez aussi aimer</h2>
+            <h2 class="section-title" data-translate="you_might_like">Vous pourriez aussi aimer</h2>
             <div class="products-grid" id="recommended-products-container">
                 <!-- Recommended products will be loaded here -->
             </div>
