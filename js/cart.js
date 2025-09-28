@@ -192,7 +192,7 @@ class LuxioCart {
                         <td>
                             <div class="input-group" style="width: 120px;">
                                 <button class="btn btn-outline-secondary btn-sm" onclick="luxioCart.updateQuantity('${item.id}', ${item.quantity - 1})">-</button>
-                                <input type="number" class="form-control text-center" value="${item.quantity}" min="1" 
+                                <input type="number" class="form-control text-center" value="${item.quantity}" min="0" 
                                        onchange="luxioCart.updateQuantity('${item.id}', parseInt(this.value))">
                                 <button class="btn btn-outline-secondary btn-sm" onclick="luxioCart.updateQuantity('${item.id}', ${item.quantity + 1})">+</button>
                             </div>
