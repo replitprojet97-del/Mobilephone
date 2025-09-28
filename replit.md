@@ -4,6 +4,15 @@
 This is a Bootstrap-based e-commerce website template called "Electro" for electronics products. It's a static HTML/CSS/JavaScript website with modern responsive design and includes multiple pages for product showcasing, shopping cart, and contact functionality.
 
 ## Recent Changes
+- **September 28, 2025**: Complete setup for Replit environment
+  - ✅ **Backend Integration**: Configured Node.js Express server with payment and order processing APIs
+  - ✅ **Environment Setup**: Installed all dependencies (Node.js and Python packages)
+  - ✅ **Server Configuration**: Updated server to serve static files and handle API endpoints on port 5000
+  - ✅ **ES Module Support**: Converted server.js to use ES modules syntax for compatibility
+  - ✅ **API Endpoints**: Implemented /api/create-payment and /api/submit-order endpoints
+  - ✅ **Deployment Config**: Configured autoscale deployment for production
+  - ✅ **Web Scraping**: Python scraper working with fallback test data
+  - ✅ **Frontend Integration**: Complete e-commerce interface with cart, language switching, and product display
 - **September 27, 2025**: Complete transformation to Luxio e-commerce platform
   - ✅ **Rebranding**: Successfully changed from "Electro" to "Luxio" across all pages
   - ✅ **Multi-language System**: Implemented 5-language support (French, English, Polish, Portuguese, Spanish) with flag indicators
@@ -14,19 +23,26 @@ This is a Bootstrap-based e-commerce website template called "Electro" for elect
   - ✅ **Cross-page Integration**: Ensured all functionality works across index, shop, cart, and contact pages
 
 ## Project Architecture
-- **Type**: Static website template
-- **Framework**: Bootstrap 5
-- **Server**: Python HTTP server for development
+- **Type**: Full-stack e-commerce application
+- **Frontend**: Modern HTML/CSS/JavaScript with Bootstrap-inspired design
+- **Backend**: Node.js Express server with ES modules
+- **Database**: JSON-based product data (smartphones.json)
+- **APIs**: Payment processing (Maxelpay) and email notifications (Nodemailer)
+- **Web Scraper**: Python-based Fnac.com data extraction with fallback test data
+- **Server**: Node.js Express on port 5000
 - **Deployment**: Configured for autoscale deployment on Replit
 - **Files Structure**:
+  - `server.js` - Main Express server with API endpoints
   - `index.html` - Main homepage
-  - `shop.html`, `single.html`, `cart.html`, `checkout.html` - E-commerce pages
-  - `contact.html`, `404.html` - Utility pages
-  - `css/` - Stylesheets including Bootstrap and custom styles
-  - `js/` - JavaScript files
+  - `shop.html`, `cart.html`, `checkout.html` - E-commerce pages
+  - `api/` - Serverless functions (create-payment.js, submit-order.js)
+  - `css/` - Modern stylesheets
+  - `js/` - JavaScript modules (modern.js, cart.js, languages.js, smartphones.js)
   - `img/` - Product images and assets
-  - `lib/` - Third-party libraries (animate, lightbox, owl carousel, etc.)
-  - `scss/` - Source SCSS files for Bootstrap
+  - `scrape_fnac.py` - Web scraper for product data
+  - `smartphones.json` - Product database
+  - `package.json` - Node.js dependencies and configuration
+  - `pyproject.toml` - Python dependencies
 
 ## Key Features
 - Responsive Bootstrap 5 design
@@ -39,11 +55,21 @@ This is a Bootstrap-based e-commerce website template called "Electro" for elect
 - WOW.js animations
 
 ## Development
-- Server runs on port 5000 using Python's built-in HTTP server
-- No build process required - pure static files
-- All assets are self-contained
+- Server runs on port 5000 using Node.js Express
+- API endpoints for payment processing and order management
+- Real-time product data via Python web scraper
+- Environment variables needed for payment and email services
+
+## Required Environment Variables
+- `MAXELPAY_KEY` - Maxelpay payment gateway API key
+- `MAXELPAY_SECRET` - Maxelpay secret key
+- `SHOP_EMAIL` - Owner email for order notifications
+- `MAIL_HOST` - SMTP server hostname
+- `MAIL_PORT` - SMTP server port
+- `MAIL_USER` - SMTP username
+- `MAIL_PASS` - SMTP password
 
 ## Deployment
-- Configured for autoscale deployment (suitable for static sites)
-- Uses Python HTTP server in production
+- Configured for autoscale deployment
+- Uses Node.js Express server in production
 - No build step required
