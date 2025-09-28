@@ -7,7 +7,10 @@
   "scripts": {
     "dev": "vercel dev",
     "build": "echo 'Build step not required for serverless functions'",
-    "deploy": "vercel --prod"
+    "deploy": "vercel --prod",
+    "scrape": "node scripts/fnac-scraper.js",
+    "scrape:phones": "node scripts/fnac-scraper.js",
+    "start": "node server.js"
   },
   "dependencies": {
     "axios": "^1.12.2",
