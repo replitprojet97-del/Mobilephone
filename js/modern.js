@@ -359,21 +359,27 @@ class ProductManager {
 
     async loadProducts() {
         try {
-            // Try to load from existing JSON first
-            const response = await fetch('/smartphones.json');
+            // Load from the correct data file
+            const response = await fetch('/data/products.json');
             if (response.ok) {
                 const data = await response.json();
+                this.allProductsData = data; // Store all data
                 this.products = data.smartphones || [];
+                console.log('✅ Loaded', this.products.length, 'products from data/products.json');
+            } else {
+                throw new Error('Failed to load products data');
             }
             
             // If no products, create demo products
             if (this.products.length === 0) {
+                console.log('⚠️ No products found, creating demo products');
                 this.products = this.createDemoProducts();
             }
             
             this.renderProducts();
         } catch (error) {
-            console.log('Loading demo products');
+            console.error('❌ Error loading products:', error);
+            console.log('📦 Loading demo products as fallback');
             this.products = this.createDemoProducts();
             this.renderProducts();
         }
@@ -459,14 +465,22 @@ class ProductManager {
     }
 
     createProductCard(product) {
-        const discount = Math.floor(Math.random() * 30) + 10; // 10-40% discount
-        const originalPrice = Math.round(product.prix / (1 - discount/100));
+        // Use real discount from data or default
+        const discount = product.discount || Math.floor(Math.random() * 30) + 10;
+        const originalPrice = product.originalPrice || Math.round(product.price / (1 - discount/100));
+        const price = product.price || product.prix || 0;
+        const productName = product.title || product.nom || 'Produit';
+        const brand = product.brand || product.marque || '';
+        const image = product.thumbnail || product.image || '/img/product-1.png';
+        const specs = product.shortDescription || product.specs || '';
+        const rating = product.rating || 4.5;
+        const inStock = product.inStock !== false;
         
         return `
-            <div class="product-card" data-product='${JSON.stringify(product)}'>
-                <div class="product-badge">-${discount}%</div>
+            <div class="product-card" data-product='${JSON.stringify(product)}' data-product-id="${product.id || productName}">
+                ${discount > 0 ? `<div class="product-badge">-${discount}%</div>` : ''}
                 <div class="product-image-container">
-                    <img src="${product.image}" alt="${product.nom}" class="product-image" loading="lazy">
+                    <img src="${image}" alt="${productName}" class="product-image" loading="lazy">
                     <div class="product-actions">
                         <button class="action-btn wishlist-btn" title="Ajouter aux favoris">
                             <i class="fas fa-heart"></i>
@@ -477,21 +491,25 @@ class ProductManager {
                     </div>
                 </div>
                 <div class="product-info">
-                    <div class="product-brand">${product.marque}</div>
-                    <h3 class="product-title">${product.nom}</h3>
-                    <div class="product-specs">${product.specs}</div>
+                    <div class="product-brand">${brand}</div>
+                    <h3 class="product-title">${productName}</h3>
+                    <div class="product-specs">${specs}</div>
                     <div class="product-colors">
                         ${product.colors ? product.colors.map(color => 
-                            `<span class="color-dot" style="background-color: ${color}"></span>`
+                            `<span class="color-dot" style="background-color: ${color.code || color}"></span>`
                         ).join('') : ''}
                     </div>
-                    <div class="product-pricing">
-                        <span class="price-old">${originalPrice}€</span>
-                        <span class="price-new">${product.prix}€</span>
+                    <div class="product-rating">
+                        ${this.renderStars(rating)}
+                        <span class="rating-text">${rating}/5</span>
                     </div>
-                    <button class="add-to-cart-btn" data-product-id="${product.nom}">
+                    <div class="product-pricing">
+                        ${originalPrice !== price ? `<span class="price-old">${originalPrice}€</span>` : ''}
+                        <span class="price-new">${price}€</span>
+                    </div>
+                    <button class="add-to-cart-btn ${!inStock ? 'disabled' : ''}" data-product-id="${product.id || productName}" ${!inStock ? 'disabled' : ''}>
                         <i class="fas fa-shopping-cart"></i>
-                        <span data-translate="add_to_cart">Ajouter au panier</span>
+                        <span data-translate="add_to_cart">${inStock ? 'Ajouter au panier' : 'Indisponible'}</span>
                     </button>
                 </div>
                 <div class="product-overlay">
@@ -499,6 +517,25 @@ class ProductManager {
                 </div>
             </div>
         `;
+    }
+    
+    renderStars(rating) {
+        const fullStars = Math.floor(rating);
+        const hasHalfStar = rating % 1 !== 0;
+        const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+        
+        let stars = '';
+        for (let i = 0; i < fullStars; i++) {
+            stars += '<i class="fas fa-star"></i>';
+        }
+        if (hasHalfStar) {
+            stars += '<i class="fas fa-star-half-alt"></i>';
+        }
+        for (let i = 0; i < emptyStars; i++) {
+            stars += '<i class="far fa-star"></i>';
+        }
+        
+        return `<div class="stars">${stars}</div>`;
     }
 
     getFilteredProducts() {
@@ -567,26 +604,63 @@ class ProductManager {
     }
 
     filterByCategory(categoryKey) {
+        console.log('🔍 Filtering by category:', categoryKey);
         
         // Reset to show all if home, otherwise filter by category
         if (categoryKey === 'home') {
             this.currentFilter = 'tous';
+            this.products = this.allProductsData?.smartphones || this.products;
         } else {
-            // Map exact data-translate values to filter values that work with our product data
-            const categoryFilters = {
-                'smartphones': 'phone',    // data-translate="smartphones" -> look for phones
-                'watches': 'watch',        // data-translate="watches" -> look for watches
-                'fashion': 'fashion',      // data-translate="fashion" -> look for fashion
-                'home_living': 'home',     // data-translate="home_living" -> look for home items
-                'mobility': 'mobility',    // data-translate="mobility" -> look for mobility
-                'services': 'service',     // data-translate="services" -> look for services
-                'audio': 'audio',          // For audio category
-                'tech': 'tech'             // For tech category
-            };
-            
-            this.currentFilter = categoryFilters[categoryKey] || categoryKey;
+            // Load products from the appropriate category
+            if (this.allProductsData) {
+                switch(categoryKey) {
+                    case 'smartphones':
+                        this.products = this.allProductsData.smartphones || [];
+                        this.currentFilter = 'tous';
+                        break;
+                    case 'watches':
+                        this.products = this.allProductsData.watches || [];
+                        this.currentFilter = 'tous';
+                        break;
+                    case 'audio':
+                        this.products = this.allProductsData.accessories?.filter(item => 
+                            item.category?.toLowerCase().includes('audio') || 
+                            item.title?.toLowerCase().includes('audio') ||
+                            item.title?.toLowerCase().includes('airpods') ||
+                            item.title?.toLowerCase().includes('casque')
+                        ) || [];
+                        this.currentFilter = 'tous';
+                        break;
+                    case 'tech':
+                        this.products = this.allProductsData.accessories?.filter(item => 
+                            item.category?.toLowerCase().includes('tech') ||
+                            item.title?.toLowerCase().includes('macbook') ||
+                            item.title?.toLowerCase().includes('ordinateur')
+                        ) || [];
+                        this.currentFilter = 'tous';
+                        break;
+                    case 'mobility':
+                        this.products = this.allProductsData.accessories?.filter(item => 
+                            item.category?.toLowerCase().includes('mobility') ||
+                            item.title?.toLowerCase().includes('mobilité')
+                        ) || [];
+                        this.currentFilter = 'tous';
+                        break;
+                    default:
+                        // Use old filter system for compatibility
+                        const categoryFilters = {
+                            'smartphones': 'phone',
+                            'watches': 'watch', 
+                            'audio': 'audio',
+                            'tech': 'tech',
+                            'mobility': 'mobility'
+                        };
+                        this.currentFilter = categoryFilters[categoryKey] || categoryKey;
+                }
+            }
         }
         
+        console.log('📦 Products after category filter:', this.products.length);
         this.displayedProducts = 8; // Show more products for categories
         this.renderProducts();
         
