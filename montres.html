@@ -19,7 +19,7 @@
     <link href="css/modern.css" rel="stylesheet">
 </head>
 
-<body>
+<body onload="loadAll('watches')">
     <!-- Navigation -->
     <nav class="luxio-nav">
         <div class="nav-container">
@@ -73,7 +73,7 @@
                 <a href="index.html" class="category-item" data-translate="home">Accueil</a>
                 <a href="smartphones.html" class="category-item" data-translate="smartphones">Smartphones</a>
                 <a href="montres.html" class="category-item active" data-translate="watches">Montres</a>
-                <a href="mobilite.html" class="category-item" data-translate="mobility">Mobilité</a>
+                <a href="accessoires.html" class="category-item" data-translate="accessories">Accessoires</a>
             </div>
         </div>
         
@@ -226,13 +226,13 @@
             </div>
 
             <!-- Products Grid -->
-            <div id="products-grid" class="products-grid">
+            <div id="product-grid" class="products-grid">
                 <!-- Les produits seront ajoutés ici par JavaScript -->
             </div>
 
             <!-- Load More Button -->
             <div class="load-more-section">
-                <button id="load-more-btn" class="btn-load-more" style="display: none;">
+                <button id="load-more" class="btn-load-more" style="display: none;">
                     Charger plus de produits
                 </button>
             </div>
@@ -308,30 +308,35 @@
     </footer>
 
     <!-- Scripts -->
+    <script src="js/loadCatalog.js"></script>
     <script src="js/modern.js"></script>
     <script src="js/cart.js"></script>
     <script src="js/languages.js"></script>
     <script src="js/wishlist.js"></script>
     
-    <!-- Products and Filters Scripts -->
-    <script src="js/products.js" defer></script>
-    <script src="js/filters.js" defer></script>
-    
-    <!-- Initialize Category System -->
+    <!-- Dynamic Catalog Integration -->
     <script>
-        document.addEventListener('DOMContentLoaded', async function() {
-            console.log('Initializing montres category...');
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('⌚ Initializing watches category with dynamic catalog...');
             
-            // Initialiser le gestionnaire global de produits
-            if (!window.productsManager) {
-                window.productsManager = new ProductsManager();
+            // Override the loadAll to update stats
+            const originalLoadAll = window.loadAll;
+            if (typeof originalLoadAll === 'function') {
+                window.loadAll = async function(category) {
+                    await originalLoadAll(category);
+                
+                // Update product count display
+                const totalProducts = catalogLoader.allProducts.length;
+                const productCountElements = document.querySelectorAll('#products-count, #total-products');
+                productCountElements.forEach(el => {
+                    if (el) el.textContent = totalProducts;
+                });
+                
+                console.log(`⌚ Updated product count: ${totalProducts} watches`);
+                };
+            } else {
+                console.error('loadAll function not found - loadCatalog.js may not be loaded properly');
             }
-            
-            // Attendre que les produits soient chargés
-            await window.productsManager.waitForLoad();
-            
-            // Initialiser le gestionnaire de filtres pour les montres (clé JSON: "watches")
-            window.filtersManager = new FiltersManager('watches');
         });
     </script>
 </body>

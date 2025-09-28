@@ -1,0 +1,21 @@
+[
+  {
+    "id": "airpods-pro-3rd-gen",
+    "title": "AirPods Pro 3ème génération",
+    "brand": "Apple",
+    "model": "AirPods Pro",
+    "category": "accessories",
+    "subcategory": "audio",
+    "price": 279.0,
+    "originalPrice": 299.0,
+    "discount": 7,
+    "rating": 4.8,
+    "reviewCount": 156,
+    "thumbnail": "/img/product-4.png",
+    "images": [
+      "/img/product-4.png"
+    ],
+    "isNew": true,
+    "inStock": true
+  }
+]
