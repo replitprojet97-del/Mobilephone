@@ -371,19 +371,21 @@
             // Initialiser le gestionnaire de filtres pour la mobilité (clé JSON: "mobility")
             window.filtersManager = new FiltersManager('mobility');
             
-            // Vérifier s'il y a des produits de mobilité après initialisation
-            setTimeout(() => {
-                if (window.filtersManager && window.filtersManager.allProducts.length === 0) {
-                    // Aucun produit de mobilité, afficher la section "bientôt disponible"
-                    document.querySelector('.coming-soon-section').style.display = 'block';
-                    document.querySelector('.products-section').style.display = 'none';
-                    document.querySelector('.filters-section').style.display = 'none';
-                } else {
-                    // Des produits existent, masquer la section "bientôt disponible"
-                    document.querySelector('.coming-soon-section').style.display = 'none';
-                    document.querySelector('.products-section').style.display = 'block';
-                }
-            }, 1000);
+            // Vérifier s'il y a des produits de mobilité après chargement complet
+            await window.productsManager.waitForLoad();
+            const mobilityProducts = window.productsManager.categories.mobility || [];
+            console.log('🚗 Found', mobilityProducts.length, 'mobility products for display check');
+            
+            if (mobilityProducts.length === 0) {
+                // Aucun produit de mobilité, afficher la section "bientôt disponible"
+                document.querySelector('.coming-soon-section').style.display = 'block';
+                document.querySelector('.products-section').style.display = 'none';
+                document.querySelector('.filters-section').style.display = 'none';
+            } else {
+                // Des produits existent, masquer la section "bientôt disponible"
+                document.querySelector('.coming-soon-section').style.display = 'none';
+                document.querySelector('.products-section').style.display = 'block';
+            }
         });
     </script>
 </body>

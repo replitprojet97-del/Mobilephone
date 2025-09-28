@@ -15,7 +15,7 @@ class ProductsManager {
     async loadProducts() {
         try {
             console.log('ProductsManager: Fetching data/products.json...');
-            const response = await fetch('data/products.json');
+            const response = await fetch(`data/products.json?v=${Date.now()}`, { cache: 'no-store' });
             
             if (!response.ok) {
                 throw new Error(`HTTP ${response.status}: ${response.statusText}`);
