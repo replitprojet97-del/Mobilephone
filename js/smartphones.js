@@ -7,14 +7,17 @@ class SmartphoneManager {
 
     async loadSmartphones() {
         try {
-            const response = await fetch('./smartphones.json');
-            this.smartphones = await response.json();
+            const response = await fetch('../data/products.json');
+            const data = await response.json();
+            this.smartphones = data.smartphones || [];
             this.displaySmartphones();
+            this.updateProductCount();
         } catch (error) {
             console.error('Erreur lors du chargement des smartphones:', error);
             // Utiliser des données de fallback
             this.smartphones = this.getFallbackData();
             this.displaySmartphones();
+            this.updateProductCount();
         }
     }
 
@@ -63,7 +66,7 @@ class SmartphoneManager {
         const featuredContainer = document.querySelector('#featured-smartphones');
         if (!featuredContainer) return;
 
-        const featured = this.smartphones.slice(0, 4); // Display 4 products for 2x2 grid
+        const featured = this.smartphones.filter(phone => phone.isFeatured).slice(0, 8); // Display up to 8 featured products
         let html = '';
 
         // Add section title
@@ -78,8 +81,8 @@ class SmartphoneManager {
 
         featured.forEach((phone, index) => {
             const productData = JSON.stringify(phone);
-            const discountPercentage = this.getRandomDiscount();
-            const originalPrice = this.calculateOriginalPrice(phone.price, discountPercentage);
+            const discountPercentage = phone.discount || this.getRandomDiscount();
+            const originalPrice = phone.originalPrice || this.calculateOriginalPrice(phone.price, discountPercentage);
             
             html += `
                 <div class="col-lg-6 col-md-6 col-12 mb-4">
@@ -100,7 +103,7 @@ class SmartphoneManager {
                                     
                                     <div class="product-pricing">
                                         <span class="product-price-old">${originalPrice}€</span>
-                                        <span class="product-price-new">${this.extractPrice(phone.price)}€</span>
+                                        <span class="product-price-new">${phone.price}€</span>
                                     </div>
                                     
                                     <div class="color-options">
@@ -152,25 +155,31 @@ class SmartphoneManager {
         const specs = [];
         if (phone.storage) specs.push(phone.storage);
         
-        // Add some generic specs based on brand
-        switch(phone.brand) {
-            case 'Apple':
-                specs.push('ProRes Camera');
-                break;
-            case 'Samsung':
-                specs.push('200MP Camera');
-                break;
-            case 'Google':
-                specs.push('AI Photography');
-                break;
-            case 'Xiaomi':
-                specs.push('HyperOS');
-                break;
-            case 'OnePlus':
-                specs.push('Hasselblad Camera');
-                break;
-            default:
-                specs.push('Premium Features');
+        // Use specifications from product data if available
+        if (phone.specifications) {
+            if (phone.specifications.screen) specs.push(phone.specifications.screen);
+            if (phone.specifications.camera) specs.push(phone.specifications.camera);
+        } else {
+            // Add some generic specs based on brand
+            switch(phone.brand) {
+                case 'Apple':
+                    specs.push('ProRes Camera');
+                    break;
+                case 'Samsung':
+                    specs.push('200MP Camera');
+                    break;
+                case 'Google':
+                    specs.push('AI Photography');
+                    break;
+                case 'Xiaomi':
+                    specs.push('HyperOS');
+                    break;
+                case 'OnePlus':
+                    specs.push('Hasselblad Camera');
+                    break;
+                default:
+                    specs.push('Premium Features');
+            }
         }
         
         return specs.join(' • ');
@@ -187,7 +196,7 @@ class SmartphoneManager {
                 <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
                     <div class="product-item bg-white rounded shadow-sm h-100">
                         <div class="product-img position-relative overflow-hidden">
-                            <img class="img-fluid w-100" src="${phone.image_url || 'img/product-' + ((index % 18) + 1) + '.png'}" 
+                            <img class="img-fluid w-100" src="${phone.thumbnail || phone.images?.[0] || 'img/product-' + ((index % 18) + 1) + '.png'}" 
                                  alt="${phone.title}" style="height: 200px; object-fit: cover;">
                             <div class="product-action">
                                 <button class="btn btn-outline-dark btn-square add-to-cart-btn" data-product='${productData}'>
@@ -208,7 +217,7 @@ class SmartphoneManager {
                             </div>
                             <h6 class="mb-2 text-truncate">${phone.model}</h6>
                             <div class="d-flex justify-content-between">
-                                <span class="text-primary fw-bold">${phone.price}</span>
+                                <span class="text-primary fw-bold">${phone.price}€</span>
                                 <div class="rating-stars">
                                     ${'★'.repeat(4)}${'☆'.repeat(1)}
                                 </div>
@@ -314,8 +323,17 @@ class SmartphoneManager {
     }
 
     parsePrice(priceString) {
-        const match = priceString.match(/[\d,]+\.?\d*/);
+        // Handle both string prices (like "1,229€") and numeric prices
+        if (typeof priceString === 'number') return priceString;
+        const match = priceString.toString().match(/[\d,]+\.?\d*/);
         return match ? parseFloat(match[0].replace(',', '')) : 0;
+    }
+
+    updateProductCount() {
+        const countElement = document.querySelector('#products-count');
+        if (countElement) {
+            countElement.textContent = this.smartphones.length;
+        }
     }
 }
 

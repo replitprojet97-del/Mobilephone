@@ -10,8 +10,8 @@
       "subcategory": "premium",
       "storage": "256 GB",
       "color": "Natural Titanium",
-      "price": 679.0,
-      "originalPrice": 729.0,
+      "price": 679.00,
+      "originalPrice": 729.00,
       "currency": "EUR",
       "discount": 7,
       "isNew": true,
@@ -42,55 +42,22 @@
         "dimensions": "147.6 × 71.6 × 7.8 mm",
         "weight": "170 g"
       },
-      "images": [
-        "/img/product-1.png",
-        "/img/product-2.png"
-      ],
+      "images": ["/img/product-1.png", "/img/product-2.png"],
       "thumbnail": "/img/product-1.png",
       "variants": [
-        {
-          "id": "iphone-17-512gb",
-          "storage": "512 GB",
-          "price": 779.0,
-          "originalPrice": 829.0
-        }
+        {"id": "iphone-17-512gb", "storage": "512 GB", "price": 779.00, "originalPrice": 829.00}
       ],
       "colors": [
-        {
-          "name": "Natural Titanium",
-          "code": "#f5f5dc",
-          "active": true
-        },
-        {
-          "name": "Blue Titanium",
-          "code": "#4a90e2"
-        },
-        {
-          "name": "White Titanium",
-          "code": "#ffffff"
-        },
-        {
-          "name": "Black Titanium",
-          "code": "#2c2c2c"
-        }
+        {"name": "Natural Titanium", "code": "#f5f5dc", "active": true},
+        {"name": "Blue Titanium", "code": "#4a90e2"},
+        {"name": "White Titanium", "code": "#ffffff"},
+        {"name": "Black Titanium", "code": "#2c2c2c"}
       ],
-      "tags": [
-        "nouveau",
-        "premium",
-        "apple",
-        "5g",
-        "ai"
-      ],
+      "tags": ["nouveau", "premium", "apple", "5g", "ai"],
       "seo": {
         "metaTitle": "iPhone 17 256GB Natural Titanium - LUXIO",
         "metaDescription": "Découvrez l'iPhone 17 avec puce A18, design titane et caméras avancées. Livraison gratuite et garantie Apple.",
-        "keywords": [
-          "iphone 17",
-          "apple",
-          "smartphone",
-          "titanium",
-          "nouveau"
-        ]
+        "keywords": ["iphone 17", "apple", "smartphone", "titanium", "nouveau"]
       },
       "createdAt": "2025-09-28T00:00:00Z",
       "updatedAt": "2025-09-28T00:00:00Z"
@@ -105,8 +72,8 @@
       "subcategory": "premium",
       "storage": "256 GB",
       "color": "Titanium Blue",
-      "price": 939.0,
-      "originalPrice": 999.0,
+      "price": 939.00,
+      "originalPrice": 999.00,
       "currency": "EUR",
       "discount": 6,
       "isNew": true,
@@ -137,61 +104,23 @@
         "dimensions": "159.9 × 76.7 × 8.25 mm",
         "weight": "199 g"
       },
-      "images": [
-        "/img/product-3.png",
-        "/img/product-4.png"
-      ],
+      "images": ["/img/product-3.png", "/img/product-4.png"],
       "thumbnail": "/img/product-3.png",
       "variants": [
-        {
-          "id": "iphone-17-pro-512gb",
-          "storage": "512 GB",
-          "price": 1139.0,
-          "originalPrice": 1199.0
-        },
-        {
-          "id": "iphone-17-pro-1tb",
-          "storage": "1 TB",
-          "price": 1339.0,
-          "originalPrice": 1399.0
-        }
+        {"id": "iphone-17-pro-512gb", "storage": "512 GB", "price": 1139.00, "originalPrice": 1199.00},
+        {"id": "iphone-17-pro-1tb", "storage": "1 TB", "price": 1339.00, "originalPrice": 1399.00}
       ],
       "colors": [
-        {
-          "name": "Titanium Blue",
-          "code": "#4a90e2",
-          "active": true
-        },
-        {
-          "name": "Titanium Natural",
-          "code": "#f5f5dc"
-        },
-        {
-          "name": "Titanium Black",
-          "code": "#2c2c2c"
-        },
-        {
-          "name": "Titanium White",
-          "code": "#ffffff"
-        }
+        {"name": "Titanium Blue", "code": "#4a90e2", "active": true},
+        {"name": "Titanium Natural", "code": "#f5f5dc"},
+        {"name": "Titanium Black", "code": "#2c2c2c"},
+        {"name": "Titanium White", "code": "#ffffff"}
       ],
-      "tags": [
-        "nouveau",
-        "premium",
-        "apple",
-        "pro",
-        "5g"
-      ],
+      "tags": ["nouveau", "premium", "apple", "pro", "5g"],
       "seo": {
         "metaTitle": "iPhone 17 Pro 256GB Titanium Blue - LUXIO",
         "metaDescription": "iPhone 17 Pro avec puce A18 Pro, triple caméra et écran ProMotion. Performances professionnelles.",
-        "keywords": [
-          "iphone 17 pro",
-          "apple",
-          "pro",
-          "titanium",
-          "nouveau"
-        ]
+        "keywords": ["iphone 17 pro", "apple", "pro", "titanium", "nouveau"]
       },
       "createdAt": "2025-09-28T00:00:00Z",
       "updatedAt": "2025-09-28T00:00:00Z"
@@ -206,8 +135,8 @@
       "subcategory": "premium",
       "storage": "256 GB",
       "color": "Titanium Black",
-      "price": 1024.0,
-      "originalPrice": 1089.0,
+      "price": 1024.00,
+      "originalPrice": 1089.00,
       "currency": "EUR",
       "discount": 6,
       "isNew": true,
@@ -238,67 +167,24 @@
         "dimensions": "164.2 × 77.6 × 8.25 mm",
         "weight": "227 g"
       },
-      "images": [
-        "/img/product-5.png",
-        "/img/product-6.png"
-      ],
+      "images": ["/img/product-5.png", "/img/product-6.png"],
       "thumbnail": "/img/product-5.png",
       "variants": [
-        {
-          "id": "iphone-17-pro-max-512gb",
-          "storage": "512 GB",
-          "price": 1224.0,
-          "originalPrice": 1289.0
-        },
-        {
-          "id": "iphone-17-pro-max-1tb",
-          "storage": "1 TB",
-          "price": 1424.0,
-          "originalPrice": 1489.0
-        },
-        {
-          "id": "iphone-17-pro-max-2tb",
-          "storage": "2 TB",
-          "price": 1624.0,
-          "originalPrice": 1689.0
-        }
+        {"id": "iphone-17-pro-max-512gb", "storage": "512 GB", "price": 1224.00, "originalPrice": 1289.00},
+        {"id": "iphone-17-pro-max-1tb", "storage": "1 TB", "price": 1424.00, "originalPrice": 1489.00},
+        {"id": "iphone-17-pro-max-2tb", "storage": "2 TB", "price": 1624.00, "originalPrice": 1689.00}
       ],
       "colors": [
-        {
-          "name": "Titanium Black",
-          "code": "#2c2c2c",
-          "active": true
-        },
-        {
-          "name": "Titanium Natural",
-          "code": "#f5f5dc"
-        },
-        {
-          "name": "Titanium Blue",
-          "code": "#4a90e2"
-        },
-        {
-          "name": "Titanium White",
-          "code": "#ffffff"
-        }
+        {"name": "Titanium Black", "code": "#2c2c2c", "active": true},
+        {"name": "Titanium Natural", "code": "#f5f5dc"},
+        {"name": "Titanium Blue", "code": "#4a90e2"},
+        {"name": "Titanium White", "code": "#ffffff"}
       ],
-      "tags": [
-        "nouveau",
-        "premium",
-        "apple",
-        "pro-max",
-        "grand-écran"
-      ],
+      "tags": ["nouveau", "premium", "apple", "pro-max", "grand-écran"],
       "seo": {
         "metaTitle": "iPhone 17 Pro Max 256GB Titanium Black - LUXIO",
         "metaDescription": "iPhone 17 Pro Max 6,9\" avec puce A18 Pro et autonomie record. L'iPhone le plus avancé d'Apple.",
-        "keywords": [
-          "iphone 17 pro max",
-          "apple",
-          "titanium",
-          "grand",
-          "nouveau"
-        ]
+        "keywords": ["iphone 17 pro max", "apple", "titanium", "grand", "nouveau"]
       },
       "createdAt": "2025-09-28T00:00:00Z",
       "updatedAt": "2025-09-28T00:00:00Z"
@@ -313,8 +199,8 @@
       "subcategory": "premium",
       "storage": "256 GB",
       "color": "Phantom Black",
-      "price": 1109.0,
-      "originalPrice": 1179.0,
+      "price": 1109.00,
+      "originalPrice": 1179.00,
       "currency": "EUR",
       "discount": 6,
       "isNew": true,
@@ -345,57 +231,22 @@
         "dimensions": "162.3 × 79.0 × 8.6 mm",
         "weight": "233 g"
       },
-      "images": [
-        "/img/product-7.png",
-        "/img/product-8.png"
-      ],
+      "images": ["/img/product-7.png", "/img/product-8.png"],
       "thumbnail": "/img/product-7.png",
       "variants": [
-        {
-          "id": "samsung-galaxy-s25-ultra-512gb",
-          "storage": "512 GB",
-          "price": 1309.0,
-          "originalPrice": 1379.0
-        },
-        {
-          "id": "samsung-galaxy-s25-ultra-1tb",
-          "storage": "1 TB",
-          "price": 1509.0,
-          "originalPrice": 1579.0
-        }
+        {"id": "samsung-galaxy-s25-ultra-512gb", "storage": "512 GB", "price": 1309.00, "originalPrice": 1379.00},
+        {"id": "samsung-galaxy-s25-ultra-1tb", "storage": "1 TB", "price": 1509.00, "originalPrice": 1579.00}
       ],
       "colors": [
-        {
-          "name": "Phantom Black",
-          "code": "#2c2c2c",
-          "active": true
-        },
-        {
-          "name": "Phantom Silver",
-          "code": "#c0c0c0"
-        },
-        {
-          "name": "Phantom Violet",
-          "code": "#8a2be2"
-        }
+        {"name": "Phantom Black", "code": "#2c2c2c", "active": true},
+        {"name": "Phantom Silver", "code": "#c0c0c0"},
+        {"name": "Phantom Violet", "code": "#8a2be2"}
       ],
-      "tags": [
-        "nouveau",
-        "premium",
-        "samsung",
-        "s-pen",
-        "ai"
-      ],
+      "tags": ["nouveau", "premium", "samsung", "s-pen", "ai"],
       "seo": {
         "metaTitle": "Samsung Galaxy S25 Ultra 256GB - LUXIO",
         "metaDescription": "Galaxy S25 Ultra avec S Pen, écran QHD+ et caméras IA. Productivité et créativité sans limites.",
-        "keywords": [
-          "galaxy s25",
-          "samsung",
-          "s pen",
-          "ultra",
-          "nouveau"
-        ]
+        "keywords": ["galaxy s25", "samsung", "s pen", "ultra", "nouveau"]
       },
       "createdAt": "2025-09-28T00:00:00Z",
       "updatedAt": "2025-09-28T00:00:00Z"
@@ -410,8 +261,8 @@
       "subcategory": "premium",
       "storage": "128 GB",
       "color": "Phantom Silver",
-      "price": 769.0,
-      "originalPrice": 819.0,
+      "price": 769.00,
+      "originalPrice": 819.00,
       "currency": "EUR",
       "discount": 6,
       "isNew": true,
@@ -442,57 +293,22 @@
         "dimensions": "158.0 × 75.0 × 7.6 mm",
         "weight": "167 g"
       },
-      "images": [
-        "/img/product-9.png",
-        "/img/product-10.png"
-      ],
+      "images": ["/img/product-9.png", "/img/product-10.png"],
       "thumbnail": "/img/product-9.png",
       "variants": [
-        {
-          "id": "samsung-galaxy-s25-256gb",
-          "storage": "256 GB",
-          "price": 869.0,
-          "originalPrice": 919.0
-        },
-        {
-          "id": "samsung-galaxy-s25-512gb",
-          "storage": "512 GB",
-          "price": 1069.0,
-          "originalPrice": 1119.0
-        }
+        {"id": "samsung-galaxy-s25-256gb", "storage": "256 GB", "price": 869.00, "originalPrice": 919.00},
+        {"id": "samsung-galaxy-s25-512gb", "storage": "512 GB", "price": 1069.00, "originalPrice": 1119.00}
       ],
       "colors": [
-        {
-          "name": "Phantom Silver",
-          "code": "#c0c0c0",
-          "active": true
-        },
-        {
-          "name": "Phantom Black",
-          "code": "#2c2c2c"
-        },
-        {
-          "name": "Phantom Violet",
-          "code": "#8a2be2"
-        }
+        {"name": "Phantom Silver", "code": "#c0c0c0", "active": true},
+        {"name": "Phantom Black", "code": "#2c2c2c"},
+        {"name": "Phantom Violet", "code": "#8a2be2"}
       ],
-      "tags": [
-        "nouveau",
-        "premium",
-        "samsung",
-        "compact",
-        "performant"
-      ],
+      "tags": ["nouveau", "premium", "samsung", "compact", "performant"],
       "seo": {
         "metaTitle": "Samsung Galaxy S25 128GB Phantom Silver - LUXIO",
         "metaDescription": "Galaxy S25 avec écran AMOLED, Snapdragon 8 Gen 4 et design premium. Excellence Samsung.",
-        "keywords": [
-          "galaxy s25",
-          "samsung",
-          "compact",
-          "premium",
-          "nouveau"
-        ]
+        "keywords": ["galaxy s25", "samsung", "compact", "premium", "nouveau"]
       },
       "createdAt": "2025-09-28T00:00:00Z",
       "updatedAt": "2025-09-28T00:00:00Z"
@@ -507,8 +323,8 @@
       "subcategory": "premium",
       "storage": "256 GB",
       "color": "Obsidian",
-      "price": 854.0,
-      "originalPrice": 909.0,
+      "price": 854.00,
+      "originalPrice": 909.00,
       "currency": "EUR",
       "discount": 6,
       "isNew": true,
@@ -539,57 +355,22 @@
         "dimensions": "164.0 × 76.6 × 8.9 mm",
         "weight": "218 g"
       },
-      "images": [
-        "/img/product-11.png",
-        "/img/product-12.png"
-      ],
+      "images": ["/img/product-11.png", "/img/product-12.png"],
       "thumbnail": "/img/product-11.png",
       "variants": [
-        {
-          "id": "google-pixel-10-pro-512gb",
-          "storage": "512 GB",
-          "price": 1054.0,
-          "originalPrice": 1109.0
-        },
-        {
-          "id": "google-pixel-10-pro-1tb",
-          "storage": "1 TB",
-          "price": 1254.0,
-          "originalPrice": 1309.0
-        }
+        {"id": "google-pixel-10-pro-512gb", "storage": "512 GB", "price": 1054.00, "originalPrice": 1109.00},
+        {"id": "google-pixel-10-pro-1tb", "storage": "1 TB", "price": 1254.00, "originalPrice": 1309.00}
       ],
       "colors": [
-        {
-          "name": "Obsidian",
-          "code": "#3c4043",
-          "active": true
-        },
-        {
-          "name": "Porcelain",
-          "code": "#f8f9fa"
-        },
-        {
-          "name": "Hazel",
-          "code": "#79747e"
-        }
+        {"name": "Obsidian", "code": "#3c4043", "active": true},
+        {"name": "Porcelain", "code": "#f8f9fa"},
+        {"name": "Hazel", "code": "#79747e"}
       ],
-      "tags": [
-        "nouveau",
-        "google",
-        "ai",
-        "photo",
-        "android"
-      ],
+      "tags": ["nouveau", "google", "ai", "photo", "android"],
       "seo": {
         "metaTitle": "Google Pixel 10 Pro 256GB Obsidian - LUXIO",
         "metaDescription": "Pixel 10 Pro avec Tensor G5, IA avancée et Android pur. Photographie révolutionnaire.",
-        "keywords": [
-          "pixel 10 pro",
-          "google",
-          "ai",
-          "tensor",
-          "nouveau"
-        ]
+        "keywords": ["pixel 10 pro", "google", "ai", "tensor", "nouveau"]
       },
       "createdAt": "2025-09-28T00:00:00Z",
       "updatedAt": "2025-09-28T00:00:00Z"
@@ -604,8 +385,8 @@
       "subcategory": "standard",
       "storage": "128 GB",
       "color": "Porcelain",
-      "price": 597.0,
-      "originalPrice": 647.0,
+      "price": 597.00,
+      "originalPrice": 647.00,
       "currency": "EUR",
       "discount": 8,
       "isNew": true,
@@ -636,51 +417,21 @@
         "dimensions": "158.6 × 74.8 × 8.9 mm",
         "weight": "198 g"
       },
-      "images": [
-        "/img/product-13.png",
-        "/img/product-14.png"
-      ],
+      "images": ["/img/product-13.png", "/img/product-14.png"],
       "thumbnail": "/img/product-13.png",
       "variants": [
-        {
-          "id": "google-pixel-10-256gb",
-          "storage": "256 GB",
-          "price": 697.0,
-          "originalPrice": 747.0
-        }
+        {"id": "google-pixel-10-256gb", "storage": "256 GB", "price": 697.00, "originalPrice": 747.00}
       ],
       "colors": [
-        {
-          "name": "Porcelain",
-          "code": "#f8f9fa",
-          "active": true
-        },
-        {
-          "name": "Obsidian",
-          "code": "#3c4043"
-        },
-        {
-          "name": "Mint",
-          "code": "#98fb98"
-        }
+        {"name": "Porcelain", "code": "#f8f9fa", "active": true},
+        {"name": "Obsidian", "code": "#3c4043"},
+        {"name": "Mint", "code": "#98fb98"}
       ],
-      "tags": [
-        "nouveau",
-        "google",
-        "ai",
-        "accessible",
-        "android"
-      ],
+      "tags": ["nouveau", "google", "ai", "accessible", "android"],
       "seo": {
         "metaTitle": "Google Pixel 10 128GB Porcelain - LUXIO",
         "metaDescription": "Pixel 10 avec Tensor G5 et Android pur. L'excellence Google accessible à tous.",
-        "keywords": [
-          "pixel 10",
-          "google",
-          "tensor",
-          "accessible",
-          "nouveau"
-        ]
+        "keywords": ["pixel 10", "google", "tensor", "accessible", "nouveau"]
       },
       "createdAt": "2025-09-28T00:00:00Z",
       "updatedAt": "2025-09-28T00:00:00Z"
@@ -695,8 +446,8 @@
       "subcategory": "premium",
       "storage": "256 GB",
       "color": "Midnight Black",
-      "price": 597.0,
-      "originalPrice": 647.0,
+      "price": 597.00,
+      "originalPrice": 647.00,
       "currency": "EUR",
       "discount": 8,
       "isNew": true,
@@ -727,50 +478,21 @@
         "dimensions": "163.0 × 75.3 × 8.5 mm",
         "weight": "210 g"
       },
-      "images": [
-        "/img/product-15.png",
-        "/img/product-16.png"
-      ],
+      "images": ["/img/product-15.png", "/img/product-16.png"],
       "thumbnail": "/img/product-15.png",
       "variants": [
-        {
-          "id": "oneplus-13-512gb",
-          "storage": "512 GB",
-          "price": 697.0,
-          "originalPrice": 747.0
-        }
+        {"id": "oneplus-13-512gb", "storage": "512 GB", "price": 697.00, "originalPrice": 747.00}
       ],
       "colors": [
-        {
-          "name": "Midnight Black",
-          "code": "#1c1c1c",
-          "active": true
-        },
-        {
-          "name": "Arctic Dawn",
-          "code": "#e6f3ff"
-        },
-        {
-          "name": "Desert Mirage",
-          "code": "#d4af37"
-        }
+        {"name": "Midnight Black", "code": "#1c1c1c", "active": true},
+        {"name": "Arctic Dawn", "code": "#e6f3ff"},
+        {"name": "Desert Mirage", "code": "#d4af37"}
       ],
-      "tags": [
-        "nouveau",
-        "oneplus",
-        "rapide",
-        "charge",
-        "premium"
-      ],
+      "tags": ["nouveau", "oneplus", "rapide", "charge", "premium"],
       "seo": {
         "metaTitle": "OnePlus 13 256GB Midnight Black - LUXIO",
         "metaDescription": "OnePlus 13 avec Snapdragon 8 Gen 4 et charge 100W. Performance et vitesse reunies.",
-        "keywords": [
-          "oneplus 13",
-          "snapdragon",
-          "charge rapide",
-          "nouveau"
-        ]
+        "keywords": ["oneplus 13", "snapdragon", "charge rapide", "nouveau"]
       },
       "createdAt": "2025-09-28T00:00:00Z",
       "updatedAt": "2025-09-28T00:00:00Z"
@@ -785,8 +507,8 @@
       "subcategory": "standard",
       "storage": "128 GB",
       "color": "Ultramarine",
-      "price": 597.0,
-      "originalPrice": 629.0,
+      "price": 597.00,
+      "originalPrice": 629.00,
       "currency": "EUR",
       "discount": 5,
       "isNew": false,
@@ -817,63 +539,24 @@
         "dimensions": "147.6 × 71.6 × 7.8 mm",
         "weight": "170 g"
       },
-      "images": [
-        "/img/product-17.png"
-      ],
+      "images": ["/img/product-17.png"],
       "thumbnail": "/img/product-17.png",
       "variants": [
-        {
-          "id": "iphone-16-256gb",
-          "storage": "256 GB",
-          "price": 697.0,
-          "originalPrice": 729.0
-        },
-        {
-          "id": "iphone-16-512gb",
-          "storage": "512 GB",
-          "price": 897.0,
-          "originalPrice": 929.0
-        }
+        {"id": "iphone-16-256gb", "storage": "256 GB", "price": 697.00, "originalPrice": 729.00},
+        {"id": "iphone-16-512gb", "storage": "512 GB", "price": 897.00, "originalPrice": 929.00}
       ],
       "colors": [
-        {
-          "name": "Ultramarine",
-          "code": "#4169e1",
-          "active": true
-        },
-        {
-          "name": "Teal",
-          "code": "#008080"
-        },
-        {
-          "name": "Pink",
-          "code": "#ffc0cb"
-        },
-        {
-          "name": "Black",
-          "code": "#000000"
-        },
-        {
-          "name": "White",
-          "code": "#ffffff"
-        }
+        {"name": "Ultramarine", "code": "#4169e1", "active": true},
+        {"name": "Teal", "code": "#008080"},
+        {"name": "Pink", "code": "#ffc0cb"},
+        {"name": "Black", "code": "#000000"},
+        {"name": "White", "code": "#ffffff"}
       ],
-      "tags": [
-        "populaire",
-        "apple",
-        "coloré",
-        "action-button"
-      ],
+      "tags": ["populaire", "apple", "coloré", "action-button"],
       "seo": {
         "metaTitle": "iPhone 16 128GB Ultramarine - LUXIO",
         "metaDescription": "iPhone 16 avec puce A18, Action Button et design coloré. Style et performance Apple.",
-        "keywords": [
-          "iphone 16",
-          "apple",
-          "a18",
-          "action button",
-          "coloré"
-        ]
+        "keywords": ["iphone 16", "apple", "a18", "action button", "coloré"]
       },
       "createdAt": "2025-09-28T00:00:00Z",
       "updatedAt": "2025-09-28T00:00:00Z"
@@ -888,8 +571,8 @@
       "subcategory": "premium",
       "storage": "256 GB",
       "color": "Desert Titanium",
-      "price": 854.0,
-      "originalPrice": 889.0,
+      "price": 854.00,
+      "originalPrice": 889.00,
       "currency": "EUR",
       "discount": 4,
       "isNew": false,
@@ -920,59 +603,23 @@
         "dimensions": "159.9 × 76.7 × 8.25 mm",
         "weight": "199 g"
       },
-      "images": [
-        "/img/product-18.png"
-      ],
+      "images": ["/img/product-18.png"],
       "thumbnail": "/img/product-18.png",
       "variants": [
-        {
-          "id": "iphone-16-pro-512gb",
-          "storage": "512 GB",
-          "price": 1054.0,
-          "originalPrice": 1089.0
-        },
-        {
-          "id": "iphone-16-pro-1tb",
-          "storage": "1 TB",
-          "price": 1254.0,
-          "originalPrice": 1289.0
-        }
+        {"id": "iphone-16-pro-512gb", "storage": "512 GB", "price": 1054.00, "originalPrice": 1089.00},
+        {"id": "iphone-16-pro-1tb", "storage": "1 TB", "price": 1254.00, "originalPrice": 1289.00}
       ],
       "colors": [
-        {
-          "name": "Desert Titanium",
-          "code": "#deb887",
-          "active": true
-        },
-        {
-          "name": "Natural Titanium",
-          "code": "#f5f5dc"
-        },
-        {
-          "name": "White Titanium",
-          "code": "#ffffff"
-        },
-        {
-          "name": "Black Titanium",
-          "code": "#2c2c2c"
-        }
+        {"name": "Desert Titanium", "code": "#deb887", "active": true},
+        {"name": "Natural Titanium", "code": "#f5f5dc"},
+        {"name": "White Titanium", "code": "#ffffff"},
+        {"name": "Black Titanium", "code": "#2c2c2c"}
       ],
-      "tags": [
-        "pro",
-        "apple",
-        "titanium",
-        "camera-control"
-      ],
+      "tags": ["pro", "apple", "titanium", "camera-control"],
       "seo": {
         "metaTitle": "iPhone 16 Pro 256GB Desert Titanium - LUXIO",
         "metaDescription": "iPhone 16 Pro avec puce A18 Pro, caméras pro et design titanium. Excellence professionnelle.",
-        "keywords": [
-          "iphone 16 pro",
-          "apple",
-          "pro",
-          "titanium",
-          "camera"
-        ]
+        "keywords": ["iphone 16 pro", "apple", "pro", "titanium", "camera"]
       },
       "createdAt": "2025-09-28T00:00:00Z",
       "updatedAt": "2025-09-28T00:00:00Z"
@@ -987,8 +634,8 @@
       "subcategory": "premium",
       "storage": "256 GB",
       "color": "Titanium Gray",
-      "price": 1024.0,
-      "originalPrice": 1079.0,
+      "price": 1024.00,
+      "originalPrice": 1079.00,
       "currency": "EUR",
       "discount": 5,
       "isNew": false,
@@ -1019,60 +666,23 @@
         "dimensions": "162.3 × 79.0 × 8.6 mm",
         "weight": "232 g"
       },
-      "images": [
-        "/img/product-19.png"
-      ],
+      "images": ["/img/product-19.png"],
       "thumbnail": "/img/product-19.png",
       "variants": [
-        {
-          "id": "samsung-galaxy-s24-ultra-512gb",
-          "storage": "512 GB",
-          "price": 1224.0,
-          "originalPrice": 1279.0
-        },
-        {
-          "id": "samsung-galaxy-s24-ultra-1tb",
-          "storage": "1 TB",
-          "price": 1424.0,
-          "originalPrice": 1479.0
-        }
+        {"id": "samsung-galaxy-s24-ultra-512gb", "storage": "512 GB", "price": 1224.00, "originalPrice": 1279.00},
+        {"id": "samsung-galaxy-s24-ultra-1tb", "storage": "1 TB", "price": 1424.00, "originalPrice": 1479.00}
       ],
       "colors": [
-        {
-          "name": "Titanium Gray",
-          "code": "#708090",
-          "active": true
-        },
-        {
-          "name": "Titanium Black",
-          "code": "#2c2c2c"
-        },
-        {
-          "name": "Titanium Violet",
-          "code": "#8a2be2"
-        },
-        {
-          "name": "Titanium Yellow",
-          "code": "#ffd700"
-        }
+        {"name": "Titanium Gray", "code": "#708090", "active": true},
+        {"name": "Titanium Black", "code": "#2c2c2c"},
+        {"name": "Titanium Violet", "code": "#8a2be2"},
+        {"name": "Titanium Yellow", "code": "#ffd700"}
       ],
-      "tags": [
-        "ai",
-        "samsung",
-        "s-pen",
-        "premium",
-        "titanium"
-      ],
+      "tags": ["ai", "samsung", "s-pen", "premium", "titanium"],
       "seo": {
         "metaTitle": "Samsung Galaxy S24 Ultra 256GB Titanium Gray - LUXIO",
         "metaDescription": "Galaxy S24 Ultra avec Galaxy AI, S Pen et design titanium. IA et productivité réunies.",
-        "keywords": [
-          "galaxy s24 ultra",
-          "samsung",
-          "ai",
-          "s pen",
-          "titanium"
-        ]
+        "keywords": ["galaxy s24 ultra", "samsung", "ai", "s pen", "titanium"]
       },
       "createdAt": "2025-09-28T00:00:00Z",
       "updatedAt": "2025-09-28T00:00:00Z"
@@ -1087,8 +697,8 @@
       "subcategory": "premium",
       "storage": "256 GB",
       "color": "Titanium Black",
-      "price": 683.0,
-      "originalPrice": 719.0,
+      "price": 683.00,
+      "originalPrice": 719.00,
       "currency": "EUR",
       "discount": 5,
       "isNew": false,
@@ -1119,55 +729,204 @@
         "dimensions": "161.4 × 75.0 × 8.2 mm",
         "weight": "223 g"
       },
-      "images": [
-        "/img/product-20.png"
-      ],
+      "images": ["/img/product-20.png"],
       "thumbnail": "/img/product-20.png",
       "variants": [
-        {
-          "id": "xiaomi-14-pro-512gb",
-          "storage": "512 GB",
-          "price": 783.0,
-          "originalPrice": 819.0
-        },
-        {
-          "id": "xiaomi-14-pro-1tb",
-          "storage": "1 TB",
-          "price": 883.0,
-          "originalPrice": 919.0
-        }
+        {"id": "xiaomi-14-pro-512gb", "storage": "512 GB", "price": 783.00, "originalPrice": 819.00},
+        {"id": "xiaomi-14-pro-1tb", "storage": "1 TB", "price": 883.00, "originalPrice": 919.00}
       ],
       "colors": [
-        {
-          "name": "Titanium Black",
-          "code": "#2c2c2c",
-          "active": true
-        },
-        {
-          "name": "Titanium",
-          "code": "#f5f5dc"
-        },
-        {
-          "name": "Rock Blue",
-          "code": "#4682b4"
-        }
+        {"name": "Titanium Black", "code": "#2c2c2c", "active": true},
+        {"name": "Titanium", "code": "#f5f5dc"},
+        {"name": "Rock Blue", "code": "#4682b4"}
       ],
-      "tags": [
-        "xiaomi",
-        "leica",
-        "rapide",
-        "premium",
-        "photo"
-      ],
+      "tags": ["xiaomi", "leica", "rapide", "premium", "photo"],
       "seo": {
         "metaTitle": "Xiaomi 14 Pro 256GB Titanium Black - LUXIO",
         "metaDescription": "Xiaomi 14 Pro avec Snapdragon 8 Gen 3, caméras Leica et charge 120W. Performance flagship.",
-        "keywords": [
-          "xiaomi 14 pro",
-          "leica",
-          "snapdragon",
-          "charge rapide"
-        ]
+        "keywords": ["xiaomi 14 pro", "leica", "snapdragon", "charge rapide"]
+      },
+      "createdAt": "2025-09-28T00:00:00Z",
+      "updatedAt": "2025-09-28T00:00:00Z"
+    },
+    {
+      "id": "huawei-p60-pro-256gb",
+      "slug": "huawei-p60-pro-256gb-cocoa-gold",
+      "title": "Huawei P60 Pro 256 GB Cocoa Gold",
+      "brand": "Huawei",
+      "model": "P60 Pro",
+      "category": "smartphones",
+      "subcategory": "premium",
+      "storage": "256 GB",
+      "color": "Cocoa Gold",
+      "price": 854.00,
+      "originalPrice": 909.00,
+      "currency": "EUR",
+      "discount": 6,
+      "isNew": false,
+      "isFeatured": true,
+      "inStock": true,
+      "stock": 15,
+      "rating": 4.6,
+      "reviewCount": 98,
+      "shortDescription": "Le Huawei P60 Pro avec Kirin 9000s, caméras Leica et design premium.",
+      "description": "Le Huawei P60 Pro combine innovation chinoise et excellence photographique Leica. Avec sa puce Kirin 9000s et son système de caméras pro, il offre une expérience premium unique.",
+      "features": [
+        "Puce Kirin 9000s",
+        "Écran OLED 6,67\" 120Hz",
+        "Triple caméras Leica 48/13/12 Mpx",
+        "HarmonyOS 4.0",
+        "Charge rapide 88W",
+        "Design premium en métal",
+        "5G intégré",
+        "Résistance IP68"
+      ],
+      "specifications": {
+        "screen": "6,67\" OLED 120Hz",
+        "processor": "Kirin 9000s",
+        "camera": "Triple 48/13/12 Mpx + Selfie 13 Mpx",
+        "battery": "4815 mAh avec charge 88W",
+        "connectivity": "5G, Wi-Fi 6, Bluetooth 5.2",
+        "resistance": "IP68",
+        "dimensions": "161.0 × 74.5 × 8.3 mm",
+        "weight": "200 g"
+      },
+      "images": ["/img/product-21.png"],
+      "thumbnail": "/img/product-21.png",
+      "variants": [
+        {"id": "huawei-p60-pro-512gb", "storage": "512 GB", "price": 954.00, "originalPrice": 1009.00}
+      ],
+      "colors": [
+        {"name": "Cocoa Gold", "code": "#daa520", "active": true},
+        {"name": "Rococo Pearl", "code": "#f5f5dc"},
+        {"name": "Emerald Green", "code": "#50c878"}
+      ],
+      "tags": ["huawei", "leica", "premium", "kirin"],
+      "seo": {
+        "metaTitle": "Huawei P60 Pro 256GB Cocoa Gold - LUXIO",
+        "metaDescription": "Huawei P60 Pro avec Kirin 9000s, caméras Leica et HarmonyOS 4.0. Excellence photographique.",
+        "keywords": ["huawei p60 pro", "leica", "kirin", "harmonyos"]
+      },
+      "createdAt": "2025-09-28T00:00:00Z",
+      "updatedAt": "2025-09-28T00:00:00Z"
+    },
+    {
+      "id": "nothing-phone-2-256gb",
+      "slug": "nothing-phone-2-256gb-white",
+      "title": "Nothing Phone (2) 256 GB White",
+      "brand": "Nothing",
+      "model": "Phone (2)",
+      "category": "smartphones",
+      "subcategory": "premium",
+      "storage": "256 GB",
+      "color": "White",
+      "price": 512.00,
+      "originalPrice": 559.00,
+      "currency": "EUR",
+      "discount": 8,
+      "isNew": false,
+      "isFeatured": true,
+      "inStock": true,
+      "stock": 22,
+      "rating": 4.5,
+      "reviewCount": 134,
+      "shortDescription": "Le Nothing Phone (2) avec Glyph Interface unique et Snapdragon 8+ Gen 1.",
+      "description": "Le Nothing Phone (2) révolutionne le design smartphone avec son Glyph Interface LED unique. Transparence, innovation et performances se rencontrent dans ce smartphone distinctif.",
+      "features": [
+        "Glyph Interface LED unique",
+        "Snapdragon 8+ Gen 1",
+        "Écran LTPO OLED 6,7\" 120Hz",
+        "Design transparent",
+        "Nothing OS basé sur Android 13",
+        "Charge rapide 45W",
+        "Double caméra 50 + 50 Mpx",
+        "Résistance IP54"
+      ],
+      "specifications": {
+        "screen": "6,7\" LTPO OLED 120Hz",
+        "processor": "Snapdragon 8+ Gen 1",
+        "camera": "Dual 50/50 Mpx + Selfie 32 Mpx",
+        "battery": "4700 mAh avec charge 45W",
+        "connectivity": "5G, Wi-Fi 6E, Bluetooth 5.3",
+        "resistance": "IP54",
+        "dimensions": "162.1 × 76.4 × 8.6 mm",
+        "weight": "201 g"
+      },
+      "images": ["/img/product-22.png"],
+      "thumbnail": "/img/product-22.png",
+      "variants": [
+        {"id": "nothing-phone-2-512gb", "storage": "512 GB", "price": 612.00, "originalPrice": 659.00}
+      ],
+      "colors": [
+        {"name": "White", "code": "#ffffff", "active": true},
+        {"name": "Dark Grey", "code": "#2c2c2c"}
+      ],
+      "tags": ["nothing", "glyph", "transparent", "unique"],
+      "seo": {
+        "metaTitle": "Nothing Phone (2) 256GB White - LUXIO",
+        "metaDescription": "Nothing Phone (2) avec Glyph Interface, design transparent et Snapdragon 8+ Gen 1.",
+        "keywords": ["nothing phone 2", "glyph", "transparent", "led"]
+      },
+      "createdAt": "2025-09-28T00:00:00Z",
+      "updatedAt": "2025-09-28T00:00:00Z"
+    },
+    {
+      "id": "sony-xperia-1-v-256gb",
+      "slug": "sony-xperia-1-v-256gb-black",
+      "title": "Sony Xperia 1 V 256 GB Black",
+      "brand": "Sony",
+      "model": "Xperia 1 V",
+      "category": "smartphones",
+      "subcategory": "premium",
+      "storage": "256 GB",
+      "color": "Black",
+      "price": 1024.00,
+      "originalPrice": 1089.00,
+      "currency": "EUR",
+      "discount": 6,
+      "isNew": false,
+      "isFeatured": true,
+      "inStock": true,
+      "stock": 10,
+      "rating": 4.6,
+      "reviewCount": 87,
+      "shortDescription": "Le Sony Xperia 1 V avec écran 4K HDR, caméras pro et expertise audio.",
+      "description": "Le Sony Xperia 1 V combine l'expertise cinématographique et audio de Sony dans un smartphone premium. Écran 4K, caméras pro et design élégant pour les créateurs exigeants.",
+      "features": [
+        "Écran 4K HDR OLED 6,5\" 120Hz",
+        "Snapdragon 8 Gen 2",
+        "Triple caméras Zeiss 48/12/12 Mpx",
+        "Audio haute résolution",
+        "Mode Cinema Pro",
+        "Résistance IP68",
+        "Android 13",
+        "Design premium Sony"
+      ],
+      "specifications": {
+        "screen": "6,5\" 4K HDR OLED 120Hz",
+        "processor": "Snapdragon 8 Gen 2",
+        "camera": "Triple 48/12/12 Mpx + Selfie 12 Mpx",
+        "battery": "5000 mAh avec charge 30W",
+        "connectivity": "5G, Wi-Fi 6E, Bluetooth 5.3",
+        "resistance": "IP68",
+        "dimensions": "165.0 × 71.0 × 8.3 mm",
+        "weight": "187 g"
+      },
+      "images": ["/img/product-23.png"],
+      "thumbnail": "/img/product-23.png",
+      "variants": [
+        {"id": "sony-xperia-1-v-512gb", "storage": "512 GB", "price": 1224.00, "originalPrice": 1289.00}
+      ],
+      "colors": [
+        {"name": "Black", "code": "#000000", "active": true},
+        {"name": "Platinum Silver", "code": "#e5e5e5"},
+        {"name": "Khaki Green", "code": "#8fbc8f"}
+      ],
+      "tags": ["sony", "4k", "zeiss", "cinema", "audio"],
+      "seo": {
+        "metaTitle": "Sony Xperia 1 V 256GB Black - LUXIO",
+        "metaDescription": "Sony Xperia 1 V avec écran 4K, caméras Zeiss et audio haute résolution. Expertise Sony.",
+        "keywords": ["sony xperia 1 v", "4k", "zeiss", "cinema", "audio"]
       },
       "createdAt": "2025-09-28T00:00:00Z",
       "updatedAt": "2025-09-28T00:00:00Z"
@@ -1184,8 +943,8 @@
       "subcategory": "sport",
       "size": "49mm",
       "material": "Titanium",
-      "price": 899.0,
-      "originalPrice": 949.0,
+      "price": 899.00,
+      "originalPrice": 949.00,
       "currency": "EUR",
       "discount": 5,
       "isNew": true,
@@ -1226,8 +985,8 @@
         {
           "id": "apple-watch-ultra-3-gps-cellular",
           "connectivity": "GPS + Cellular",
-          "price": 999.0,
-          "originalPrice": 1049.0
+          "price": 999.00,
+          "originalPrice": 1049.00
         }
       ],
       "colors": [
@@ -1237,23 +996,11 @@
           "active": true
         }
       ],
-      "tags": [
-        "nouveau",
-        "sport",
-        "titanium",
-        "gps",
-        "aventure"
-      ],
+      "tags": ["nouveau", "sport", "titanium", "gps", "aventure"],
       "seo": {
         "metaTitle": "Apple Watch Ultra 3 49mm Titanium - LUXIO",
         "metaDescription": "Apple Watch Ultra 3 en titane, la montre connectée la plus robuste pour sport et aventure. GPS double fréquence.",
-        "keywords": [
-          "apple watch",
-          "ultra",
-          "titanium",
-          "sport",
-          "gps"
-        ]
+        "keywords": ["apple watch", "ultra", "titanium", "sport", "gps"]
       },
       "createdAt": "2025-09-28T00:00:00Z",
       "updatedAt": "2025-09-28T00:00:00Z"

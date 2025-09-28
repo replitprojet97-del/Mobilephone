@@ -296,9 +296,9 @@ class CategoryManager {
                             <i class="fas fa-shopping-cart"></i>
                             ${product.inStock ? 'Ajouter' : 'Indisponible'}
                         </button>
-                        <a href="../product/${product.slug}.html" class="btn-view-product">
+                        <button class="btn-view-product" disabled style="opacity: 0.5; cursor: not-allowed;" title="Bientôt disponible">
                             Détails
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>
