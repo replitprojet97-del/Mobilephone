@@ -4,10 +4,14 @@ import { promises as fs } from 'fs';
 import path from 'path';
 
 export default async function handler(req, res) {
-    // Configuration CORS
-    res.setHeader('Access-Control-Allow-Origin', '*');
+    // Configuration CORS sécurisée
+    const allowedOrigins = ['https://your-domain.vercel.app', 'http://localhost:5000'];
+    const origin = req.headers.origin;
+    if (allowedOrigins.includes(origin)) {
+        res.setHeader('Access-Control-Allow-Origin', origin);
+    }
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
 
     if (req.method === 'OPTIONS') {
         return res.status(200).end();
@@ -53,6 +57,23 @@ export default async function handler(req, res) {
             return res.status(400).json({ 
                 error: 'URL source requise pour cette catégorie ou URL par défaut non disponible' 
             });
+        }
+
+        // Validation URL pour éviter SSRF
+        if (sourceUrl) {
+            try {
+                const parsedUrl = new URL(sourceUrl);
+                const allowedDomains = ['fnac.com', 'amazon.fr', 'zalando.fr', 'ikea.com', 'decathlon.fr'];
+                const isAllowed = allowedDomains.some(domain => parsedUrl.hostname.includes(domain));
+                
+                if (!isAllowed) {
+                    return res.status(400).json({
+                        error: 'Domaine non autorisé. Domaines acceptés: ' + allowedDomains.join(', ')
+                    });
+                }
+            } catch {
+                return res.status(400).json({ error: 'URL invalide' });
+            }
         }
 
         console.log(`Import produits - Catégorie: ${category}, URL: ${targetUrl}`);
