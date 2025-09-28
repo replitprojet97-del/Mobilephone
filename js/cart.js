@@ -117,7 +117,7 @@ class LuxioCart {
         if (this.items.length === 0) {
             cartDropdown.innerHTML = `
                 <div class="text-center p-3">
-                    <p data-translate="cart_empty">Votre panier est vide</p>
+                    <p data-translate="cart_empty">${window.LuxioLang ? window.LuxioLang.t('cart_empty') : 'Votre panier est vide'}</p>
                 </div>
             `;
         } else {
@@ -138,17 +138,20 @@ class LuxioCart {
             });
             
             if (this.items.length > 3) {
-                cartHTML += `<div class="text-center p-2"><small>et ${this.items.length - 3} autres articles...</small></div>`;
+                const moreItemsText = window.LuxioLang ? 
+                    window.LuxioLang.t('and_more_items').replace('${count}', this.items.length - 3) : 
+                    `et ${this.items.length - 3} autres articles...`;
+                cartHTML += `<div class="text-center p-2"><small>${moreItemsText}</small></div>`;
             }
             
             cartHTML += `
                 <div class="cart-footer p-3">
                     <div class="d-flex justify-content-between mb-2">
-                        <strong>Total: ${this.formatPrice(this.getTotal())}</strong>
+                        <strong>${window.LuxioLang ? window.LuxioLang.t('total') : 'Total'}: ${this.formatPrice(this.getTotal())}</strong>
                     </div>
                     <div class="d-grid gap-2">
-                        <a href="cart.html" class="btn btn-primary btn-sm">Voir Panier</a>
-                        <a href="checkout.html" class="btn btn-success btn-sm">Commander</a>
+                        <a href="cart.html" class="btn btn-primary btn-sm">${window.LuxioLang ? window.LuxioLang.t('view_cart') : 'Voir Panier'}</a>
+                        <a href="checkout.html" class="btn btn-success btn-sm">${window.LuxioLang ? window.LuxioLang.t('order') : 'Commander'}</a>
                     </div>
                 </div>
             `;
@@ -166,8 +169,8 @@ class LuxioCart {
             cartTableBody.innerHTML = `
                 <tr>
                     <td colspan="6" class="text-center py-4">
-                        <p data-translate="cart_empty">Votre panier est vide</p>
-                        <a href="shop.html" class="btn btn-primary">Continuer vos achats</a>
+                        <p data-translate="cart_empty">${window.LuxioLang ? window.LuxioLang.t('cart_empty') : 'Votre panier est vide'}</p>
+                        <a href="shop.html" class="btn btn-primary">${window.LuxioLang ? window.LuxioLang.t('continue_shopping') : 'Continuer vos achats'}</a>
                     </td>
                 </tr>
             `;
@@ -229,10 +232,11 @@ class LuxioCart {
         // Créer une notification toast
         const toast = document.createElement('div');
         toast.className = 'toast-notification';
+        const addedText = window.LuxioLang ? window.LuxioLang.t('added_to_cart') : 'ajouté au panier!';
         toast.innerHTML = `
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 <i class="fas fa-check-circle me-2"></i>
-                <strong>${productName}</strong> ajouté au panier!
+                <strong>${productName}</strong> ${addedText}
                 <button type="button" class="btn-close" onclick="this.parentElement.parentElement.remove()"></button>
             </div>
         `;

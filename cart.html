@@ -31,12 +31,12 @@
             </div>
             
             <div class="nav-search">
-                <input type="text" placeholder="Recherche avancée..." class="search-input">
+                <input type="text" placeholder="Recherche avancée..." class="search-input" data-translate="search_placeholder">
                 <select class="search-category">
-                    <option>Tous Produits</option>
-                    <option>Smartphones</option>
-                    <option>Montres</option>
-                    <option>Mode</option>
+                    <option data-translate="all_category">Tous Produits</option>
+                    <option data-translate="smartphones">Smartphones</option>
+                    <option data-translate="watches">Montres</option>
+                    <option data-translate="fashion">Mode</option>
                 </select>
                 <button class="search-btn"><i class="fas fa-search"></i></button>
             </div>
@@ -67,16 +67,11 @@
         <!-- Categories Menu -->
         <div class="categories-bar">
             <div class="categories-container">
-                <a href="index.html" class="category-item">Accueil</a>
-                <a href="shop.html" class="category-item">Smartphones</a>
-                <a href="#" class="category-item">Montres</a>
-                <a href="#" class="category-item">Mode</a>
-                <a href="#" class="category-item">Maison</a>
-                <a href="#" class="category-item">Mobilité</a>
-                <a href="#" class="category-item">Services</a>
-                <div class="category-more">
-                    <a href="#" class="category-item">+ Plus</a>
-                </div>
+                <a href="index.html" class="category-item" data-translate="home">Accueil</a>
+                <a href="shop.html" class="category-item" data-translate="smartphones">Smartphones</a>
+                <a href="#" class="category-item" data-translate="watches">Montres</a>
+                <a href="#" class="category-item" data-translate="fashion">Mode</a>
+                <a href="#" class="category-item" data-translate="mobility">Mobilité</a>
             </div>
         </div>
     </nav>
@@ -85,12 +80,12 @@
     <section class="cart-header">
         <div class="section-container">
             <div class="breadcrumb">
-                <a href="index.html">Accueil</a>
+                <a href="index.html" data-translate="home">Accueil</a>
                 <span class="separator">></span>
-                <span class="current">Panier</span>
+                <span class="current" data-translate="cart">Panier</span>
             </div>
-            <h1 class="page-title">Votre Panier</h1>
-            <p class="page-description">Finalisez votre commande et profitez de la livraison gratuite</p>
+            <h1 class="page-title" data-translate="your_cart">Votre Panier</h1>
+            <p class="page-description" data-translate="cart_description">Finalisez votre commande et profitez de la livraison gratuite</p>
         </div>
     </section>
 
@@ -101,11 +96,11 @@
                 <!-- Cart Items -->
                 <div class="cart-items">
                     <div class="cart-header-row">
-                        <div class="header-product">Produit</div>
-                        <div class="header-price">Prix</div>
-                        <div class="header-quantity">Quantité</div>
-                        <div class="header-total">Total</div>
-                        <div class="header-actions">Actions</div>
+                        <div class="header-product" data-translate="product">Produit</div>
+                        <div class="header-price" data-translate="price">Prix</div>
+                        <div class="header-quantity" data-translate="quantity">Quantité</div>
+                        <div class="header-total" data-translate="total">Total</div>
+                        <div class="header-actions" data-translate="actions">Actions</div>
                     </div>
                     
                     <div id="cart-items-container">
@@ -114,15 +109,15 @@
                             <div class="empty-cart-icon">
                                 <i class="fas fa-shopping-bag fa-3x"></i>
                             </div>
-                            <h3>Votre panier est vide</h3>
-                            <p>Découvrez notre collection premium et ajoutez vos produits favoris</p>
-                            <a href="shop.html" class="btn-primary">Découvrir nos Produits</a>
+                            <h3 data-translate="cart_empty">Votre panier est vide</h3>
+                            <p data-translate="cart_empty_description">Découvrez notre collection premium et ajoutez vos produits favoris</p>
+                            <a href="shop.html" class="btn-primary" data-translate="discover_products">Découvrir nos Produits</a>
                         </div>
                         
                         <div id="checkout-section" style="display: none;">
                             <div class="checkout-actions">
-                                <a href="checkout.html" class="btn-checkout">Procéder au Paiement</a>
-                                <a href="shop.html" class="btn-continue">Continuer les Achats</a>
+                                <a href="checkout.html" class="btn-checkout" data-translate="proceed_to_payment">Procéder au Paiement</a>
+                                <a href="shop.html" class="btn-continue" data-translate="continue_shopping">Continuer les Achats</a>
                             </div>
                         </div>
                     </div>
