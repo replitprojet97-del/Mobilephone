@@ -133,7 +133,42 @@ const translations = {
         'footer_copyright': '© 2025 LUXIO. Tous droits réservés.',
         'footer_terms': 'Conditions',
         'footer_privacy': 'Confidentialité',
-        'footer_cookies': 'Cookies'
+        'footer_cookies': 'Cookies',
+        // Payment methods
+        'bank_transfer': 'Virement Bancaire',
+        'bank_transfer_desc': 'Paiement sécurisé par virement bancaire - Traitement sous 24-48h',
+        'tickets_payment': 'Tickets Transcash & PCS',
+        'tickets_payment_desc': 'Paiement par tickets prépayés - Disponibles sur recharge.com',
+        'cryptocurrency': 'Cryptomonnaie',
+        'reference_code_required': 'Code de référence obligatoire :',
+        'use_code_as_reference': 'Utilisez ce code comme motif de virement pour identifier votre commande',
+        'bank_details': 'Coordonnées Bancaires',
+        'instructions': 'Instructions :',
+        'bank_instruction_1': 'Effectuez le virement avec le montant exact de votre commande',
+        'bank_instruction_2': 'Utilisez le code de référence comme motif de virement',
+        'bank_instruction_3': 'Votre commande sera traitée dès réception du paiement (24-48h)',
+        'bank_instruction_4': 'Vous recevrez une confirmation par email',
+        'confirm_bank_transfer': 'Confirmer le Virement Bancaire',
+        'reference_code_for_purchase': 'Code de référence pour votre achat :',
+        'how_to_proceed': 'Comment procéder :',
+        'step_1_buy_tickets': '1. Achat des tickets :',
+        'visit_recharge_com': 'Rendez-vous sur',
+        'buy_tickets_instruction': 'Achetez des tickets Transcash ou PCS pour le montant de votre commande',
+        'step_2_send_codes': '2. Envoi des codes :',
+        'send_codes_instruction': 'Envoyez-nous vos codes par email ou utilisez le formulaire ci-dessous',
+        'include_reference_code': 'Incluez votre code de référence',
+        'contact_email': 'Email de contact',
+        'ticket_codes_label': 'Codes des tickets (un par ligne)',
+        'reference_code': 'Code de référence',
+        'comment_optional': 'Commentaire (optionnel)',
+        'send_ticket_codes': 'Envoyer les Codes de Tickets',
+        'beneficiary': 'Bénéficiaire :',
+        'iban': 'IBAN :',
+        'bic': 'BIC :',
+        'copy': 'Copier',
+        'email_placeholder_tickets': 'votre@email.com',
+        'ticket_codes_placeholder': 'Entrez vos codes de tickets ici...\nCode1\nCode2\netc.',
+        'additional_info_placeholder': 'Informations complémentaires...'
     },
     en: {
         // Navigation and interface
@@ -268,7 +303,42 @@ const translations = {
         'footer_copyright': '© 2025 LUXIO. All rights reserved.',
         'footer_terms': 'Terms',
         'footer_privacy': 'Privacy',
-        'footer_cookies': 'Cookies'
+        'footer_cookies': 'Cookies',
+        // Payment methods
+        'bank_transfer': 'Bank Transfer',
+        'bank_transfer_desc': 'Secure payment by bank transfer - Processing within 24-48h',
+        'tickets_payment': 'Transcash & PCS Tickets',
+        'tickets_payment_desc': 'Payment by prepaid tickets - Available on recharge.com',
+        'cryptocurrency': 'Cryptocurrency',
+        'reference_code_required': 'Required reference code:',
+        'use_code_as_reference': 'Use this code as transfer reference to identify your order',
+        'bank_details': 'Bank Details',
+        'instructions': 'Instructions:',
+        'bank_instruction_1': 'Make the transfer with the exact amount of your order',
+        'bank_instruction_2': 'Use the reference code as transfer memo',
+        'bank_instruction_3': 'Your order will be processed upon payment receipt (24-48h)',
+        'bank_instruction_4': 'You will receive an email confirmation',
+        'confirm_bank_transfer': 'Confirm Bank Transfer',
+        'reference_code_for_purchase': 'Reference code for your purchase:',
+        'how_to_proceed': 'How to proceed:',
+        'step_1_buy_tickets': '1. Buy tickets:',
+        'visit_recharge_com': 'Visit',
+        'buy_tickets_instruction': 'Buy Transcash or PCS tickets for your order amount',
+        'step_2_send_codes': '2. Send codes:',
+        'send_codes_instruction': 'Send us your codes by email or use the form below',
+        'include_reference_code': 'Include your reference code',
+        'contact_email': 'Contact email',
+        'ticket_codes_label': 'Ticket codes (one per line)',
+        'reference_code': 'Reference code',
+        'comment_optional': 'Comment (optional)',
+        'send_ticket_codes': 'Send Ticket Codes',
+        'beneficiary': 'Beneficiary:',
+        'iban': 'IBAN:',
+        'bic': 'BIC:',
+        'copy': 'Copy',
+        'email_placeholder_tickets': 'your@email.com',
+        'ticket_codes_placeholder': 'Enter your ticket codes here...\nCode1\nCode2\netc.',
+        'additional_info_placeholder': 'Additional information...'
     },
     pl: {
         // Nawigacja i interfejs
@@ -403,7 +473,42 @@ const translations = {
         'footer_copyright': '© 2025 LUXIO. Wszystkie prawa zastrzeżone.',
         'footer_terms': 'Warunki',
         'footer_privacy': 'Prywatność',
-        'footer_cookies': 'Ciasteczka'
+        'footer_cookies': 'Ciasteczka',
+        // Payment methods
+        'bank_transfer': 'Przelew Bankowy',
+        'bank_transfer_desc': 'Bezpieczna płatność przelewem bankowym - Realizacja w ciągu 24-48h',
+        'tickets_payment': 'Bilety Transcash i PCS',
+        'tickets_payment_desc': 'Płatność biletami przedpłaconymi - Dostępne na recharge.com',
+        'cryptocurrency': 'Kryptowaluta',
+        'reference_code_required': 'Wymagany kod referencyjny:',
+        'use_code_as_reference': 'Użyj tego kodu jako tytułu przelewu do identyfikacji zamówienia',
+        'bank_details': 'Dane Bankowe',
+        'instructions': 'Instrukcje:',
+        'bank_instruction_1': 'Wykonaj przelew z dokładną kwotą zamówienia',
+        'bank_instruction_2': 'Użyj kodu referencyjnego jako tytułu przelewu',
+        'bank_instruction_3': 'Twoje zamówienie zostanie przetworzone po otrzymaniu płatności (24-48h)',
+        'bank_instruction_4': 'Otrzymasz potwierdzenie e-mailem',
+        'confirm_bank_transfer': 'Potwierdź Przelew Bankowy',
+        'reference_code_for_purchase': 'Kod referencyjny dla zakupu:',
+        'how_to_proceed': 'Jak postępować:',
+        'step_1_buy_tickets': '1. Zakup biletów:',
+        'visit_recharge_com': 'Odwiedź',
+        'buy_tickets_instruction': 'Kup bilety Transcash lub PCS na kwotę zamówienia',
+        'step_2_send_codes': '2. Wyślij kody:',
+        'send_codes_instruction': 'Wyślij nam swoje kody e-mailem lub użyj formularza poniżej',
+        'include_reference_code': 'Dołącz swój kod referencyjny',
+        'contact_email': 'Email kontaktowy',
+        'ticket_codes_label': 'Kody biletów (jeden na linię)',
+        'reference_code': 'Kod referencyjny',
+        'comment_optional': 'Komentarz (opcjonalny)',
+        'send_ticket_codes': 'Wyślij Kody Biletów',
+        'beneficiary': 'Odbiorca:',
+        'iban': 'IBAN:',
+        'bic': 'BIC:',
+        'copy': 'Kopiuj',
+        'email_placeholder_tickets': 'twój@email.com',
+        'ticket_codes_placeholder': 'Wprowadź tutaj kody biletów...\nKod1\nKod2\nitp.',
+        'additional_info_placeholder': 'Dodatkowe informacje...'
     },
     pt: {
         // Navegação e interface
@@ -538,7 +643,42 @@ const translations = {
         'footer_copyright': '© 2025 LUXIO. Todos os direitos reservados.',
         'footer_terms': 'Termos',
         'footer_privacy': 'Privacidade',
-        'footer_cookies': 'Cookies'
+        'footer_cookies': 'Cookies',
+        // Payment methods
+        'bank_transfer': 'Transferência Bancária',
+        'bank_transfer_desc': 'Pagamento seguro por transferência bancária - Processamento em 24-48h',
+        'tickets_payment': 'Tickets Transcash & PCS',
+        'tickets_payment_desc': 'Pagamento por tickets pré-pagos - Disponíveis em recharge.com',
+        'cryptocurrency': 'Criptomoeda',
+        'reference_code_required': 'Código de referência obrigatório:',
+        'use_code_as_reference': 'Use este código como referência de transferência para identificar seu pedido',
+        'bank_details': 'Dados Bancários',
+        'instructions': 'Instruções:',
+        'bank_instruction_1': 'Faça a transferência com o valor exato do seu pedido',
+        'bank_instruction_2': 'Use o código de referência como memo da transferência',
+        'bank_instruction_3': 'Seu pedido será processado após o recebimento do pagamento (24-48h)',
+        'bank_instruction_4': 'Você receberá uma confirmação por email',
+        'confirm_bank_transfer': 'Confirmar Transferência Bancária',
+        'reference_code_for_purchase': 'Código de referência para sua compra:',
+        'how_to_proceed': 'Como proceder:',
+        'step_1_buy_tickets': '1. Compra de tickets:',
+        'visit_recharge_com': 'Visite',
+        'buy_tickets_instruction': 'Compre tickets Transcash ou PCS pelo valor do seu pedido',
+        'step_2_send_codes': '2. Envio dos códigos:',
+        'send_codes_instruction': 'Envie-nos seus códigos por email ou use o formulário abaixo',
+        'include_reference_code': 'Inclua seu código de referência',
+        'contact_email': 'Email de contato',
+        'ticket_codes_label': 'Códigos dos tickets (um por linha)',
+        'reference_code': 'Código de referência',
+        'comment_optional': 'Comentário (opcional)',
+        'send_ticket_codes': 'Enviar Códigos dos Tickets',
+        'beneficiary': 'Beneficiário:',
+        'iban': 'IBAN:',
+        'bic': 'BIC:',
+        'copy': 'Copiar',
+        'email_placeholder_tickets': 'seu@email.com',
+        'ticket_codes_placeholder': 'Digite seus códigos de tickets aqui...\nCódigo1\nCódigo2\netc.',
+        'additional_info_placeholder': 'Informações adicionais...'
     },
     es: {
         // Navegación e interfaz
@@ -673,7 +813,42 @@ const translations = {
         'footer_copyright': '© 2025 LUXIO. Todos los derechos reservados.',
         'footer_terms': 'Términos',
         'footer_privacy': 'Privacidad',
-        'footer_cookies': 'Cookies'
+        'footer_cookies': 'Cookies',
+        // Payment methods
+        'bank_transfer': 'Transferencia Bancaria',
+        'bank_transfer_desc': 'Pago seguro por transferencia bancaria - Procesamiento en 24-48h',
+        'tickets_payment': 'Tickets Transcash & PCS',
+        'tickets_payment_desc': 'Pago con tickets prepago - Disponibles en recharge.com',
+        'cryptocurrency': 'Criptomoneda',
+        'reference_code_required': 'Código de referencia obligatorio:',
+        'use_code_as_reference': 'Use este código como referencia de transferencia para identificar su pedido',
+        'bank_details': 'Datos Bancarios',
+        'instructions': 'Instrucciones:',
+        'bank_instruction_1': 'Realice la transferencia con el monto exacto de su pedido',
+        'bank_instruction_2': 'Use el código de referencia como concepto de transferencia',
+        'bank_instruction_3': 'Su pedido será procesado al recibir el pago (24-48h)',
+        'bank_instruction_4': 'Recibirá una confirmación por email',
+        'confirm_bank_transfer': 'Confirmar Transferencia Bancaria',
+        'reference_code_for_purchase': 'Código de referencia para su compra:',
+        'how_to_proceed': 'Cómo proceder:',
+        'step_1_buy_tickets': '1. Compra de tickets:',
+        'visit_recharge_com': 'Visite',
+        'buy_tickets_instruction': 'Compre tickets Transcash o PCS por el monto de su pedido',
+        'step_2_send_codes': '2. Envío de códigos:',
+        'send_codes_instruction': 'Envíenos sus códigos por email o use el formulario a continuación',
+        'include_reference_code': 'Incluya su código de referencia',
+        'contact_email': 'Email de contacto',
+        'ticket_codes_label': 'Códigos de tickets (uno por línea)',
+        'reference_code': 'Código de referencia',
+        'comment_optional': 'Comentario (opcional)',
+        'send_ticket_codes': 'Enviar Códigos de Tickets',
+        'beneficiary': 'Beneficiario:',
+        'iban': 'IBAN:',
+        'bic': 'BIC:',
+        'copy': 'Copiar',
+        'email_placeholder_tickets': 'tu@email.com',
+        'ticket_codes_placeholder': 'Ingrese sus códigos de tickets aquí...\nCódigo1\nCódigo2\netc.',
+        'additional_info_placeholder': 'Información adicional...'
     }
 };
 
@@ -748,6 +923,16 @@ function updatePageContent() {
             element.placeholder = translation;
         } else {
             element.textContent = translation;
+        }
+    });
+    
+    // Mettre à jour tous les éléments avec des attributs data-translate-placeholder
+    document.querySelectorAll('[data-translate-placeholder]').forEach(element => {
+        const key = element.getAttribute('data-translate-placeholder');
+        const translation = t(key);
+        
+        if (element.placeholder !== undefined) {
+            element.placeholder = translation;
         }
     });
     

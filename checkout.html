@@ -492,58 +492,58 @@
                             <i class="fas fa-university"></i>
                         </div>
                         <div class="payment-method-info">
-                            <h3>Virement Bancaire</h3>
-                            <p>Paiement sécurisé par virement bancaire - Traitement sous 24-48h</p>
+                            <h3 data-translate="bank_transfer">Virement Bancaire</h3>
+                            <p data-translate="bank_transfer_desc">Paiement sécurisé par virement bancaire - Traitement sous 24-48h</p>
                         </div>
                     </div>
                     
                     <div class="payment-details" id="bank-details">
                         <div class="reference-code">
-                            <p><strong>Code de référence obligatoire :</strong></p>
+                            <p><strong data-translate="reference_code_required">Code de référence obligatoire :</strong></p>
                             <div style="display: flex; align-items: center;">
                                 <strong id="bank-reference">LX-</strong>
                                 <button class="copy-btn" onclick="copyReference('bank-reference')">
-                                    <i class="fas fa-copy"></i> Copier
+                                    <i class="fas fa-copy"></i> <span data-translate="copy">Copier</span>
                                 </button>
                             </div>
                             <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #fcbd01;">
-                                ⚠️ Utilisez ce code comme motif de virement pour identifier votre commande
+                                ⚠️ <span data-translate="use_code_as_reference">Utilisez ce code comme motif de virement pour identifier votre commande</span>
                             </p>
                         </div>
                         
                         <div class="bank-details">
-                            <h4 style="color: #fcbd01; margin-bottom: 1rem;">Coordonnées Bancaires</h4>
+                            <h4 style="color: #fcbd01; margin-bottom: 1rem;" data-translate="bank_details">Coordonnées Bancaires</h4>
                             <div class="bank-detail-row">
-                                <span>Bénéficiaire :</span>
+                                <span data-translate="beneficiary">Bénéficiaire :</span>
                                 <strong>Luxio Allem</strong>
                             </div>
                             <div class="bank-detail-row">
-                                <span>IBAN :</span>
+                                <span data-translate="iban">IBAN :</span>
                                 <strong id="bank-iban">ES6115632626383268707364</strong>
                                 <button class="copy-btn" onclick="copyText('bank-iban')">
-                                    <i class="fas fa-copy"></i>
+                                    <i class="fas fa-copy"></i> <span data-translate="copy">Copier</span>
                                 </button>
                             </div>
                             <div class="bank-detail-row">
-                                <span>BIC :</span>
+                                <span data-translate="bic">BIC :</span>
                                 <strong id="bank-bic">NTSBESM1XXX</strong>
                                 <button class="copy-btn" onclick="copyText('bank-bic')">
-                                    <i class="fas fa-copy"></i>
+                                    <i class="fas fa-copy"></i> <span data-translate="copy">Copier</span>
                                 </button>
                             </div>
                         </div>
                         
                         <div style="background: #2a2a2a; padding: 1rem; border-radius: 6px; margin-top: 1rem;">
-                            <h4 style="color: #fcbd01; margin-bottom: 0.5rem;">Instructions :</h4>
+                            <h4 style="color: #fcbd01; margin-bottom: 0.5rem;" data-translate="instructions">Instructions :</h4>
                             <ol style="color: #ccc; margin: 0; padding-left: 1.5rem;">
-                                <li>Effectuez le virement avec le montant exact de votre commande</li>
-                                <li>Utilisez le code de référence comme motif de virement</li>
-                                <li>Votre commande sera traitée dès réception du paiement (24-48h)</li>
-                                <li>Vous recevrez une confirmation par email</li>
+                                <li data-translate="bank_instruction_1">Effectuez le virement avec le montant exact de votre commande</li>
+                                <li data-translate="bank_instruction_2">Utilisez le code de référence comme motif de virement</li>
+                                <li data-translate="bank_instruction_3">Votre commande sera traitée dès réception du paiement (24-48h)</li>
+                                <li data-translate="bank_instruction_4">Vous recevrez une confirmation par email</li>
                             </ol>
                         </div>
                         
-                        <button class="btn-submit-payment" onclick="submitBankPayment()">
+                        <button class="btn-submit-payment" onclick="submitBankPayment()" data-translate="confirm_bank_transfer">
                             Confirmer le Virement Bancaire
                         </button>
                     </div>
@@ -556,57 +556,57 @@
                             <i class="fas fa-ticket-alt"></i>
                         </div>
                         <div class="payment-method-info">
-                            <h3>Tickets Transcash & PCS</h3>
-                            <p>Paiement par tickets prépayés - Disponibles sur recharge.com</p>
+                            <h3 data-translate="tickets_payment">Tickets Transcash & PCS</h3>
+                            <p data-translate="tickets_payment_desc">Paiement par tickets prépayés - Disponibles sur recharge.com</p>
                         </div>
                     </div>
                     
                     <div class="payment-details" id="tickets-details">
                         <div class="reference-code">
-                            <p><strong>Code de référence pour votre achat :</strong></p>
+                            <p><strong data-translate="reference_code_for_purchase">Code de référence pour votre achat :</strong></p>
                             <div style="display: flex; align-items: center;">
                                 <strong id="ticket-reference">LX-</strong>
                                 <button class="copy-btn" onclick="copyReference('ticket-reference')">
-                                    <i class="fas fa-copy"></i> Copier
+                                    <i class="fas fa-copy"></i> <span data-translate="copy">Copier</span>
                                 </button>
                             </div>
                         </div>
                         
                         <div style="background: #2a2a2a; padding: 1.5rem; border-radius: 6px; margin: 1rem 0;">
-                            <h4 style="color: #fcbd01; margin-bottom: 1rem;">Comment procéder :</h4>
+                            <h4 style="color: #fcbd01; margin-bottom: 1rem;" data-translate="how_to_proceed">Comment procéder :</h4>
                             <div style="color: #ccc;">
-                                <p><strong>1. Achat des tickets :</strong></p>
-                                <p style="margin-left: 1rem;">• Rendez-vous sur <a href="https://recharge.com" target="_blank" style="color: #fcbd01;">recharge.com</a></p>
-                                <p style="margin-left: 1rem;">• Achetez des tickets Transcash ou PCS pour le montant de votre commande</p>
+                                <p><strong data-translate="step_1_buy_tickets">1. Achat des tickets :</strong></p>
+                                <p style="margin-left: 1rem;">• <span data-translate="visit_recharge_com">Rendez-vous sur</span> <a href="https://recharge.com" target="_blank" style="color: #fcbd01;">recharge.com</a></p>
+                                <p style="margin-left: 1rem;">• <span data-translate="buy_tickets_instruction">Achetez des tickets Transcash ou PCS pour le montant de votre commande</span></p>
                                 
-                                <p style="margin-top: 1rem;"><strong>2. Envoi des codes :</strong></p>
-                                <p style="margin-left: 1rem;">• Envoyez-nous vos codes par email ou utilisez le formulaire ci-dessous</p>
-                                <p style="margin-left: 1rem;">• Incluez votre code de référence</p>
+                                <p style="margin-top: 1rem;"><strong data-translate="step_2_send_codes">2. Envoi des codes :</strong></p>
+                                <p style="margin-left: 1rem;">• <span data-translate="send_codes_instruction">Envoyez-nous vos codes par email ou utilisez le formulaire ci-dessous</span></p>
+                                <p style="margin-left: 1rem;">• <span data-translate="include_reference_code">Incluez votre code de référence</span></p>
                             </div>
                         </div>
                         
                         <form id="ticket-form">
                             <div class="form-group">
-                                <label class="form-label">Email de contact</label>
-                                <input type="email" class="form-input" required placeholder="votre@email.com">
+                                <label class="form-label" data-translate="contact_email">Email de contact</label>
+                                <input type="email" class="form-input" required placeholder="votre@email.com" data-translate-placeholder="email_placeholder_tickets">
                             </div>
                             
                             <div class="form-group">
-                                <label class="form-label">Codes des tickets (un par ligne)</label>
-                                <textarea class="form-input form-textarea" required placeholder="Entrez vos codes de tickets ici...&#10;Code1&#10;Code2&#10;etc."></textarea>
+                                <label class="form-label" data-translate="ticket_codes_label">Codes des tickets (un par ligne)</label>
+                                <textarea class="form-input form-textarea" required placeholder="Entrez vos codes de tickets ici...&#10;Code1&#10;Code2&#10;etc." data-translate-placeholder="ticket_codes_placeholder"></textarea>
                             </div>
                             
                             <div class="form-group">
-                                <label class="form-label">Code de référence</label>
+                                <label class="form-label" data-translate="reference_code">Code de référence</label>
                                 <input type="text" class="form-input" id="ticket-ref-input" readonly>
                             </div>
                             
                             <div class="form-group">
-                                <label class="form-label">Commentaire (optionnel)</label>
-                                <textarea class="form-input" placeholder="Informations complémentaires..."></textarea>
+                                <label class="form-label" data-translate="comment_optional">Commentaire (optionnel)</label>
+                                <textarea class="form-input" placeholder="Informations complémentaires..." data-translate-placeholder="additional_info_placeholder"></textarea>
                             </div>
                             
-                            <button type="submit" class="btn-submit-payment">
+                            <button type="submit" class="btn-submit-payment" data-translate="send_ticket_codes">
                                 Envoyer les Codes de Tickets
                             </button>
                         </form>
@@ -620,7 +620,7 @@
                             <i class="fab fa-bitcoin"></i>
                         </div>
                         <div class="payment-method-info">
-                            <h3>Cryptomonnaie</h3>
+                            <h3 data-translate="cryptocurrency">Cryptomonnaie</h3>
                             <p>Paiement instantané en Bitcoin, Ethereum, et autres crypto</p>
                         </div>
                     </div>
