@@ -1,0 +1,104 @@
+Objectif :
+Créer un script JavaScript qui charge au moins 100 produits depuis un fichier products.json (ou un tableau JS) et les affiche tous dans une grille sur une page HTML, avec pagination/lazy-load si nécessaire.
+
+Tâches précises :
+
+1. Source de données
+
+Lire le fichier products.json (ou products.js exportant window.allProducts).
+
+Ce fichier contient tous les produits (id, name, price, category, image).
+
+
+
+2. Affichage illimité
+
+Afficher au minimum 100 produits sur la page, même si la liste complète dépasse 100.
+
+S’il y a plus de 100 produits, charger par blocs de 20 via un bouton “Charger plus”.
+
+
+
+3. Performance
+
+Utiliser document.createDocumentFragment() pour insérer les éléments en lot.
+
+Pas de limite codée (pas de slice(0,23) !).
+
+
+
+4. Structure HTML exemple
+
+<div id="product-grid" class="grid"></div>
+<button id="load-more">Charger plus</button>
+
+
+5. JavaScript
+
+const grid = document.getElementById('product-grid');
+const loadMoreBtn = document.getElementById('load-more');
+let products = [];      // sera rempli après fetch
+let currentIndex = 0;
+const PAGE_SIZE = 20;   // nombre de produits par lot
+
+async function loadProducts() {
+  const res = await fetch('products.json'); // ou products.js
+  products = await res.json();
+  renderNext();
+}
+
+function renderNext() {
+  const frag = document.createDocumentFragment();
+  const next = products.slice(currentIndex, currentIndex + PAGE_SIZE);
+  next.forEach(p => {
+    const card = document.createElement('div');
+    card.className = 'product-card';
+    card.innerHTML = `
+      <img src="${p.image}" alt="${p.name}">
+      <h3>${p.name}</h3>
+      <p>${p.price} €</p>
+    `;
+    frag.appendChild(card);
+  });
+  grid.appendChild(frag);
+  currentIndex += PAGE_SIZE;
+  if (currentIndex >= products.length) loadMoreBtn.style.display = 'none';
+}
+
+loadMoreBtn.addEventListener('click', renderNext);
+loadProducts();
+
+
+6. CSS
+
+Utiliser la grille déjà existante (.grid, .product-card) pour rester cohérent.
+
+
+
+
+Livrable attendu :
+
+Nouveau fichier js/catalogue.js (ou nom équivalent) avec ce code.
+
+Un <script src="js/catalogue.js"></script> dans ta page smartphones.html, montres.html, etc.
+
+
+Important :
+
+Ne pas limiter le fetch à 20 ou 23 articles.
+
+Le bouton “Charger plus” doit continuer tant qu’il reste des produits.
+
+
+
+
+
+---
+
+✅ Résultat attendu
+
+La page affiche 20 produits au chargement, puis chaque clic sur “Charger plus” ajoute 20 de plus.
+
+S’il y a 150 articles dans products.json, les 150 peuvent être affichés, 20 par 20.
+
+Tu garantis qu’au moins 100 produits sont accessibles, quelle que soit la taille du catalogue.

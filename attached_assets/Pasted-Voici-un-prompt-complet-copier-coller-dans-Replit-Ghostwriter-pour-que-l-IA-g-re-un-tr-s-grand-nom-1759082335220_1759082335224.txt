@@ -1,0 +1,159 @@
+Voici un prompt complet à copier/coller dans Replit Ghostwriter pour que l’IA gère un très grand nombre d’articles (plus de 300) dans ton site e-commerce HTML/JS pur, sans aucune limite de chargement.
+
+
+---
+
+🟢 Prompt Replit – Gestion du grand nombre d’articles
+
+> Projet :
+Site e-commerce Luxio, 100 % HTML/CSS/JS, déployable sur Vercel.
+
+Objectif :
+Pouvoir afficher plusieurs centaines de produits (smartphones, montres, accessoires, etc.) dans des pages dédiées, sans blocage ni limite de nombre, en restant en HTML/JS pur.
+
+
+---
+
+1️⃣ Structure de fichiers
+
+Crée ou adapte la structure suivante :
+
+/data
+   ├─ smartphones-part1.json
+   ├─ smartphones-part2.json
+   ├─ watches-part1.json
+   ├─ watches-part2.json
+   ├─ accessories-part1.json
+   └─ accessories-part2.json
+/js
+   └─ loadCatalog.js
+smartphones.html
+montres.html
+accessoires.html
+
+Chaque fichier *-partX.json contiendra 30 à 40 articles maximum pour éviter les limitations mémoire de Replit.
+
+L’utilisateur peut créer autant de partX.json que nécessaire (part3, part4…).
+
+
+
+---
+
+2️⃣ Script principal : /js/loadCatalog.js
+
+Implémente un code qui :
+
+1. Détecte automatiquement tous les fichiers JSON d’une catégorie.
+
+Exemple : pour la catégorie smartphones, charger smartphones-part1.json, smartphones-part2.json, etc., sans avoir à les énumérer en dur.
+
+
+
+2. Fusionne tous les tableaux JSON dans un unique tableau allProducts.
+
+
+3. Affiche les produits par lots de 20 avec un bouton « Charger plus ».
+
+
+4. Continue d’afficher jusqu’au dernier produit, sans aucune limite codée (pas de slice(0,23) ou équivalent).
+
+
+5. Utilise DocumentFragment pour améliorer les performances.
+
+
+
+
+---
+
+3️⃣ Pages HTML
+
+Dans chaque page (smartphones.html, montres.html, accessoires.html) :
+
+<body onload="loadAll('smartphones')">
+  <div id="product-grid" class="grid"></div>
+  <button id="load-more">Charger plus</button>
+  <script src="js/loadCatalog.js"></script>
+</body>
+
+– Remplacer le paramètre ('smartphones') par 'watches' ou 'accessories' selon la page.
+
+
+---
+
+4️⃣ Navigation
+
+Mettre à jour le menu principal pour pointer vers :
+
+smartphones.html
+
+montres.html
+
+accessoires.html
+
+
+
+
+---
+
+5️⃣ Format des données
+
+Chaque produit dans les fichiers JSON suit ce schéma :
+
+{
+  "id": 1,
+  "brand": "Apple",
+  "model": "iPhone 17 Pro Max",
+  "storage": "256 Go",
+  "price": 1499,
+  "image": "images/iphone17promax.jpg",
+  "category": "smartphone"
+}
+
+image peut être un chemin local (images/...) ou une URL externe (CDN, hébergement d’images).
+
+
+
+---
+
+6️⃣ Instructions pour l’utilisateur
+
+Ajouter les produits par blocs de 30–40 dans chaque fichier JSON.
+
+Nommer les fichiers de façon cohérente (*-part1.json, *-part2.json, etc.).
+
+Le script doit charger tous les fichiers existants sans que tu aies à modifier le code si tu ajoutes un nouveau partX.json.
+
+
+
+---
+
+7️⃣ Contraintes
+
+Aucune conversion vers Node, React ou autre framework : rester 100 % HTML/CSS/JS.
+
+Code commenté et prêt pour déploiement sur Vercel.
+
+
+
+---
+
+Résultat attendu :
+
+Cliquer sur “Smartphones”, “Montres” ou “Accessoires” ouvre une page qui affiche l’intégralité des produits, quel que soit leur nombre, en les chargeant par lots de 20 via le bouton « Charger plus », sans aucune limite de quantité.
+
+
+
+
+
+---
+
+➡️ Copie/colle ce prompt dans Ghostwriter (Replit).
+L’IA générera :
+
+le code loadCatalog.js capable de charger tous les fichiers JSON d’une catégorie,
+
+les pages HTML prêtes,
+
+et les instructions pour ajouter des centaines d’articles sans jamais bloquer le site.
+
+

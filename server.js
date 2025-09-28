@@ -245,7 +245,7 @@ app.post('/api/submit-order', async (req, res) => {
         }
 
         // Configuration du transporteur nodemailer
-        const transporter = nodemailer.createTransporter({
+        const transporter = nodemailer.createTransport({
             host: MAIL_HOST,
             port: parseInt(MAIL_PORT),
             secure: parseInt(MAIL_PORT) === 465, // true pour 465, false pour les autres ports
