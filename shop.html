@@ -184,7 +184,7 @@
     <!-- Products Grid -->
     <section class="shop-products">
         <div class="section-container">
-            <div class="products-grid grid-view" id="product-grid">
+            <div class="products-grid grid-view" id="products-grid">
                 <!-- Products will be loaded here by JavaScript -->
                 <div class="product-skeleton">
                     <div class="skeleton-image"></div>
@@ -328,7 +328,7 @@
                 console.log(`🛍️ Loaded ${allProducts.length} products for shop`);
                 
                 // Display products
-                const container = document.getElementById('product-grid');
+                const container = document.getElementById('products-grid');
                 if (container && allProducts.length > 0) {
                     container.innerHTML = allProducts.slice(0, 12).map(product => createProductCard(product)).join('');
                 }
@@ -384,7 +384,7 @@
                         viewButtons.forEach(b => b.classList.remove('active'));
                         e.target.classList.add('active');
                         
-                        const container = document.getElementById('shop-products-container');
+                        const container = document.getElementById('products-grid');
                         const view = e.target.dataset.view;
                         
                         container.className = `products-grid ${view}-view`;
@@ -411,7 +411,7 @@
                         ? await window.productsManager.getAllProducts()
                         : await window.productsManager.getProductsByCategory(category);
                     
-                    const container = document.getElementById('product-grid');
+                    const container = document.getElementById('products-grid');
                     if (container) {
                         container.innerHTML = products.slice(0, 12).map(product => createProductCard(product)).join('');
                     }
@@ -428,7 +428,7 @@
                         ? allProducts
                         : allProducts.filter(p => p.brand?.toLowerCase() === brand.toLowerCase());
                     
-                    const container = document.getElementById('product-grid');
+                    const container = document.getElementById('products-grid');
                     if (container) {
                         container.innerHTML = products.slice(0, 12).map(product => createProductCard(product)).join('');
                     }
@@ -462,7 +462,7 @@
                 console.log(`🛍️ Loaded ${allProducts.length} products for shop`);
                 
                 // Display products
-                const container = document.getElementById('product-grid');
+                const container = document.getElementById('products-grid');
                 if (container && allProducts.length > 0) {
                     container.innerHTML = allProducts.map(product => createProductCard(product)).join('');
                 }
