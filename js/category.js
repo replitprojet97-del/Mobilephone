@@ -32,21 +32,34 @@ class CategoryManager {
     detectCategory() {
         const path = window.location.pathname;
         if (path.includes('smartphones')) return 'smartphones';
-        if (path.includes('watches')) return 'watches';
+        if (path.includes('watches') || path.includes('montres')) return 'watches';
+        if (path.includes('accessories') || path.includes('accessoires')) return 'accessories';
         if (path.includes('fashion')) return 'fashion';
         if (path.includes('home')) return 'home';
-        if (path.includes('mobility')) return 'mobility';
+        if (path.includes('mobility') || path.includes('mobilite')) return 'mobility';
         if (path.includes('services')) return 'services';
         return 'smartphones'; // default
     }
 
-    // Charger les produits depuis le fichier JSON
+    // Charger les produits depuis ProductsManager (système unifié)
     async loadProducts() {
         try {
-            const response = await fetch('../data/products.json');
-            const data = await response.json();
+            console.log(`📱 CategoryManager: Loading ${this.category} products...`);
             
-            this.products = data[this.category] || [];
+            // Utiliser le ProductsManager global si disponible
+            if (window.productsManager) {
+                await window.productsManager.loadPromise;
+                this.products = await window.productsManager.getProductsByCategory(this.category) || [];
+                console.log(`✅ CategoryManager: Loaded ${this.products.length} ${this.category} products from ProductsManager`);
+            } else {
+                // Fallback: charge directement si ProductsManager n'est pas disponible
+                console.log('⚠️ ProductsManager not available, using fallback');
+                const response = await fetch('../data/products.json');
+                const data = await response.json();
+                this.products = data[this.category] || [];
+                console.log(`📦 CategoryManager: Loaded ${this.products.length} ${this.category} products from fallback`);
+            }
+            
             this.filteredProducts = [...this.products];
             
             this.renderNewArrivals();

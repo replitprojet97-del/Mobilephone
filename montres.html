@@ -19,7 +19,7 @@
     <link href="css/modern.css" rel="stylesheet">
 </head>
 
-<body onload="loadAll('watches')">
+<body>
     <!-- Navigation -->
     <nav class="luxio-nav">
         <div class="nav-container">
@@ -308,35 +308,20 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="js/loadCatalog.js"></script>
+    <script src="js/products.js"></script>
     <script src="js/modern.js"></script>
+    <script src="js/category.js"></script>
     <script src="js/cart.js"></script>
     <script src="js/languages.js"></script>
     <script src="js/wishlist.js"></script>
     
-    <!-- Dynamic Catalog Integration -->
+    <!-- Unified Product System Integration -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('⌚ Initializing watches category with dynamic catalog...');
+            console.log('⌚ Initializing watches category with unified system...');
             
-            // Override the loadAll to update stats
-            const originalLoadAll = window.loadAll;
-            if (typeof originalLoadAll === 'function') {
-                window.loadAll = async function(category) {
-                    await originalLoadAll(category);
-                
-                // Update product count display
-                const totalProducts = catalogLoader.allProducts.length;
-                const productCountElements = document.querySelectorAll('#products-count, #total-products');
-                productCountElements.forEach(el => {
-                    if (el) el.textContent = totalProducts;
-                });
-                
-                console.log(`⌚ Updated product count: ${totalProducts} watches`);
-                };
-            } else {
-                console.error('loadAll function not found - loadCatalog.js may not be loaded properly');
-            }
+            // CategoryManager will automatically initialize and load watches
+            // The #products-count will be updated by CategoryManager.updateProductCount()
         });
     </script>
 </body>

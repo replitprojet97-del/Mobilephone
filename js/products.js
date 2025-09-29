@@ -258,5 +258,5 @@ class ProductsManager {
 // Créer une instance globale
 window.productsManager = new ProductsManager();
 
-// Export pour les modules ES6
-export default ProductsManager;
+// Instance globale accessible partout
+// export default ProductsManager; // Commenté pour compatibilité script classique

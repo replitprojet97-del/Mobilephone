@@ -184,7 +184,7 @@
     <!-- Products Grid -->
     <section class="shop-products">
         <div class="section-container">
-            <div class="products-grid grid-view" id="shop-products-container">
+            <div class="products-grid grid-view" id="product-grid">
                 <!-- Products will be loaded here by JavaScript -->
                 <div class="product-skeleton">
                     <div class="skeleton-image"></div>
@@ -309,44 +309,39 @@
     <script src="js/modern.js"></script>
     <script src="js/cart.js"></script>
     <script src="js/languages.js"></script>
+    <script src="js/products.js"></script>
     <script>
         // Shop-specific initialization
-        document.addEventListener('DOMContentLoaded', function() {
-            // Initialize shop functionality
-            const shopManager = new ShopManager();
+        document.addEventListener('DOMContentLoaded', async function() {
+            console.log('🛍️ Initializing shop page...');
             
-            // Wait for app to be initialized AND products to be loaded
-            function initializeShopProducts() {
-                if (window.app && window.app.products) {
-                    const productsCount = window.app.products.products?.length || 0;
-                    
-                    // Wait for products to be loaded (more than 0)
-                    if (productsCount === 0) {
-                        setTimeout(initializeShopProducts, 100);
-                        return;
-                    }
-                    
-                    const container = document.getElementById('shop-products-container');
-                    if (!container) return;
-                    
-                    // Override container
-                    window.app.products.container = container;
-                    window.app.products.displayedProducts = 12; // Show more products on shop page
-                    window.app.products.renderProducts();
-                    
-                    // Update product count
-                    const totalProducts = document.getElementById('total-products');
-                    if (totalProducts) {
-                        totalProducts.textContent = productsCount;
-                    }
-                } else {
-                    // Wait for app to be ready
-                    setTimeout(initializeShopProducts, 50);
+            try {
+                // Initialize shop functionality
+                const shopManager = new ShopManager();
+                
+                // Wait for products to load
+                await window.productsManager.waitForLoad();
+                
+                // Get all products
+                const allProducts = await window.productsManager.getAllProducts();
+                
+                console.log(`🛍️ Loaded ${allProducts.length} products for shop`);
+                
+                // Display products
+                const container = document.getElementById('product-grid');
+                if (container && allProducts.length > 0) {
+                    container.innerHTML = allProducts.slice(0, 12).map(product => createProductCard(product)).join('');
                 }
+                
+                // Update product count
+                const totalProducts = document.getElementById('total-products');
+                if (totalProducts) {
+                    totalProducts.textContent = allProducts.length;
+                }
+                
+            } catch (error) {
+                console.error('❌ Error loading shop products:', error);
             }
-            
-            // Start trying to initialize shop products
-            initializeShopProducts();
         });
         
         class ShopManager {
@@ -409,15 +404,36 @@
                 });
             }
             
-            filterByCategory(category) {
-                if (app && app.products) {
-                    app.products.filterProducts(category === 'all' ? 'tous' : category);
+            async filterByCategory(category) {
+                console.log('Filter by category:', category);
+                try {
+                    const products = category === 'all' 
+                        ? await window.productsManager.getAllProducts()
+                        : await window.productsManager.getProductsByCategory(category);
+                    
+                    const container = document.getElementById('product-grid');
+                    if (container) {
+                        container.innerHTML = products.slice(0, 12).map(product => createProductCard(product)).join('');
+                    }
+                } catch (error) {
+                    console.error('Error filtering by category:', error);
                 }
             }
             
-            filterByBrand(brand) {
-                if (app && app.products) {
-                    app.products.filterProducts(brand === 'all' ? 'tous' : brand);
+            async filterByBrand(brand) {
+                console.log('Filter by brand:', brand);
+                try {
+                    const allProducts = await window.productsManager.getAllProducts();
+                    const products = brand === 'all' 
+                        ? allProducts
+                        : allProducts.filter(p => p.brand?.toLowerCase() === brand.toLowerCase());
+                    
+                    const container = document.getElementById('product-grid');
+                    if (container) {
+                        container.innerHTML = products.slice(0, 12).map(product => createProductCard(product)).join('');
+                    }
+                } catch (error) {
+                    console.error('Error filtering by brand:', error);
                 }
             }
             
@@ -431,6 +447,32 @@
                 console.log('Sort by:', sortBy);
             }
         }
+        
+        // Initialize shop page products  
+        document.addEventListener('DOMContentLoaded', async function() {
+            console.log('🛍️ Initializing shop page...');
+            
+            try {
+                // Wait for products to load
+                await window.productsManager.waitForLoad();
+                
+                // Get all products
+                const allProducts = await window.productsManager.getAllProducts();
+                
+                console.log(`🛍️ Loaded ${allProducts.length} products for shop`);
+                
+                // Display products
+                const container = document.getElementById('product-grid');
+                if (container && allProducts.length > 0) {
+                    container.innerHTML = allProducts.map(product => createProductCard(product)).join('');
+                }
+                
+            } catch (error) {
+                console.error('❌ Error loading shop page products:', error);
+            }
+        });
+        
+        // Note: createProductCard and generateStars are now defined globally in modern.js
     </script>
 
     <style>

@@ -7,9 +7,22 @@ class SmartphoneManager {
 
     async loadSmartphones() {
         try {
-            const response = await fetch('../data/products.json');
-            const data = await response.json();
-            this.smartphones = data.smartphones || [];
+            console.log('📱 SmartphoneManager: Loading smartphones...');
+            
+            // Utiliser le ProductsManager global si disponible
+            if (window.productsManager) {
+                await window.productsManager.loadPromise;
+                this.smartphones = await window.productsManager.getProductsByCategory('smartphones') || [];
+                console.log(`✅ SmartphoneManager: Loaded ${this.smartphones.length} smartphones from ProductsManager`);
+            } else {
+                // Fallback: charge directement si ProductsManager n'est pas disponible
+                console.log('⚠️ ProductsManager not available, using fallback');
+                const response = await fetch('../data/products.json');
+                const data = await response.json();
+                this.smartphones = data.smartphones || [];
+                console.log(`📦 SmartphoneManager: Loaded ${this.smartphones.length} smartphones from fallback`);
+            }
+            
             this.displaySmartphones();
             this.updateProductCount();
         } catch (error) {

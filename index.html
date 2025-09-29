@@ -169,7 +169,7 @@
                 </div>
             </div>
             
-            <div class="products-grid" id="products-container">
+            <div class="products-grid" id="product-grid">
                 <!-- Products will be loaded here by JavaScript -->
                 <div class="product-skeleton">
                     <div class="skeleton-image"></div>
@@ -318,6 +318,39 @@
     <script src="js/cart.js"></script>
     <script src="js/languages.js"></script>
     <script src="js/wishlist.js"></script>
+    <script src="js/products.js"></script>
+    
+    <!-- Initialize home page products -->
+    <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            console.log('🏠 Initializing home page products...');
+            
+            try {
+                // Wait for products to load
+                await window.productsManager.waitForLoad();
+                
+                // Get featured products from all categories
+                const allProducts = await window.productsManager.getAllProducts();
+                const featuredProducts = allProducts.filter(product => product.isFeatured).slice(0, 8);
+                
+                // If no featured products, take the first 8
+                const displayProducts = featuredProducts.length > 0 ? featuredProducts : allProducts.slice(0, 8);
+                
+                console.log(`🏠 Displaying ${displayProducts.length} featured products`);
+                
+                // Display products
+                const container = document.getElementById('product-grid');
+                if (container && displayProducts.length > 0) {
+                    container.innerHTML = displayProducts.map(product => createProductCard(product)).join('');
+                }
+                
+            } catch (error) {
+                console.error('❌ Error loading home page products:', error);
+            }
+        });
+        
+        // Note: createProductCard and generateStars are now defined globally in modern.js
+    </script>
 </body>
 
 </html>

@@ -12,7 +12,7 @@ class CatalogLoader {
         this.productsPerPage = 20;
         this.category = '';
         this.isLoading = false;
-        this.maxRetries = 1000; // Very high limit for part files (virtually unlimited)
+        this.loadOnlyKnownFiles = true; // Only load files that actually exist
     }
 
     /**
@@ -75,47 +75,44 @@ class CatalogLoader {
     }
 
     /**
-     * Auto-detect and load all part files for the category
+     * Load only known part files to avoid 404 errors
      */
     async loadPartFiles() {
         const categoryKey = this.getCategoryKey();
-        let partNumber = 1;
-        let consecutiveFailures = 0;
-        const maxConsecutiveFailures = 5; // Stop after 5 consecutive missing files
-
-        while (partNumber <= this.maxRetries && consecutiveFailures < maxConsecutiveFailures) {
+        const knownPartFiles = {
+            'smartphones': ['smartphones-part1.json'],
+            'watches': ['watches-part1.json'], 
+            'accessories': ['accessories-part1.json']
+        };
+        
+        const partFiles = knownPartFiles[categoryKey] || [];
+        
+        for (const filename of partFiles) {
             try {
-                const filename = `/data/${categoryKey}-part${partNumber}.json`;
-                console.log(`🔍 Attempting to load: ${filename}`);
+                const fullPath = `/data/${filename}`;
+                console.log(`🔍 Loading known part file: ${fullPath}`);
                 
-                const response = await fetch(`${filename}?v=${Date.now()}`, { cache: 'no-store' });
+                const response = await fetch(`${fullPath}?v=${Date.now()}`, { cache: 'no-store' });
                 
                 if (response.ok) {
                     const partData = await response.json();
                     
                     if (Array.isArray(partData) && partData.length > 0) {
                         this.allProducts.push(...partData);
-                        console.log(`✅ Loaded part ${partNumber}: ${partData.length} products`);
-                        consecutiveFailures = 0; // Reset failure counter
+                        console.log(`✅ Loaded ${filename}: ${partData.length} products`);
                     } else {
-                        console.log(`⚠️ Part ${partNumber} is empty or invalid format`);
-                        consecutiveFailures++;
+                        console.log(`⚠️ ${filename} is empty or invalid format`);
                     }
                 } else {
-                    console.log(`📭 Part ${partNumber} not found (${response.status})`);
-                    consecutiveFailures++;
+                    console.log(`📭 ${filename} not found (${response.status})`);
                 }
                 
-                partNumber++;
-                
             } catch (error) {
-                console.log(`❌ Error loading part ${partNumber}:`, error.message);
-                consecutiveFailures++;
-                partNumber++;
+                console.log(`❌ Error loading ${filename}:`, error.message);
             }
         }
 
-        console.log(`🔍 Finished scanning. Found ${this.allProducts.length} total products.`);
+        console.log(`🔍 Finished loading. Found ${this.allProducts.length} total products.`);
     }
 
     /**

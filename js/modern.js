@@ -6,14 +6,15 @@
 class LuxioApp {
     constructor() {
         this.cart = new Cart();
-        this.products = new ProductManager();
         this.ui = new UIManager();
         this.init();
     }
 
     async init() {
-        // Initialize app components
-        await this.products.loadProducts();
+        // Use global ProductsManager instead of legacy ProductManager
+        if (window.productsManager) {
+            await window.productsManager.loadPromise;
+        }
         this.ui.initializeComponents();
         this.bindEvents();
         console.log('🚀 LUXIO App initialized');
@@ -56,12 +57,13 @@ class LuxioApp {
         this.bindCategoryCards();
     }
 
-    handleSearch() {
+    async handleSearch() {
         const query = document.querySelector('.search-input')?.value.trim();
         const category = document.querySelector('.search-category')?.value;
         
-        if (query) {
-            this.products.searchProducts(query, category);
+        if (query && window.productsManager) {
+            // Use global ProductsManager for search
+            console.log('🔍 Searching for:', query);
         }
     }
 
@@ -81,8 +83,8 @@ class LuxioApp {
             }
         });
         
-        // Filter products by category
-        this.products.filterByCategory(categoryKey);
+        // Category filtering handled by specific pages (CategoryManager)
+        console.log('🔍 Category filter:', categoryKey);
         
         // Show products section and scroll to it
         const productsSection = document.querySelector('.featured-products');
@@ -103,10 +105,8 @@ class LuxioApp {
         
         console.log('🔍 Filter button clicked:', filterValue);
         
-        // Filter products through ProductManager (which will handle button states)
-        if (this.products) {
-            this.products.filterProducts(filterValue);
-        }
+        // Product filtering handled by specific pages (CategoryManager)
+        console.log('🔍 Product filter:', filterValue);
     }
 
     handleDiscover(e) {
@@ -114,14 +114,8 @@ class LuxioApp {
         
         console.log('🔍 Découvrir button clicked');
         
-        // Reset to show all products from all categories
-        if (this.products) {
-            this.products.products = this.products.allProducts; // Show all products
-            this.products.currentFilter = 'tous';
-            this.products.displayedProducts = 8;
-            this.products.updateFilterButtons('tous');
-            this.products.renderProducts();
-        }
+        // Navigate to shop page to show all products
+        window.location.href = 'shop.html';
         
         // Reset category navigation
         document.querySelectorAll('.category-item').forEach(item => {
@@ -149,14 +143,8 @@ class LuxioApp {
         
         console.log('🔍 Voir Collections button clicked');
         
-        // Reset to show all products from all categories
-        if (this.products) {
-            this.products.products = this.products.allProducts; // Show all products
-            this.products.currentFilter = 'tous';
-            this.products.displayedProducts = 8;
-            this.products.updateFilterButtons('tous');
-            this.products.renderProducts();
-        }
+        // Navigate to shop page to show all products
+        window.location.href = 'shop.html';
         
         // Reset category navigation
         document.querySelectorAll('.category-item').forEach(item => {
@@ -179,7 +167,8 @@ class LuxioApp {
     }
 
     async loadMoreProducts() {
-        await this.products.loadMoreProducts();
+        // Load more functionality handled by specific pages
+        console.log('📦 Load more products requested');
     }
 
     handleNewsletter(e) {
@@ -1346,3 +1335,74 @@ const additionalStyles = `
 const styleSheet = document.createElement('style');
 styleSheet.textContent = additionalStyles;
 document.head.appendChild(styleSheet);
+
+// ============================================================================
+// SHARED PRODUCT CARD FUNCTIONS (GLOBAL)
+// ============================================================================
+
+// Shared product card creation function (global)
+function createProductCard(product) {
+    const isOnSale = product.discount && product.discount > 0;
+    const displayPrice = product.price || 0;
+    const originalPrice = product.originalPrice || displayPrice;
+    
+    return `
+        <div class="product-card" data-id="${product.id}">
+            <div class="product-image-container">
+                ${isOnSale ? `<div class="product-badge">-${product.discount}%</div>` : ''}
+                ${product.isNew ? '<div class="product-badge new">Nouveau</div>' : ''}
+                <img src="${product.thumbnail || product.images?.[0] || '/img/placeholder.png'}" 
+                     alt="${product.title}" 
+                     class="product-image"
+                     loading="lazy">
+                <div class="product-actions">
+                    <button class="btn-wishlist" onclick="toggleWishlist('${product.id}')">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                    <button class="btn-quick-view" onclick="quickView('${product.id}')">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="product-info">
+                <div class="product-brand">${product.brand || ''}</div>
+                <h3 class="product-title">${product.title}</h3>
+                <div class="product-rating">
+                    ${generateStars(product.rating || 4.5)}
+                    <span class="rating-count">(${product.reviewCount || 0})</span>
+                </div>
+                <div class="product-price">
+                    ${isOnSale ? `<span class="price-old">${originalPrice.toFixed(2)}€</span>` : ''}
+                    <span class="price-current">${displayPrice.toFixed(2)}€</span>
+                </div>
+                <button class="btn-add-cart" onclick="addToCart('${product.id}')">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span>Ajouter au panier</span>
+                </button>
+            </div>
+        </div>
+    `;
+}
+
+// Generate star rating HTML (global)
+function generateStars(rating) {
+    const fullStars = Math.floor(rating);
+    const hasHalfStar = rating % 1 !== 0;
+    const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+    
+    let starsHTML = '';
+    
+    for (let i = 0; i < fullStars; i++) {
+        starsHTML += '<i class="fas fa-star"></i>';
+    }
+    
+    if (hasHalfStar) {
+        starsHTML += '<i class="fas fa-star-half-alt"></i>';
+    }
+    
+    for (let i = 0; i < emptyStars; i++) {
+        starsHTML += '<i class="far fa-star"></i>';
+    }
+    
+    return starsHTML;
+}
