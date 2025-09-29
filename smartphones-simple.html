@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUXIO - Smartphones Premium</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #000;
+            color: #fff;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        .header {
+            background: #111;
+            padding: 1rem 0;
+            border-bottom: 2px solid #ffcc00;
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ffcc00;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover, .nav-links a.active {
+            color: #ffcc00;
+        }
+        
+        /* Main Content */
+        .main {
+            padding: 2rem 0;
+        }
+        
+        .page-title {
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #ffcc00;
+            font-size: 2.5rem;
+        }
+        
+        .page-description {
+            text-align: center;
+            color: #ccc;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 2rem 0;
+            padding: 2rem;
+            background: #111;
+            border-radius: 10px;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ffcc00;
+            display: block;
+        }
+        
+        .stat-label {
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .product-card {
+            background: #111;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            border: 1px solid #333;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            border-color: #ffcc00;
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .product-info {
+            padding: 1.5rem;
+        }
+        
+        .product-brand {
+            color: #888;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+        
+        .product-title {
+            font-size: 1.2rem;
+            margin: 0.5rem 0;
+            color: #fff;
+        }
+        
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ffcc00;
+            margin: 1rem 0;
+        }
+        
+        .btn {
+            background: #ffcc00;
+            color: #000;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+            width: 100%;
+        }
+        
+        .btn:hover {
+            background: #ffd700;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            font-size: 1.2rem;
+            color: #ffcc00;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index-simple.html" class="logo">LUXIO</a>
+                <div class="nav-links">
+                    <a href="index-simple.html">Accueil</a>
+                    <a href="shop-simple.html">Boutique</a>
+                    <a href="smartphones-simple.html" class="active">Smartphones</a>
+                    <a href="montres-simple.html">Montres</a>
+                    <a href="cart.html">Panier</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <h1 class="page-title">Smartphones Premium</h1>
+            <p class="page-description">
+                Découvrez notre sélection exclusive des derniers smartphones haute technologie. 
+                iPhone, Samsung Galaxy, Google Pixel et plus encore.
+            </p>
+            
+            <!-- Stats -->
+            <div class="stats">
+                <div class="stat">
+                    <span class="stat-number" id="total-products">22</span>
+                    <span class="stat-label">PRODUITS</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">5+</span>
+                    <span class="stat-label">MARQUES</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">24h</span>
+                    <span class="stat-label">LIVRAISON</span>
+                </div>
+            </div>
+
+            <!-- Loading -->
+            <div id="loading" class="loading">
+                🔄 Chargement des smartphones...
+            </div>
+
+            <!-- Products Grid -->
+            <div id="products-grid" class="products-grid">
+                <!-- Smartphones will be loaded here -->
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Simple and reliable smartphone loading
+        document.addEventListener('DOMContentLoaded', async function() {
+            console.log('📱 Initializing smartphones page...');
+            
+            const loading = document.getElementById('loading');
+            const grid = document.getElementById('products-grid');
+            const totalProducts = document.getElementById('total-products');
+            
+            try {
+                // Fetch products directly
+                const response = await fetch('/data/products.json');
+                const data = await response.json();
+                
+                // Get smartphones from the data
+                const smartphones = data.smartphones || [];
+                
+                console.log(`✅ Loaded ${smartphones.length} smartphones`);
+                
+                // Hide loading
+                loading.style.display = 'none';
+                
+                // Update count
+                totalProducts.textContent = smartphones.length;
+                
+                // Create product cards
+                const productsHTML = smartphones.map(product => `
+                    <div class="product-card">
+                        <img src="${product.thumbnail || product.images?.[0] || '/img/placeholder.png'}" 
+                             alt="${product.title}" 
+                             class="product-image"
+                             onerror="this.src='/img/placeholder.png'">
+                        <div class="product-info">
+                            <div class="product-brand">${product.brand || 'APPLE'}</div>
+                            <h3 class="product-title">${product.title}</h3>
+                            <div class="product-price">${(product.price || 999).toFixed(2)}€</div>
+                            <button class="btn" onclick="addToCart('${product.id}')">
+                                Ajouter au Panier
+                            </button>
+                        </div>
+                    </div>
+                `).join('');
+                
+                // Display products
+                grid.innerHTML = productsHTML;
+                
+                console.log('✅ Smartphones displayed successfully');
+                
+            } catch (error) {
+                console.error('❌ Error loading smartphones:', error);
+                loading.innerHTML = '❌ Erreur de chargement des smartphones';
+            }
+        });
+        
+        function addToCart(productId) {
+            alert(`Smartphone ${productId} ajouté au panier ! (Fonction à implémenter)`);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUXIO - Innovation Premium</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #000;
+            color: #fff;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        .header {
+            background: #111;
+            padding: 1rem 0;
+            border-bottom: 2px solid #ffcc00;
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ffcc00;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #ffcc00;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #000 0%, #111 100%);
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .hero-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ffcc00, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: #ccc;
+            margin-bottom: 2rem;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 3rem;
+        }
+        
+        .btn-primary {
+            background: #ffcc00;
+            color: #000;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 30px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background: #ffd700;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: #ffcc00;
+            padding: 1rem 2rem;
+            border: 2px solid #ffcc00;
+            border-radius: 30px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .btn-secondary:hover {
+            background: #ffcc00;
+            color: #000;
+        }
+        
+        /* Stats */
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 3rem 0;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #ffcc00;
+            display: block;
+        }
+        
+        .stat-label {
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+        
+        /* Featured Products */
+        .featured {
+            padding: 3rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #ffcc00;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .product-card {
+            background: #111;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            border: 1px solid #333;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            border-color: #ffcc00;
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .product-info {
+            padding: 1.5rem;
+        }
+        
+        .product-brand {
+            color: #888;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+        
+        .product-title {
+            font-size: 1.1rem;
+            margin: 0.5rem 0;
+            color: #fff;
+        }
+        
+        .product-price {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #ffcc00;
+            margin: 1rem 0;
+        }
+        
+        .btn {
+            background: #ffcc00;
+            color: #000;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+            width: 100%;
+        }
+        
+        .btn:hover {
+            background: #ffd700;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            font-size: 1.2rem;
+            color: #ffcc00;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index-simple.html" class="logo">LUXIO</a>
+                <div class="nav-links">
+                    <a href="index-simple.html">Accueil</a>
+                    <a href="shop-simple.html">Boutique</a>
+                    <a href="smartphones-simple.html">Smartphones</a>
+                    <a href="montres-simple.html">Montres</a>
+                    <a href="cart.html">Panier</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="hero-title">COLLECTION PREMIUM 2025</h1>
+            <p class="hero-subtitle">Technologie de pointe, design raffiné, expérience exceptionnelle</p>
+            <div class="hero-buttons">
+                <a href="shop-simple.html" class="btn-primary">Découvrir</a>
+                <a href="shop-simple.html" class="btn-secondary">Voir Collections</a>
+            </div>
+            
+            <!-- Stats -->
+            <div class="stats">
+                <div class="stat">
+                    <span class="stat-number">50K+</span>
+                    <span class="stat-label">CLIENTS SATISFAITS</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">98%</span>
+                    <span class="stat-label">AVIS POSITIFS</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">24h</span>
+                    <span class="stat-label">LIVRAISON EXPRESS</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured">
+        <div class="container">
+            <h2 class="section-title">Produits en Vedette</h2>
+            
+            <!-- Loading -->
+            <div id="loading" class="loading">
+                🔄 Chargement des produits vedettes...
+            </div>
+
+            <!-- Products Grid -->
+            <div id="products-grid" class="products-grid">
+                <!-- Products will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Simple and reliable product loading
+        document.addEventListener('DOMContentLoaded', async function() {
+            console.log('🏠 Initializing homepage...');
+            
+            const loading = document.getElementById('loading');
+            const grid = document.getElementById('products-grid');
+            
+            try {
+                // Fetch products directly
+                const response = await fetch('/data/products.json');
+                const data = await response.json();
+                
+                // Get featured products (mix from different categories)
+                let featuredProducts = [];
+                Object.values(data).forEach(categoryProducts => {
+                    if (Array.isArray(categoryProducts)) {
+                        featuredProducts = featuredProducts.concat(categoryProducts.slice(0, 2)); // 2 from each category
+                    }
+                });
+                
+                console.log(`✅ Loaded ${featuredProducts.length} featured products`);
+                
+                // Hide loading
+                loading.style.display = 'none';
+                
+                // Create product cards
+                const productsHTML = featuredProducts.slice(0, 8).map(product => `
+                    <div class="product-card">
+                        <img src="${product.thumbnail || product.images?.[0] || '/img/placeholder.png'}" 
+                             alt="${product.title}" 
+                             class="product-image"
+                             onerror="this.src='/img/placeholder.png'">
+                        <div class="product-info">
+                            <div class="product-brand">${product.brand || 'LUXIO'}</div>
+                            <h3 class="product-title">${product.title}</h3>
+                            <div class="product-price">${(product.price || 999).toFixed(2)}€</div>
+                            <button class="btn" onclick="addToCart('${product.id}')">
+                                Ajouter au Panier
+                            </button>
+                        </div>
+                    </div>
+                `).join('');
+                
+                // Display products
+                grid.innerHTML = productsHTML;
+                
+                console.log('✅ Featured products displayed successfully');
+                
+            } catch (error) {
+                console.error('❌ Error loading featured products:', error);
+                loading.innerHTML = '❌ Erreur de chargement des produits';
+            }
+        });
+        
+        function addToCart(productId) {
+            alert(`Produit ${productId} ajouté au panier ! (Fonction à implémenter)`);
+        }
+    </script>
+</body>
+</html>
