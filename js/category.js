@@ -231,6 +231,7 @@ class CategoryManager {
         const container = document.getElementById('products-grid');
         const loading = document.getElementById('loading');
         
+        
         if (!container) return;
 
         // Masquer le loading
@@ -240,6 +241,7 @@ class CategoryManager {
         const startIndex = (this.currentPage - 1) * this.productsPerPage;
         const endIndex = startIndex + this.productsPerPage;
         const productsToShow = this.filteredProducts.slice(0, endIndex);
+        
 
         if (productsToShow.length === 0) {
             container.innerHTML = `
@@ -257,13 +259,16 @@ class CategoryManager {
             return;
         }
 
-        container.innerHTML = productsToShow.map(product => {
+        const html = productsToShow.map(product => {
             if (this.currentView === 'list') {
                 return this.renderProductListItem(product);
             } else {
                 return this.renderProductGridItem(product);
             }
         }).join('');
+        
+        container.innerHTML = html;
+        
 
         // Mettre à jour le bouton "Charger plus"
         this.updateLoadMoreButton();
@@ -274,7 +279,7 @@ class CategoryManager {
         return `
             <div class="product-card" data-product-id="${product.id}">
                 <div class="product-image">
-                    <img src="${product.thumbnail || product.images[0]}" alt="${product.title}" loading="lazy">
+                    <img src="${product.thumbnail || product.images?.[0] || '/img/placeholder.png'}" alt="${product.title}" loading="lazy">
                     <div class="product-badges">
                         ${product.isNew ? '<span class="badge new">Nouveau</span>' : ''}
                         ${product.discount ? `<span class="badge discount">-${product.discount}%</span>` : ''}
@@ -284,7 +289,7 @@ class CategoryManager {
                             data-product-title="${product.title}" 
                             data-product-brand="${product.brand}"
                             data-product-price="${product.price}"
-                            data-product-image="${product.thumbnail || product.images[0]}"
+                            data-product-image="${product.thumbnail || product.images?.[0]}"
                             data-product-slug="${product.slug}">
                         <i class="far fa-heart"></i>
                     </button>
@@ -450,12 +455,14 @@ class CategoryManager {
         const viewButtons = document.querySelectorAll('.view-btn');
         const productsGrid = document.getElementById('products-grid');
         
+        
         viewButtons.forEach(btn => {
             btn.classList.toggle('active', btn.dataset.view === this.currentView);
         });
         
         if (productsGrid) {
-            productsGrid.className = `products-grid ${this.currentView}-view`;
+            const newClassName = `products-grid ${this.currentView}-view`;
+            productsGrid.className = newClassName;
         }
     }
 
