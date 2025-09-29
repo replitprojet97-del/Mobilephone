@@ -1,0 +1,70 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/payment.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "api/webhook.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
+    },
+    {
+      "src": "/index.html",
+      "status": 301,
+      "headers": { "Location": "/index-simple.html" }
+    },
+    {
+      "src": "/shop.html", 
+      "status": 301,
+      "headers": { "Location": "/shop-simple.html" }
+    },
+    {
+      "src": "/smartphones.html",
+      "status": 301, 
+      "headers": { "Location": "/smartphones-simple.html" }
+    },
+    {
+      "src": "/montres.html",
+      "status": 301,
+      "headers": { "Location": "/montres-simple.html" }
+    },
+    {
+      "src": "/",
+      "dest": "/index-simple.html"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, POST, PUT, DELETE, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Content-Type, Authorization"
+        }
+      ]
+    }
+  ],
+  "env": {
+    "MAXELPAY_KEY": "@maxelpay-key",
+    "MAXELPAY_SECRET": "@maxelpay-secret"
+  }
+}

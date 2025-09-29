@@ -46,8 +46,8 @@ export default async function handler(req, res) {
       customer: {
         email: customerEmail
       },
-      success_url: `${req.headers.origin || 'https://luxio.vercel.app'}/success`,
-      cancel_url: `${req.headers.origin || 'https://luxio.vercel.app'}/cancel`,
+      success_url: `${req.headers.origin || 'https://luxio.vercel.app'}/success.html`,
+      cancel_url: `${req.headers.origin || 'https://luxio.vercel.app'}/cancel.html`,
       webhook_url: `${req.headers.origin || 'https://luxio.vercel.app'}/api/webhook`
     };
 

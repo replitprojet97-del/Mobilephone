@@ -1,6 +1,8 @@
 // Vercel Serverless Function for Maxelpay Webhooks
 // Handles payment confirmation from Maxelpay
 
+import crypto from 'node:crypto';
+
 export default async function handler(req, res) {
   // Only allow POST requests for webhooks
   if (req.method !== 'POST') {
@@ -8,16 +10,44 @@ export default async function handler(req, res) {
   }
 
   try {
-    // Verify webhook signature (recommended for production)
+    // Verify webhook signature (REQUIRED for production security)
     const MAXELPAY_SECRET = process.env.MAXELPAY_SECRET;
     const signature = req.headers['x-maxelpay-signature'];
     
-    if (!signature) {
-      return res.status(400).json({ error: 'Missing webhook signature' });
+    if (!signature || !MAXELPAY_SECRET) {
+      return res.status(400).json({ error: 'Missing webhook signature or secret' });
     }
 
-    // Get webhook payload
-    const { event, data } = req.body;
+    // Read raw request body (critical for correct HMAC verification)
+    let rawBody = '';
+    for await (const chunk of req) {
+      rawBody += chunk;
+    }
+    
+    // Verify HMAC signature against exact raw bytes
+    const expectedSignature = crypto
+      .createHmac('sha256', MAXELPAY_SECRET)
+      .update(rawBody, 'utf8')
+      .digest('hex');
+    
+    const providedSignature = signature.replace('sha256=', '');
+    
+    // Safe timing comparison with length check
+    try {
+      if (expectedSignature.length !== providedSignature.length ||
+          !crypto.timingSafeEqual(
+            Buffer.from(expectedSignature, 'hex'),
+            Buffer.from(providedSignature, 'hex')
+          )) {
+        return res.status(401).json({ error: 'Invalid webhook signature' });
+      }
+    } catch (error) {
+      return res.status(401).json({ error: 'Invalid webhook signature format' });
+    }
+
+    // Parse JSON only AFTER successful signature verification
+    const webhookData = JSON.parse(rawBody);
+    const { event, data } = webhookData;
 
     // Process different webhook events
     switch (event) {

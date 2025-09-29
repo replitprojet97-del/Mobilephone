@@ -1,8 +1,8 @@
 {
-  "name": "luxio-maxelpay-backend",
-  "version": "1.0.0",
-  "description": "Backend serverless pour intégration Maxelpay sur Vercel",
-  "main": "api/create-payment.js",
+  "name": "luxio-ecommerce-platform",
+  "version": "2.0.0",
+  "description": "LUXIO - Premium Electronics E-commerce Platform (Reorganized)",
+  "main": "index-simple.html",
   "type": "module",
   "scripts": {
     "dev": "vercel dev",
